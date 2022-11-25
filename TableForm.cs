@@ -29,7 +29,7 @@ namespace RestaurantReservation
 
         private void rs_FormClosed(object? sender, FormClosedEventArgs e)
         {
-            this.Visible = true;
+            
         }
 
          
@@ -39,11 +39,11 @@ namespace RestaurantReservation
             
             currTablenum = 1;
             ReservationWindow rs = new ReservationWindow();
-            rs.Show();
+            rs.ShowDialog();
             this.setTableNum += new setvalueTableNum(rs.setTableNum);
             this.setTableNum(currTablenum);
             rs.setTableNum(currTablenum);
-            this.Dispose();
+            
             
            
         }
@@ -61,7 +61,7 @@ namespace RestaurantReservation
             this.setTableNum += new setvalueTableNum(rs.setTableNum);
             this.setTableNum(currTablenum);
             rs.setTableNum(currTablenum);
-            this.Dispose();
+            
 
 
 

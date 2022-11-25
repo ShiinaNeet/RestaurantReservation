@@ -25,8 +25,9 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tablef.Show();
-            this.Hide();
+            tablef.ShowDialog();
+            
+        
         }
 
         private void button2_Click(object sender, EventArgs e)
