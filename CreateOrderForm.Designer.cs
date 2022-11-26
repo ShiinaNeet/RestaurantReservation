@@ -104,6 +104,7 @@
             this.listView1.Size = new System.Drawing.Size(293, 411);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // button1
             // 
@@ -113,6 +114,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Remove Selected Item";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 

@@ -18,6 +18,7 @@ namespace RestaurantReservation
         Image imgBurger = Resources.burger;
         Image imgFries = Resources.fried_potatoes;
         Image imgCoffee = Resources.coffee_cup;
+        int curMode = 0;
         public CreateOrderForm()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace RestaurantReservation
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            curMode = 0;
             pictureBox1.Image = imgBurger;
             pictureBox2.Image = imgFries;
         }
@@ -43,10 +44,13 @@ namespace RestaurantReservation
             listView1.FullRowSelect = true;
             listView1.Columns.Add("Order List",130);
             listView1.Columns.Add("Quantity", 70);
+            listView1.Columns.Add("Price", 50);
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            curMode = 1;
             Image image1 = Resources.coke;
             pictureBox1.Image = image1;
             pictureBox2.Image = imgCoffee;
@@ -65,30 +69,74 @@ namespace RestaurantReservation
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            string[] selectedrow = new string[3];
             Image curpic1 = pictureBox1.Image;
-           
-            if (curpic1 == imgBurger)
+            
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV=false;
+            foreach (ListViewItem itemv in listView1.Items) 
             {
-               
-                listView1.Items.Add("Burger");
-                Console.WriteLine("Added burger");
-               
-            }
-            else {
-                
-                listView1.Items.Add("Coke");
-                Console.WriteLine("Coke");
- 
+                if (curMode == 0)
+                {
+                    if (itemv.Text.Equals("Burger"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
 
+                        isInsideLV = true;
+                        break;
+                    }
+                }
+                if (curMode == 1) 
+                {
+                     if (itemv.Text.Equals("coke"))
+                     {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+                        break;
+                     }  
+                }
             }
             
+            if (curpic1 == imgBurger)
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Burger", 1, 29);
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("coke", 1, 19);
+                }
+                
+
+            }
+
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += new System.EventHandler(Timer1_tick);
-            timer.Start();
+         //   timer.Start();
             
-
-           
         }
 
         private void Timer1_tick(object sender, EventArgs e)
@@ -99,32 +147,99 @@ namespace RestaurantReservation
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Image curpic2 = pictureBox2.Image;
+            
+            string[] selectedrow = new string[3];
+            int i = 0;
+            int CoffeePrice = 29;
+            int FriesPRice = 20;
+            Boolean isInsideLV = false;
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                if (curMode == 0) 
+                {
+                    if (itemv.Text.Equals("French Fries"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + FriesPRice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
 
+                        isInsideLV = true;
+                        break;
+                    }
+                }
+                if (curMode == 1)
+                {
+                    if (itemv.Text.Equals("Coffee"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CoffeePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+                        break;
+                    }
+                }
+            }
 
             if (curpic2 == imgCoffee)
             {
-               
-                listView1.Items.Add("Coffee");
-                Console.WriteLine("coffee");
-
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Coffee", 1, 45);
+                }
             }
             else
             {
-                
-                listView1.Items.Add("French Fries");
-                Console.WriteLine("French Fries");
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("French Fries", 1, 20);
+                }
 
             }
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += new System.EventHandler(Timer1_tick);
-            timer.Start();
+            //timer.Start();
+
+        }
+        public void AddItems(string itemname,int quantity, int price) 
+        {
+            string[] row = { itemname, quantity.ToString(), price.ToString() };
+            ListViewItem itemss = new ListViewItem(row);
+
+            listView1.Items.Add(itemss);
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RemoveItem();
+        }
+        public void RemoveItem() 
+        {
+            listView1.Items.RemoveAt(listView1.SelectedIndices[0]);
         }
     }
 }
