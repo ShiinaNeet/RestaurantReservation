@@ -39,13 +39,12 @@ namespace RestaurantReservation
             
             currTablenum = 1;
             ReservationWindow rs = new ReservationWindow();
-            rs.ShowDialog();
+            
             this.setTableNum += new setvalueTableNum(rs.setTableNum);
             this.setTableNum(currTablenum);
             rs.setTableNum(currTablenum);
-            
-            
-           
+            rs.ShowDialog();
+
         }
 
         public int getTableNum() 

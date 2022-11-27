@@ -35,5 +35,10 @@ namespace RestaurantReservation
            ordersoptions.ShowDialog();
             
         }
+
+        private void MainMenuWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

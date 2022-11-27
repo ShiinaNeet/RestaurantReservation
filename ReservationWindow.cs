@@ -93,6 +93,7 @@ namespace RestaurantReservation
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
            dateTimePicker1.CustomFormat = "hh-mm tt";
+            
         }
 
         
@@ -107,10 +108,10 @@ namespace RestaurantReservation
                 {
                     using (SqlConnection cnn = ConnectionClasss.connnect())
                     {
-                        using (SqlCommand command = new SqlCommand("SELECT MAX(ClientID) from Reservations",cnn))
+                        using (SqlCommand command = new SqlCommand("SELECT MAX(ClientID) from Reservations", cnn))
                         {
                             cnn.Open();
-                            
+
                             clientid1 = Convert.ToInt64(command.ExecuteScalar());
 
                             cnn.Close();
@@ -127,14 +128,14 @@ namespace RestaurantReservation
                     }
                     ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
                     ResDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-                    resdatefull = ResDate +" "+ ResTime;
+                    resdatefull = ResDate + " " + ResTime;
                     ClientName = ClnNameTxtBox.Text;
-                    clientid = clientid1+1;
+                    clientid = clientid1 + 1;
                     reservationid = resrvationid1 + 1;
                     using (SqlConnection cnn = ConnectionClasss.connnect())
                     {
-                        
-                        using (SqlCommand command1 = new SqlCommand("INSERT INTO Reservations(ReservationID,ClientID,ResvDate,client,tablenum,diners) VALUES ('"+reservationid+"','"+clientid+"','" + resdatefull + "','" + ClientName + "','" + tablenumber+" ','" + DinersCount.SelectedItem + "')", cnn))
+
+                        using (SqlCommand command1 = new SqlCommand("INSERT INTO Reservations(ReservationID,ClientID,ResvDate,client,tablenum,diners) VALUES ('" + reservationid + "','" + clientid + "','" + resdatefull + "','" + ClientName + "','" + tablenumber + " ','" + DinersCount.SelectedItem + "')", cnn))
                         {
 
 
@@ -162,10 +163,29 @@ namespace RestaurantReservation
                         cnn2.Close();
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.ToString());
-                        }
                 }
+                finally 
+                {
+                    using (SqlConnection cnn2 = ConnectionClasss.connnect())
+                    {
+                        cnn2.Open();
+
+                        SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations", cnn2);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        DataTable dt = new DataTable();
+                        da.SelectCommand = cmd2;
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        dataGridView1.DataSource = dt;
+                        cnn2.Close();
+                    }
+
+                }
+            }
         }
 
         private void ReloadBtn_Click(object sender, EventArgs e)
@@ -193,24 +213,29 @@ namespace RestaurantReservation
             
         }
 
-       
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string date2;
-            
-            date2 = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                date2 = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            IList<string> datename = new List<string>(date2.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries));
-            dateTimePicker1.Value =Convert.ToDateTime(datename[1]);
-            monthCalendar1.SetDate(Convert.ToDateTime(datename[0]));
+                IList<string> datename = new List<string>(date2.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+                dateTimePicker1.Value = Convert.ToDateTime(datename[1]);
+                monthCalendar1.SetDate(Convert.ToDateTime(datename[0]));
 
-            ClnNameTxtBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            TableLabel.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            DinersCount.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
-            ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            resdatefull2 = ResDate2 + " " + ResTime;
-            clientname2 = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                ClnNameTxtBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                TableLabel.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                DinersCount.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
+                ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+                resdatefull2 = ResDate2 + " " + ResTime;
+                clientname2 = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            catch (Exception ex) {
+               // MessageBox.Show(ex.Message);
+            }
 
         }
         private void TableBtn_Click(object sender, EventArgs e)
@@ -249,6 +274,7 @@ namespace RestaurantReservation
         {
             int CurIndexRow = dataGridView1.CurrentCell.RowIndex;
             int currentrow = dataGridView1.SelectedCells[0].RowIndex;
+            string reservationid = dataGridView1.SelectedCells[0].Value.ToString();
 
             try
             {
@@ -256,9 +282,9 @@ namespace RestaurantReservation
                 using (SqlConnection cnn = ConnectionClasss.connnect())
                 {
                     //ResvDate,client,tablenum,diners
-                    using (SqlCommand command1 = new SqlCommand("DELETE Reservations where client = @client",  cnn))
+                    using (SqlCommand command1 = new SqlCommand("DELETE Reservations where ReservationID = @ReservationID",  cnn))
                     {
-                        command1.Parameters.Add("@client", SqlDbType.VarChar).Value = clientname2;
+                        command1.Parameters.Add("@ReservationID", SqlDbType.VarChar).Value = reservationid;
                         cnn.Open();
                         command1.ExecuteNonQuery();
 
@@ -270,7 +296,7 @@ namespace RestaurantReservation
                 {
                     cnn.Open();
 
-                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM Reservations", cnn);
+                    SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations", cnn);
                     SqlDataAdapter da = new SqlDataAdapter();
                     DataTable dt = new DataTable();
                     da.SelectCommand = cmd2;

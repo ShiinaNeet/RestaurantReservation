@@ -30,8 +30,8 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.button2 = new System.Windows.Forms.Button();
+            this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,13 +60,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // mySqlCommand1
-            // 
-            this.mySqlCommand1.CommandTimeout = 0;
-            this.mySqlCommand1.Connection = null;
-            this.mySqlCommand1.Transaction = null;
-            this.mySqlCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(287, 3);
@@ -77,6 +70,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CommandTimeout = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.Transaction = null;
+            this.mySqlCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
+            // 
             // MainMenuWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -86,6 +86,7 @@
             this.Name = "MainMenuWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuWindow";
+            this.Load += new System.EventHandler(this.MainMenuWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
