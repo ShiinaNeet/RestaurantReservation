@@ -65,7 +65,7 @@ namespace RestaurantReservation.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _checked {
             get {
-                object obj = ResourceManager.GetObject("checked", resourceCulture);
+                object obj = ResourceManager.GetObject("_checked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

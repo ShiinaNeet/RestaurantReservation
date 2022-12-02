@@ -14,6 +14,7 @@ namespace RestaurantReservation
     {
         ViewOrders vieworder = new ViewOrders();
         CreateOrderForm createOrderForm = new CreateOrderForm();
+        TableOrder TableOrder = new TableOrder();
         public OrdersOptions()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            createOrderForm.ShowDialog();
+            TableOrder.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
