@@ -51,7 +51,7 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm1.loadform(new TableForm());
+            MainForm1.loadform(new MainMenuWindow());
         }
 
         public static void MyrefeshMethod()

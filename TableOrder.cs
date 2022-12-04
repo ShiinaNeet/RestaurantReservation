@@ -41,10 +41,12 @@ namespace RestaurantReservation
             currTablenum = 1;
             
             
-            this.setTableNum += new setvalueTableNum(orderForm.setTableNum);
-           // this.setTableNum(currTablenum);
-            orderForm.setTableNum(currTablenum);
-            orderForm.ShowDialog();
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+          
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
+            MainForm1.MyrefeshMethod();
+
 
         }
 
@@ -59,10 +61,10 @@ namespace RestaurantReservation
             currTablenum = 2;
             
 
-            this.setTableNum += new setvalueTableNum(orderForm.setTableNum);
-            // this.setTableNum(currTablenum);
-            orderForm.setTableNum(currTablenum);
-            orderForm.ShowDialog();
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
+            MainForm1.MyrefeshMethod();
 
         }
 
@@ -73,6 +75,13 @@ namespace RestaurantReservation
             Table1Btn.BackgroundImageLayout =ImageLayout.Zoom;
             button2.BackgroundImage = Resources.table;
             button2.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm1.loadform(new MainMenuWindow());
+            MainForm1.MyrefeshMethod();
         }
     }
 }

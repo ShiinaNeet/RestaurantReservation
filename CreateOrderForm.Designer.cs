@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -344,5 +346,6 @@
         private Label label7;
         private Label lblDate;
         private FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

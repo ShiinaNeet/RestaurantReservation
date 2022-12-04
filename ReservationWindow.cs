@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace RestaurantReservation
         string ClientName;
         string ResTime;
         string resdatefull;
-        int tablenumber;
+        static int tablenumber;
         int dc;
         Int64 clientid;
         Int64 IDcounter;
@@ -50,11 +51,11 @@ namespace RestaurantReservation
             ResDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
             ClientName = ClnNameTxtBox.Text;
 
-            
 
-            
+
+
         }
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -68,21 +69,22 @@ namespace RestaurantReservation
                 da.SelectCommand = cmd2;
                 dt.Clear();
                 da.Fill(dt);
-                
+
                 dataGridView1.DataSource = dt;
                 cnn.Close();
             }
             TableForm tf = new TableForm();
             TableLabel.Text = tf.getTableNum().ToString();
             tablenumber = tf.getTableNum();
-           
-            
+
+
 
         }
-        public void setTableNum(int ix)
+        public static void setTableNum(int ix)
         {
-           TableLabel.Text = ix.ToString();
+            TableLabel.Text = ix.ToString();
             tablenumber = ix;
+            ReservationWindow.myfresh();
 
         }
 
@@ -93,11 +95,15 @@ namespace RestaurantReservation
             timer1.Start();
 
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-           dateTimePicker1.CustomFormat = "hh-mm tt";
+            dateTimePicker1.CustomFormat = "hh-mm tt";
+            myfresh();
             
         }
 
-        
+        public static void myfresh() 
+        {
+            TableLabel.Text = tablenumber.ToString();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

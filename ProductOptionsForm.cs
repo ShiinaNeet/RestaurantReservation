@@ -102,7 +102,7 @@ namespace RestaurantReservation
                     {
 
                         using (SqlCommand command1 = 
-                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Product name],[Product Details]) Values(@ProductID,@ProductName,@ProductDetails)", cnn))
+                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Productname],[ProductDetails]) Values(@ProductID,@ProductName,@ProductDetails)", cnn))
                         {
                             command1.Parameters.AddWithValue("@ProductID",ProductID+1);
                             command1.Parameters.AddWithValue("@ProductName",ProductName);

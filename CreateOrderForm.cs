@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace RestaurantReservation
         Image imgFries = Resources.fried_potatoes;
         Image imgCoffee = Resources.coffee_cup;
         int curMode = 0;
-        int tablenum;
+        static int tablenum;
         string[] images1 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
         string[] images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.png");
         PictureBox[] pictureBox = new PictureBox[50];
@@ -129,6 +130,14 @@ namespace RestaurantReservation
 
 
             }
+            timer1.Interval = (100); // 1 secs
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object? sender, EventArgs e)
+        {
+            TableNumLabel.Text = tablenum.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -351,6 +360,8 @@ namespace RestaurantReservation
         private void button8_Click(object sender, EventArgs e)
         {
             this.Close();
+            MainForm1.loadform(new MainMenuWindow());
+            MainForm1.MyrefeshMethod();
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -380,9 +391,10 @@ namespace RestaurantReservation
             int productid;
             int ordernum;
             string orderdate= DateTime.Today.ToString();
-            int orderqty;
-            int tablenum;
+            int orderqty=0;
+            
 
+            
 
             if (listView1.Items.Count == 0)
             {
@@ -392,6 +404,7 @@ namespace RestaurantReservation
             {
                 try
                 {
+
                     using (SqlConnection cnn = ConnectionClasss.connnect())
                     {
                         using (SqlCommand command = new SqlCommand("SELECT MAX(OrderID) from Orders", cnn))
@@ -402,14 +415,7 @@ namespace RestaurantReservation
 
                             cnn.Close();
                         }
-                        using (SqlCommand command = new SqlCommand("SELECT MAX(ProductID) from ProductsTbl", cnn))
-                        {
-                            cnn.Open();
-
-                            productid = Convert.ToInt32(command.ExecuteScalar());
-
-                            cnn.Close();
-                        }
+                        
                         using (SqlCommand command = new SqlCommand("SELECT MAX(Order_Number) from Orders", cnn))
                         {
                             cnn.Open();
@@ -421,22 +427,42 @@ namespace RestaurantReservation
 
 
                     }
-                   
-                    using (SqlConnection cnn = ConnectionClasss.connnect())
+                    foreach (ListViewItem items in listView1.Items)
                     {
-
-                        using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,ClientID,tablenum) " +
-                            "\r\nVALUES(1,1,GETDATE(),2,2,1,1)", cnn))
+                        string itemname = items.SubItems[0].Text;
+                        using (SqlConnection cnn = ConnectionClasss.connnect()) 
                         {
+                            using (SqlCommand command = new SqlCommand("SELECT ProductsID from ProductsTbl where ProductName = @Productnumber", cnn))
+                            {
+                                
+                                cnn.Open();
+                                command.Parameters.AddWithValue("Productnumber", itemname);
+                                productid = Convert.ToInt32(command.ExecuteScalar());
 
-
-
-                            cnn.Open();
-                            command1.ExecuteNonQuery();
-
-                            cnn.Close();
+                                cnn.Close();
+                            } 
                         }
 
+                        using (SqlConnection cnn = ConnectionClasss.connnect())
+                        {
+                            int order_number = ordernum + 1;
+                            using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,tablenum) " +
+                                "\r\nVALUES(@OrderIDsss,@ProductsID,@GETDATE,@Quantity,@Order_Number,@tablenum)", cnn))
+                            {
+                                command1.Parameters.AddWithValue("OrderIDsss", orderid + 1);
+                                command1.Parameters.AddWithValue("ProductsID", productid);
+                                command1.Parameters.AddWithValue("@GETDATE", DateTime.Today);
+                                command1.Parameters.AddWithValue("Quantity", Convert.ToInt32(items.SubItems[1].Text));
+                                command1.Parameters.AddWithValue("Order_Number", order_number.ToString());
+                                command1.Parameters.AddWithValue("tablenum", tablenum);
+
+                                cnn.Open();
+                                command1.ExecuteNonQuery();
+
+                                cnn.Close();
+                            }
+
+                        }
                     }
 
                    
@@ -460,17 +486,21 @@ namespace RestaurantReservation
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            foreach (ListViewItem item in listView1.Items) 
+            {
+                Console.WriteLine(item.SubItems[0].Text);
+                Console.WriteLine(item.SubItems[1].Text);
+                Console.WriteLine(item.SubItems[2].Text);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
 
         }
-        public void setTableNum(int ix)
+        public static void setTableNum(int ix)
         {
             
-            TableNumLabel.Text = ix.ToString();
             tablenum = ix;
 
         }

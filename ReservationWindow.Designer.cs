@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DinersCount = new System.Windows.Forms.ComboBox();
-            this.TableLabel = new System.Windows.Forms.Label();
+            TableLabel = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -191,11 +191,11 @@
             // 
             // TableLabel
             // 
-            this.TableLabel.AutoSize = true;
-            this.TableLabel.Location = new System.Drawing.Point(137, 360);
-            this.TableLabel.Name = "TableLabel";
-            this.TableLabel.Size = new System.Drawing.Size(0, 15);
-            this.TableLabel.TabIndex = 14;
+            TableLabel.AutoSize = true;
+           TableLabel.Location = new System.Drawing.Point(137, 360);
+            TableLabel.Name = "TableLabel";
+            TableLabel.Size = new System.Drawing.Size(0, 15);
+            TableLabel.TabIndex = 14;
             // 
             // btnUpdate
             // 
@@ -224,7 +224,7 @@
             this.ClientSize = new System.Drawing.Size(985, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.TableLabel);
+            this.Controls.Add(TableLabel);
             this.Controls.Add(this.DinersCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -269,7 +269,7 @@
         private Label label3;
         private Label label4;
         private ComboBox DinersCount;
-        private Label TableLabel;
+        private static Label TableLabel;
         private Button btnUpdate;
         private Button button1;
     }
