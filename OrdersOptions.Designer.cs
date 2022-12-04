@@ -74,6 +74,7 @@
             this.Name = "OrdersOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrdersOptions";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OrdersOptions_FormClosed);
             this.Load += new System.EventHandler(this.OrdersOptions_Load);
             this.ResumeLayout(false);
 

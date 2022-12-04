@@ -45,11 +45,10 @@ namespace RestaurantReservation
                 SqlDataReader dr = command.ExecuteReader();
                 if (dr.Read())
                 {
-                    MainMenuWindow mm = new MainMenuWindow();
-                    mm.Show();
+                    
+                    MainForm1 mf = new MainForm1();
+                    mf.Show();
                     this.Hide();
-
-
 
                 }
                 else
@@ -134,6 +133,12 @@ namespace RestaurantReservation
                 toolStripButton1.Visible = true;
                 toolStripButton1.Image = Resources.remove;
             } 
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm1 mf = new MainForm1();
+            mf.Show();
         }
     }
 }

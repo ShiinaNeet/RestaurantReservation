@@ -36,6 +36,7 @@ namespace RestaurantReservation
         string clientname2;
         Int64 clientid1;
         Int64 resrvationid1;
+        string clientname;
         ConnectionClasss cc = new ConnectionClasss();
         public ReservationWindow()
         {
@@ -226,15 +227,18 @@ namespace RestaurantReservation
                 monthCalendar1.SetDate(Convert.ToDateTime(datename[0]));
 
                 ClnNameTxtBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                
                 TableLabel.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 DinersCount.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
-                ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+                 ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+              //  ResDate2 = monthCalendar1.SelectionStart.ToString("yyyy-MM-dd");
+              //  ResDate2 = monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd");
                 resdatefull2 = ResDate2 + " " + ResTime;
                 clientname2 = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             }
             catch (Exception ex) {
-               // MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -252,8 +256,12 @@ namespace RestaurantReservation
             {
                 using (SqlConnection cnn = ConnectionClasss.connnect())
                 {
+                    string ResTime2 = dateTimePicker1.Value.ToString("HH:mm:ss");
+                    string ResDate3444 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+                    string resdateful43434 = ResDate3444 + " " + ResTime2;
+                    
                     //ResvDate,client,tablenum,diners,clientid
-                    using (SqlCommand command1 = new SqlCommand("UPDATE Reservations set Resvdate =' " + resdatefull2 + "',client ='" + ClnNameTxtBox.Text + "', tablenum = '" + TableLabel.Text + " ', Diners ='" + DinersCount.Text + "'where client = '"+ClnNameTxtBox.Text+"'", cnn))
+                    using (SqlCommand command1 = new SqlCommand("UPDATE Reservations set Resvdate =' " + resdateful43434 + "',client ='" + ClnNameTxtBox.Text + "', tablenum = '" + TableLabel.Text + " ', Diners ='" + DinersCount.Text + "'where client = '"+ClnNameTxtBox.Text+"'", cnn))
                     {
 
                         cnn.Open();
@@ -311,6 +319,18 @@ namespace RestaurantReservation
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            this.FormClosed += new FormClosedEventHandler(ReservationWindow_FormClosed);
+        }
+
+        private void ReservationWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm1.loadform(new MainMenuWindow());
+            MainForm1.MyrefeshMethod();
         }
     }
 }

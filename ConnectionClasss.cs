@@ -18,7 +18,8 @@ namespace RestaurantReservation
             string connectionString;
             SqlConnection cocnn;
             connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\Data\\RestaurantDB.mdf\";Integrated Security=True";
-            cocnn = new SqlConnection(connectionString);
+            string connetionString = "Data Source=SHIINANEET;Initial Catalog=RestaurantDB;Integrated Security=true";
+            cocnn = new SqlConnection(connetionString);
             return cocnn;
         }
 

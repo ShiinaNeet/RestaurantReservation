@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(118, 83);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -70,6 +72,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(3, 151);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(278, 127);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Products";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // mySqlCommand1
             // 
             this.mySqlCommand1.CommandTimeout = 0;
@@ -86,6 +98,8 @@
             this.Name = "MainMenuWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenuWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenuWindow_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenuWindow_FormClosed);
             this.Load += new System.EventHandler(this.MainMenuWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -98,5 +112,6 @@
         private Button button1;
         private Button button2;
         private MySqlConnector.MySqlCommand mySqlCommand1;
+        private Button button3;
     }
 }

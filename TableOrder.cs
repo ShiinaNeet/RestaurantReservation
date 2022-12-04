@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using RestaurantReservation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,15 @@ namespace RestaurantReservation
             orderForm.setTableNum(currTablenum);
             orderForm.ShowDialog();
 
+        }
+
+        private void TableOrder_Load(object sender, EventArgs e)
+        {
+            
+            Table1Btn.BackgroundImage = Resources.table;
+            Table1Btn.BackgroundImageLayout =ImageLayout.Zoom;
+            button2.BackgroundImage = Resources.table;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI.Relational;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,8 @@ namespace RestaurantReservation
         CreateOrderForm orders = new CreateOrderForm();
         ViewOrders vieworder = new ViewOrders();
         OrdersOptions ordersoptions = new OrdersOptions();
+        ProductOptionsForm productoptionform = new ProductOptionsForm();
+        int btnclick;
 
         public MainMenuWindow()
         {
@@ -25,20 +28,58 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tablef.ShowDialog();
-            
-        
+            btnclick = 1;
+            this.Close();
+            this.FormClosed += new FormClosedEventHandler(MainMenuWindow_FormClosed);
+           
         }
 
+      
         private void button2_Click(object sender, EventArgs e)
         {
-           ordersoptions.ShowDialog();
-            
+            btnclick = 2;
+            this.Close();
+            this.FormClosed += new FormClosedEventHandler(MainMenuWindow_FormClosed);
+            this.Show();
+            this.Hide();
         }
 
         private void MainMenuWindow_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            btnclick = 3;
+            this.Close();
+            this.FormClosed += new FormClosedEventHandler(MainMenuWindow_FormClosed);
+        }
+
+        private void MainMenuWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            if (btnclick == 1)
+            {
+                MainForm1.loadform(new TableForm());
+                MainForm1.MyrefeshMethod();
+            }
+            else if(btnclick == 2)
+            {
+                MainForm1.loadform(new OrdersOptions());
+                MainForm1.MyrefeshMethod();
+            }
+            else
+            {
+                MainForm1.loadform(new ProductOptionsForm());
+                MainForm1.MyrefeshMethod();
+            }
+
+        }
+
+        private void MainMenuWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+         
         }
     }
 }

@@ -15,6 +15,7 @@ namespace RestaurantReservation
         ViewOrders vieworder = new ViewOrders();
         CreateOrderForm createOrderForm = new CreateOrderForm();
         TableOrder TableOrder = new TableOrder();
+        int btnclick;
         public OrdersOptions()
         {
             InitializeComponent();
@@ -37,7 +38,19 @@ namespace RestaurantReservation
 
         private void button3_Click(object sender, EventArgs e)
         {
+            btnclick = 3;
             this.Close();
+            this.FormClosed += new FormClosedEventHandler(OrdersOptions_FormClosed);
+           
+        }
+
+        private void OrdersOptions_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (btnclick == 3)
+            {
+                MainForm1.loadform(new MainMenuWindow());
+                MainForm1.MyrefeshMethod();
+            }
         }
     }
 }

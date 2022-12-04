@@ -45,6 +45,7 @@
             this.DinersCount = new System.Windows.Forms.ComboBox();
             this.TableLabel = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(32, 100);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.ShowToday = false;
+            this.monthCalendar1.ShowTodayCircle = false;
             this.monthCalendar1.TabIndex = 1;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
@@ -135,7 +137,7 @@
             this.dateTimePicker1.MinDate = new System.DateTime(2022, 10, 15, 0, 1, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(226, 23);
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 15, 19, 51, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -205,10 +207,22 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(31, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Go back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // ReservationWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(985, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.TableLabel);
             this.Controls.Add(this.DinersCount);
@@ -224,9 +238,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.monthCalendar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ReservationWindow";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReservationWindow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReservationWindow_FormClosed);
             this.Load += new System.EventHandler(this.ReservationWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -252,5 +271,6 @@
         private ComboBox DinersCount;
         private Label TableLabel;
         private Button btnUpdate;
+        private Button button1;
     }
 }

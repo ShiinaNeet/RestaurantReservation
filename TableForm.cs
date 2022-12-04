@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using RestaurantReservation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,10 +61,19 @@ namespace RestaurantReservation
             this.setTableNum += new setvalueTableNum(rs.setTableNum);
             this.setTableNum(currTablenum);
             rs.setTableNum(currTablenum);
+            rs.ShowDialog();
             
 
 
 
+        }
+
+        private void TableForm_Load(object sender, EventArgs e)
+        {
+            Table1Btn.BackgroundImage = Resources.table;
+            Table1Btn.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.BackgroundImage = Resources.table;
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
         }
     }
 }

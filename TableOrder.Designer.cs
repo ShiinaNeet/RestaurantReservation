@@ -34,34 +34,40 @@
             // 
             // Table1Btn
             // 
+            this.Table1Btn.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Table1Btn.ForeColor = System.Drawing.Color.Coral;
             this.Table1Btn.Location = new System.Drawing.Point(177, 125);
             this.Table1Btn.Name = "Table1Btn";
             this.Table1Btn.Size = new System.Drawing.Size(185, 156);
             this.Table1Btn.TabIndex = 0;
-            this.Table1Btn.Text = "Table 1";
+            this.Table1Btn.Text = "1";
+            this.Table1Btn.UseCompatibleTextRendering = true;
             this.Table1Btn.UseVisualStyleBackColor = true;
             this.Table1Btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Coral;
             this.button2.Location = new System.Drawing.Point(410, 125);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(185, 156);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Table 2";
+            this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // TableForm
+            // TableOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Table1Btn);
-            this.Name = "TableForm";
+            this.Name = "TableOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TableForm";
+            this.Load += new System.EventHandler(this.TableOrder_Load);
             this.ResumeLayout(false);
 
         }
