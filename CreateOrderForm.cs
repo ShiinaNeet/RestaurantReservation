@@ -33,6 +33,7 @@ namespace RestaurantReservation
 
         Image curpic1;
         Image curpic2;
+        int orderid;
         public CreateOrderForm()
         {
             InitializeComponent();
@@ -387,7 +388,7 @@ namespace RestaurantReservation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int orderid;
+            
             int productid;
             int ordernum;
             string orderdate= DateTime.Today.ToString();
@@ -496,12 +497,77 @@ namespace RestaurantReservation
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            printPreviewDialog1.Document = printDocument1;
+            
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("papersizen", 380, 600);
+            printPreviewDialog1.ShowDialog();
         }
         public static void setTableNum(int ix)
         {
             
             tablenum = ix;
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            Graphics grafic = e.Graphics;
+            Font font = new Font("Courer New", 12);
+            float fontHeight = font.GetHeight();
+            int StartX = 10;
+            int StartY = 10;
+            int offSet = 40;
+
+            grafic.DrawString("     King's Grill Restaurant Reservation", new Font("Courer New", 14), new SolidBrush(Color.Black), StartX, StartY);
+            grafic.DrawString(" ", new Font("Courer New", 8), new SolidBrush(Color.Black), StartX, StartY + 5);
+
+            grafic.DrawString("\t\t===============================", new Font("Courer New", 8), new SolidBrush(Color.Black), StartX, StartY + 20);
+
+            grafic.DrawString("Order ID", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + 40);
+            grafic.DrawString("\t\t" + orderid.ToString().PadRight(30), new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + 40);
+
+            grafic.DrawString("\t\t\tDay: " + lblDate.Text, new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + 40);
+
+
+            grafic.DrawString("Table #: ", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 20));
+            grafic.DrawString("\t\t" + tablenum.ToString().PadRight(30), new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 20));
+            
+
+            string Liners = "====================================================";
+            grafic.DrawString(Liners, new Font("Courer New", 8), new SolidBrush(Color.Black), StartX, StartY + (offSet + 80));
+
+
+            grafic.DrawString("Item Name ", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 100));
+            grafic.DrawString("\t\t\t  Qty", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 100));
+            //grafic.DrawString("\t\t\t\tUnit", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 100));
+             grafic.DrawString("\t\t\t\t\tAmount ", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 100));
+
+
+            grafic.DrawString("===================================================", new Font("Courer New", 8), new SolidBrush(Color.Black), StartX, StartY + (offSet + 120));
+
+
+            int j = listView1.Items.Count;
+            for (int i = 0; i <= j - 1; i++)
+            {
+
+                string strTotalQty, proPrice, proName;
+                proName = listView1.Items[i].SubItems[0].Text;
+                strTotalQty = Convert.ToInt32(listView1.Items[i].SubItems[1].Text).ToString();
+                proPrice = Convert.ToInt32(listView1.Items[i].SubItems[2].Text).ToString();
+                if (proName.Length > 6)
+                {
+                    proName = proName.Substring(0, 6);
+                }
+                //  string productLine = proName + "\t\t" + strTotalQty + "\t" + proPrice.PadRight(5); //+ proPrice;
+                string productLine = proName.PadLeft(10) + "\t\t"+  strTotalQty.PadRight(30) + proPrice.PadRight(10); //+ proPrice;
+               
+
+                grafic.DrawString(productLine, font, new SolidBrush(Color.Black), StartX, StartY + (offSet + 140));
+                offSet += (int)fontHeight + 5;
+
+            }
+
 
         }
     }
