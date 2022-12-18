@@ -1,4 +1,6 @@
-﻿using MySqlX.XDevAPI;
+﻿using MySql.Data.MySqlClient;
+using MySqlConnector;
+using MySqlX.XDevAPI;
 using Org.BouncyCastle.Ocsp;
 using RestaurantReservation.Properties;
 using System;
@@ -25,12 +27,14 @@ namespace RestaurantReservation
         int curMode = 0;
         static int tablenum;
         string[] images1 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
-        string[] images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.png");
+        string[] images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.jpg");
+        string[] imagesname = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
+        string[] itemInside = new string[50];
         PictureBox[] pictureBox = new PictureBox[50];
-        PictureBox[] pictureBox2= new PictureBox[50];
+        PictureBox[] pictureBox2 = new PictureBox[50];
         Image[] ImagesPanel = new Image[50];
         Image[] ImagesPanel1 = new Image[50];
-
+        HashSet<string> myhashitemsinside = new HashSet<string>();
         Image curpic1;
         Image curpic2;
         int orderid;
@@ -42,7 +46,7 @@ namespace RestaurantReservation
         private void button2_Click(object sender, EventArgs e)
         {
             curMode = 0;
-           
+
             flowLayoutPanel2.Controls.Clear();
 
             lblDate.Text = DateTime.Now.ToString();
@@ -57,7 +61,7 @@ namespace RestaurantReservation
                 Image image = Image.FromFile(images1[i]);
                 pictureBox[i].Image = image;
                 pictureBox[i].SizeMode = PictureBoxSizeMode.Zoom;
-                
+
                 flowLayoutPanel2.Controls.Add(pictureBox[i]);
                 flowLayoutPanel2.WrapContents = true;
                 if (i == 0)
@@ -73,6 +77,34 @@ namespace RestaurantReservation
                     ImagesPanel[i] = pictureBox[i].Image;
                     curMode = 0;
                     curpic2 = ImagesPanel1[1];
+                }
+                else if (i == 2)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox3_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+                    
+                }
+                else if (i == 3)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox4_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+
+                }
+                else if (i == 4)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox5_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+
+                }
+                else if (i == 4)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox6_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+
                 }
             }
         }
@@ -105,9 +137,9 @@ namespace RestaurantReservation
             for (int i = 0; i < images1.Count(); i++)
             {
                 pictureBox[i] = new PictureBox();
-                pictureBox[i].Name = "pictureBox" + i;
+             //   pictureBox[i].Name = "pictureBox" + i;
                 pictureBox[i].Size = new Size(155, 98);
-
+                pictureBox[i].Name= images[i];
                 Image image = Image.FromFile(images1[i]);
                 pictureBox[i].Image = image;
                 pictureBox[i].SizeMode = PictureBoxSizeMode.Zoom;
@@ -128,12 +160,45 @@ namespace RestaurantReservation
                     curMode = 0;
                     curpic2 = ImagesPanel1[1];
                 }
+                else if (i == 2) 
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox3_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+                    //   curpic2 = ImagesPanel1[1];
+                }
+                else if (i == 3)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox4_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+                    curpic2 = ImagesPanel1[1];
+                }
+                else if (i == 4)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox5_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+                    curpic2 = ImagesPanel1[1];
+                }
+                else if (i == 5)
+                {
+                    pictureBox[i].Click += new EventHandler(pictureBox6_Click);
+                    ImagesPanel[i] = pictureBox[i].Image;
+                    curMode = 0;
+                    curpic2 = ImagesPanel1[1];
+                }
+
+
 
 
             }
             timer1.Interval = (100); // 1 secs
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
+            
+            
+
         }
 
         private void timer1_Tick(object? sender, EventArgs e)
@@ -143,7 +208,7 @@ namespace RestaurantReservation
 
         private void button3_Click(object sender, EventArgs e)
         {
-           
+
             curMode = 1;
             Image image1 = Resources.coke;
             //  pictureBox1.Image = image1;
@@ -151,8 +216,8 @@ namespace RestaurantReservation
             flowLayoutPanel2.Controls.Clear();
 
             lblDate.Text = DateTime.Now.ToString();
-            images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.png");
-           
+            images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.jpg");
+
             for (int i = 0; i < images2.Count(); i++)
             {
                 pictureBox2[i] = new PictureBox();
@@ -171,14 +236,449 @@ namespace RestaurantReservation
                     ImagesPanel1[i] = pictureBox2[i].Image;
                     curMode = 1;
                 }
-                else if (i == 1) {
+                else if (i == 1)
+                {
                     pictureBox2[i].Click += new EventHandler(pictureBox2_Click);
                     ImagesPanel1[i] = pictureBox2[i].Image;
                     curMode = 1;
                 }
-               
+                else if (i == 2)
+                {
+                    pictureBox2[i].Click += new EventHandler(pictureBox3_Click);
+                    ImagesPanel1[i] = pictureBox2[i].Image;
+                    curMode = 1;
+
+                }
+                else if (i == 3)
+                {
+                    pictureBox2[i].Click += new EventHandler(pictureBox4_Click);
+                    ImagesPanel1[i] = pictureBox2[i].Image;
+                    curMode = 1;
+
+                }
+                else if (i == 4)
+                {
+                    pictureBox2[i].Click += new EventHandler(pictureBox5_Click);
+                    ImagesPanel1[i] = pictureBox2[i].Image;
+                    curMode = 1;
+
+                }
+                else if (i == 5)
+                {
+                    pictureBox2[i].Click += new EventHandler(pictureBox6_Click);
+                    ImagesPanel1[i] = pictureBox2[i].Image;
+                    curMode = 1;
+
+                }
+                else if (i == 6)
+                {
+                    pictureBox2[i].Click += new EventHandler(pictureBox7_Click);
+                    ImagesPanel1[i] = pictureBox2[i].Image;
+                    curMode = 1;
+
+                }
+
             }
-            
+        }
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            string[] selectedrow = new string[3];
+
+            // Image curpic1 = imgBurger;
+            int picbox3 = 1;
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV = false;
+
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                string itemInside = itemv.Text.ToString().ToLower();
+                if (curMode == 0)
+                {
+                    curpic1 = ImagesPanel[0];
+
+                    if (itemv.Text.ToString().Equals("qwe"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+                if (curMode == 1)
+                {
+
+                    curpic2 = ImagesPanel1[2];
+                    if (itemv.Text.Equals("Wine"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+            }
+
+            if (curpic1 == ImagesPanel[0])
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+
+                }
+                else
+                {
+                    if (curMode == 0)
+                    {
+                        AddItems("", 1, 40);
+                    }
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Wine", 1, 19);
+
+                }
+
+            }
+        }
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            string[] selectedrow = new string[3];
+
+            // Image curpic1 = imgBurger;
+            int picbox3 = 1;
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV = false;
+
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                string itemInside = itemv.Text.ToString().ToLower();
+                if (curMode == 0)
+                {
+                    curpic1 = ImagesPanel[0];
+
+                    if (itemv.Text.ToString().Equals("Mushroom Burger"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+                if (curMode == 1)
+                {
+
+                    curpic2 = ImagesPanel1[2];
+                    if (itemv.Text.Equals("Lemon Tea"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+            }
+
+            if (curpic1 == ImagesPanel[0])
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+
+                }
+                else
+                {
+                    if (curMode == 0)
+                    {
+                        AddItems("Mushroom Burger", 1, 40);
+                    }
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Lemon Tea", 1, 19);
+
+                }
+
+            }
+        }
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            string[] selectedrow = new string[3];
+
+            // Image curpic1 = imgBurger;
+            int picbox3 = 1;
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV = false;
+
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                string itemInside = itemv.Text.ToString().ToLower();
+                if (curMode == 0)
+                {
+                    curpic1 = ImagesPanel[0];
+
+                    if (itemv.Text.ToString().Equals("Grand Tower Supreme Burger"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+                if (curMode == 1)
+                {
+
+                    curpic2 = ImagesPanel1[2];
+                    if (itemv.Text.Equals("Iced Matcha Latte"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+            }
+
+            if (curpic1 == ImagesPanel[0])
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+
+                }
+                else
+                {
+                    if (curMode == 0)
+                    {
+                        AddItems("Grand Tower Supreme Burger", 1, 40);
+                    }
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Iced Matcha Latte", 1, 19);
+
+                }
+
+            }
+        }
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            string[] selectedrow = new string[3];
+
+            // Image curpic1 = imgBurger;
+            int picbox3 = 1;
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV = false;
+
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                string itemInside = itemv.Text.ToString().ToLower();
+                if (curMode == 0)
+                {
+                    curpic1 = ImagesPanel[0];
+
+                    if (itemv.Text.ToString().Equals("Burger Field"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+                   
+                }
+                if (curMode == 1)
+                {
+                   
+                    curpic2 = ImagesPanel1[2];
+                    if (itemv.Text.Equals("Classic Coffee"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    } 
+                    
+                }
+            }
+
+            if (curpic1 == ImagesPanel[0])
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+
+                }
+                else
+                {
+                    if (curMode == 0)
+                    {
+                        AddItems("Burger Field", 1, 40);
+                    }
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                     AddItems("Classic Coffee", 1, 19);   
+                    
+                }
+
+            }
+        }
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            string[] selectedrow = new string[3];
+
+            // Image curpic1 = imgBurger;
+            int picbox3 = 1;
+            int BurgerPrice = 29;
+            int CokePrice = 19;
+            Boolean isInsideLV = false;
+
+            foreach (ListViewItem itemv in listView1.Items)
+            {
+                string itemInside = itemv.Text.ToString().ToLower();
+                if (curMode == 0)
+                {
+                    curpic1 = ImagesPanel[0];
+
+                    if (itemv.Text.ToString().Equals("Chilli Burger"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+                if (curMode == 1)
+                {
+
+                    curpic2 = ImagesPanel1[2];
+                    if (itemv.Text.Equals("Frappe"))
+                    {
+                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
+                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                        selectedrow = ww;
+                        itemv.Remove();
+
+                        isInsideLV = true;
+
+                        break;
+                    }
+
+                }
+            }
+
+            if (curpic1 == ImagesPanel[0])
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+
+                }
+                else
+                {
+                    if (curMode == 0)
+                    {
+                        AddItems("Chilli Burger", 1, 40);
+                    }
+                }
+            }
+            else
+            {
+                if (isInsideLV == true)
+                {
+                    AddItems(selectedrow[0], Convert.ToInt32(selectedrow[1]), Convert.ToInt32(selectedrow[2]));
+                }
+                else
+                {
+                    AddItems("Frappe", 1, 19);
+
+                }
+
+            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -202,28 +702,31 @@ namespace RestaurantReservation
             Boolean isInsideLV=false;
             foreach (ListViewItem itemv in listView1.Items) 
             {
+               
                 if (curMode == 0)
                 {
                     curpic1 = ImagesPanel[0];
+                    string[] imagesName = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
 
 
-                    if (itemv.Text.ToLower().Equals("burger"))
-                    {
-                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
-                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
-                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
-                        selectedrow = ww;
-                        itemv.Remove();
+                    if (itemv.Text.ToString().Equals("Burger Whooper"))
+                        {
+                            double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                            double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
+                            string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                            selectedrow = ww;
+                            itemv.Remove();
 
-                        isInsideLV = true;
-                       
-                        break;
-                    }
+                            isInsideLV = true;
+
+                            break;
+                        }
+                    
                 }
                 if (curMode == 1) 
                 {
                     curpic1 = ImagesPanel1[1];
-                    if (itemv.Text.ToLower().Equals("coffee"))
+                    if (itemv.Text.ToLower().Equals("beer"))
                      {
                         double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
                         double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CokePrice;
@@ -236,6 +739,7 @@ namespace RestaurantReservation
                         break;
                      }  
                 }
+                myhashitemsinside.Add(itemv.Text.ToString());
             }
             
             if (curpic1 == ImagesPanel[0])
@@ -247,7 +751,7 @@ namespace RestaurantReservation
                 }
                 else
                 {
-                    AddItems("Burger", 1, 29);
+                    AddItems("Burger Whooper", 1, 29);
                 }
             }
             else
@@ -258,7 +762,7 @@ namespace RestaurantReservation
                 }
                 else
                 {
-                    AddItems("Coffee", 1, 19);
+                    AddItems("Beer", 1, 19);
                 }
                 
 
@@ -282,31 +786,38 @@ namespace RestaurantReservation
            
 
             string[] selectedrow = new string[3];
-            int i = 0;
+           
             int CoffeePrice = 29;
             int FriesPRice = 20;
             Boolean isInsideLV = false;
             foreach (ListViewItem itemv in listView1.Items)
             {
+               
+
                 if (curMode == 0) 
                 {
+                    
                     curpic2 = ImagesPanel[1];
-                    if (itemv.Text.Equals("French Fries"))
-                    {
-                        double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
-                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + FriesPRice;
-                        string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
-                        selectedrow = ww;
-                        itemv.Remove();
+                    
+                        
+                        if (itemv.Text.ToString().Equals("Burger Cheesy Monster"))
+                        {
+                            double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
+                            double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + FriesPRice;
+                            string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
+                            selectedrow = ww;
+                            itemv.Remove();
 
-                        isInsideLV = true;
-                        break;
-                    }
+                            isInsideLV = true;
+                        Console.WriteLine("Hegeferqweqw");
+                            break;
+                        }
+                    
                 }
                 if (curMode == 1)
                 {
                     curpic2 = ImagesPanel1[1];
-                    if (itemv.Text.Equals("Coke"))
+                    if (itemv.Text.Equals("Berry Smoothies"))
                     {
                         double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
                         double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CoffeePrice;
@@ -328,7 +839,7 @@ namespace RestaurantReservation
                 }
                 else
                 {
-                    AddItems("French Fries", 1, 45);
+                    AddItems("Burger Cheesy Monster", 1, 45);
                 }
             }
             else
@@ -339,7 +850,7 @@ namespace RestaurantReservation
                 }
                 else
                 {
-                    AddItems("Coke", 1, 20);
+                    AddItems("Berry Smoothies", 1, 20);
                 }
 
             }
@@ -413,7 +924,7 @@ namespace RestaurantReservation
                             cnn.Open();
 
                             orderid = Convert.ToInt32(command.ExecuteScalar());
-
+                            
                             cnn.Close();
                         }
                         
@@ -422,7 +933,7 @@ namespace RestaurantReservation
                             cnn.Open();
 
                             ordernum = Convert.ToInt32(command.ExecuteScalar());
-
+                           
                             cnn.Close();
                         }
 
@@ -439,7 +950,7 @@ namespace RestaurantReservation
                                 cnn.Open();
                                 command.Parameters.AddWithValue("Productnumber", itemname);
                                 productid = Convert.ToInt32(command.ExecuteScalar());
-
+                               
                                 cnn.Close();
                             } 
                         }
@@ -478,6 +989,37 @@ namespace RestaurantReservation
 
                 }
             }
+
+
+            //check if order status
+            using (SqlConnection cnn = ConnectionClasss.connnect())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT\r\n    CASE WHEN EXISTS \r\n    (\r\n        SELECT * FROM Orders WHERE OrderID = @OrderID\r\n    )\r\n    THEN 'TRUE'\r\n    ELSE 'FALSE'\r\nEND", cnn))
+                {
+                    command.Parameters.AddWithValue("@OrderID", orderid+1);
+                    cnn.Open();
+
+                    var result = Convert.ToBoolean(command.ExecuteScalar());
+                    if (result == true) 
+                    {
+                        MessageBox.Show("Order Successful!", "Order Status!",MessageBoxButtons.OK);
+                        listView1.Clear();
+                        this.Close();
+                        MainForm1.loadform(new MainMenuWindow());
+                        MainForm1.MyrefeshMethod();
+
+                    }
+                    else{
+                        MessageBox.Show("Order Failed!", "Order Status!", MessageBoxButtons.OK);
+                    }
+                    cnn.Close();
+                }
+
+            }
+            //dispay order status
+            
+
+
         }
 
         private void button5_Click(object sender, EventArgs e)

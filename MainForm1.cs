@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantReservation.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,9 @@ namespace RestaurantReservation
             mainMenuWindow.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             mainMenuWindow.Show();
             this.FormBorderStyle = FormBorderStyle.None;
-           
+
+            BackgroundImage = Resources.BurgerBackground;
+            BackgroundImageLayout = ImageLayout.Stretch;
         }
        
         public static void loadform(Form Form) 
@@ -44,7 +47,8 @@ namespace RestaurantReservation
             panel1.Tag = f;
             f.Parent = MainForm1.panel1;
             f.Show();
-            f.ParentForm.Refresh();
+          //  f.ParentForm.Refresh(); this refresh the parentform 
+          
             
             
         }

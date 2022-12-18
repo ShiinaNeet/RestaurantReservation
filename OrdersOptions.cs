@@ -54,5 +54,11 @@ namespace RestaurantReservation
                 MainForm1.MyrefeshMethod();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ActiveOrdersForm ww = new ActiveOrdersForm();
+            ww.ShowDialog();
+        }
     }
 }

@@ -192,7 +192,7 @@
             // TableLabel
             // 
             TableLabel.AutoSize = true;
-           TableLabel.Location = new System.Drawing.Point(137, 360);
+            TableLabel.Location = new System.Drawing.Point(137, 360);
             TableLabel.Name = "TableLabel";
             TableLabel.Size = new System.Drawing.Size(0, 15);
             TableLabel.TabIndex = 14;
@@ -221,6 +221,9 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(985, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUpdate);
@@ -239,12 +242,14 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.monthCalendar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ReservationWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReservationWindow";
+            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ReservationWindow_FormClosed);
             this.Load += new System.EventHandler(this.ReservationWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -269,8 +274,8 @@
         private Label label3;
         private Label label4;
         private ComboBox DinersCount;
-        private static Label TableLabel;
         private Button btnUpdate;
         private Button button1;
+        private static Label TableLabel;
     }
 }

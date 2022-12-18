@@ -37,9 +37,9 @@
             // panel1
             // 
             panel1.AutoSize = true;
-            panel1.Location = new System.Drawing.Point(324, 12);
+            panel1.Location = new System.Drawing.Point(312, 12);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1048, 681);
+            panel1.Size = new System.Drawing.Size(1026, 598);
             panel1.TabIndex = 0;
             // 
             // button1
@@ -74,7 +74,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 725);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1350, 622);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -91,8 +92,8 @@
 
         #endregion
         private Button button1;
-        private static Panel panel1;
         private Button button2;
         private Button button3;
+        private static Panel panel1;
     }
 }
