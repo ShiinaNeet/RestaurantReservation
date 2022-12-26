@@ -49,6 +49,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
             this.ClientSize = new System.Drawing.Size(553, 361);
             this.Controls.Add(this.listView1);
             this.Name = "ViewOrders";

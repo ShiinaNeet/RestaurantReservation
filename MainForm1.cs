@@ -62,5 +62,12 @@ namespace RestaurantReservation
         {
             MainForm1.panel1.Refresh();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }

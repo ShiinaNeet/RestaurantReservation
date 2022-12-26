@@ -37,6 +37,7 @@
             // panel1
             // 
             panel1.AutoSize = true;
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             panel1.Location = new System.Drawing.Point(312, 12);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(1026, 598);
@@ -69,6 +70,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Logout";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // MainForm1
             // 

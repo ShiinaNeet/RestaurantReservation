@@ -107,74 +107,106 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Boolean result;
+            string ResTime1223 = dateTimePicker1.Value.ToString("HH:mm:ss");
+            string ResDate1223 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+            
+            DateTime timetime = Convert.ToDateTime(ResDate1223 + " " + ResTime1223);
+            using (SqlConnection cnn = ConnectionClasss.connnect())
+            {
+                using (SqlCommand command = new SqlCommand("SELECT CASE WHEN EXISTS(SELECT * from Reservations where ResvDate " +
+                    " BETWEEN @timetime\r\nAND DATEADD(HOUR,2,@timetime) AND tablenum = @tablenum) THEN 'true' ELSE 'false' end", cnn))
+                {
+                    command.Parameters.AddWithValue("@timetime",timetime);
+                    command.Parameters.AddWithValue("@tablenum", tablenumber);
+                    cnn.Open();
+
+                     result = Convert.ToBoolean(command.ExecuteScalar());
+
+                    cnn.Close();
+                }
+
+            }
+            
+            string ResTime1 = dateTimePicker1.Value.ToString("HH:mm:ss");
+            string ResDate1 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+            DateTime resdatefull1 = Convert.ToDateTime(ResDate1 + " " + ResTime1);
+            
             if (ClnNameTxtBox.Text.ToString() == "") {
                 MessageBox.Show("Please Enter client name", "Client Name Not Found", MessageBoxButtons.OK); ClnNameTxtBox.Select();
             }
             else {
                 try
                 {
-                    using (SqlConnection cnn = ConnectionClasss.connnect())
+                    if (@result == true)
                     {
-                        using (SqlCommand command = new SqlCommand("SELECT MAX(ClientID) from Reservations", cnn))
-                        {
-                            cnn.Open();
-
-                            clientid1 = Convert.ToInt64(command.ExecuteScalar());
-
-                            cnn.Close();
-                        }
-                        using (SqlCommand command = new SqlCommand("SELECT MAX(ReservationID) from Reservations", cnn))
-                        {
-                            cnn.Open();
-
-                            resrvationid1 = Convert.ToInt64(command.ExecuteScalar());
-
-                            cnn.Close();
-                        }
-
+                        MessageBox.Show("Chosen Date is Reserved!");
                     }
-                    ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
-                    ResDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-                    resdatefull = ResDate + " " + ResTime;
-                    ClientName = ClnNameTxtBox.Text;
-                    clientid = clientid1 + 1;
-                    reservationid = resrvationid1 + 1;
-                    using (SqlConnection cnn = ConnectionClasss.connnect())
+                    else
                     {
+                        using (SqlConnection cnn = ConnectionClasss.connnect())
+                        {
+                            using (SqlCommand command = new SqlCommand("SELECT MAX(ClientID) from Reservations", cnn))
+                            {
+                                cnn.Open();
 
-                        using (SqlCommand command1 = new SqlCommand("INSERT INTO Reservations(ReservationID,ClientID,ResvDate,client,tablenum,diners) VALUES ('" + reservationid + "','" + clientid + "','" + resdatefull + "','" + ClientName + "','" + tablenumber + " ','" + DinersCount.SelectedItem + "')", cnn))
+                                clientid1 = Convert.ToInt64(command.ExecuteScalar());
+
+                                cnn.Close();
+                            }
+                            using (SqlCommand command = new SqlCommand("SELECT MAX(ReservationID) from Reservations", cnn))
+                            {
+                                cnn.Open();
+
+                                resrvationid1 = Convert.ToInt64(command.ExecuteScalar());
+
+                                cnn.Close();
+                            }
+
+                        }
+                        ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
+                        ResDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+                        resdatefull = ResDate + " " + ResTime;
+                        ClientName = ClnNameTxtBox.Text;
+                        clientid = clientid1 + 1;
+                        reservationid = resrvationid1 + 1;
+                        using (SqlConnection cnn = ConnectionClasss.connnect())
                         {
 
+                            using (SqlCommand command1 = new SqlCommand("INSERT INTO Reservations(ReservationID,ClientID,ResvDate,client,tablenum,diners) VALUES ('" + reservationid + "','" + clientid + "','" + resdatefull + "','" + ClientName + "','" + tablenumber + " ','" + DinersCount.SelectedItem + "')", cnn))
+                            {
 
 
-                            cnn.Open();
-                            command1.ExecuteNonQuery();
 
-                            cnn.Close();
+                                cnn.Open();
+                                command1.ExecuteNonQuery();
+
+                                cnn.Close();
+                            }
+
                         }
 
-                    }
+                        using (SqlConnection cnn2 = ConnectionClasss.connnect())
+                        {
+                            cnn2.Open();
 
-                    using (SqlConnection cnn2 = ConnectionClasss.connnect())
-                    {
-                        cnn2.Open();
+                            SqlCommand cmd2 = new SqlCommand("SELECT * FROM Reservations", cnn2);
+                            SqlDataAdapter da = new SqlDataAdapter();
+                            DataTable dt = new DataTable();
+                            da.SelectCommand = cmd2;
+                            dt.Clear();
+                            da.Fill(dt);
 
-                        SqlCommand cmd2 = new SqlCommand("SELECT * FROM Reservations", cnn2);
-                        SqlDataAdapter da = new SqlDataAdapter();
-                        DataTable dt = new DataTable();
-                        da.SelectCommand = cmd2;
-                        dt.Clear();
-                        da.Fill(dt);
-
-                        dataGridView1.DataSource = dt;
-                        cnn2.Close();
+                            dataGridView1.DataSource = dt;
+                            cnn2.Close();
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
-                finally 
+                finally
                 {
                     using (SqlConnection cnn2 = ConnectionClasss.connnect())
                     {
@@ -192,6 +224,8 @@ namespace RestaurantReservation
                     }
 
                 }
+
+                
             }
         }
 
