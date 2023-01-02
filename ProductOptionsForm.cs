@@ -1,4 +1,5 @@
 ﻿using MySqlX.XDevAPI;
+using RestaurantReservation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,6 +133,13 @@ namespace RestaurantReservation
         private void ProductOptionsForm_Load(object sender, EventArgs e)
         {
             
+
+            splitContainer1.Panel1.BackgroundImage = Resources.texture_background_1404_991;
+            splitContainer1.Panel1.BackgroundImageLayout = ImageLayout.None;
+            splitContainer1.Panel2.BackgroundImage = Resources.texture_background_1404_991;
+            splitContainer1.Panel1.BackgroundImageLayout = ImageLayout.None;
+
+
         }
 
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
@@ -197,6 +205,11 @@ namespace RestaurantReservation
         {
             MainForm1.loadform(new MainMenuWindow());
             MainForm1.MyrefeshMethod();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

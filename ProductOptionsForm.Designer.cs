@@ -61,7 +61,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
             this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
@@ -69,7 +68,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
             this.splitContainer1.Panel2.Controls.Add(this.label4);
             this.splitContainer1.Panel2.Controls.Add(this.statusStrip1);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
@@ -226,6 +224,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(526, 412);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Visible = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ProductOptionsForm
             // 

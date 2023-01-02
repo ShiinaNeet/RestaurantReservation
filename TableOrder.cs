@@ -75,12 +75,67 @@ namespace RestaurantReservation
             Table1Btn.BackgroundImageLayout =ImageLayout.Zoom;
             button2.BackgroundImage = Resources.table;
             button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button3.BackgroundImage = Resources.table;
+            button3.BackgroundImageLayout = ImageLayout.Zoom;
+            button4.BackgroundImage = Resources.table;
+            button4.BackgroundImageLayout = ImageLayout.Zoom;
+            button5.BackgroundImage = Resources.table;
+            button5.BackgroundImageLayout = ImageLayout.Zoom;
+            button6.BackgroundImage = Resources.table;
+            button6.BackgroundImageLayout = ImageLayout.Zoom;
+
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.None;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
             MainForm1.loadform(new MainMenuWindow());
+            MainForm1.MyrefeshMethod();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            currTablenum = 3;
+
+
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
+            MainForm1.MyrefeshMethod();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            currTablenum = 4;
+
+
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
+            MainForm1.MyrefeshMethod();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            currTablenum = 5;
+
+
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
+            MainForm1.MyrefeshMethod();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            currTablenum = 6;
+
+
+            this.setTableNum += new setvalueTableNum(CreateOrderForm.setTableNum);
+            CreateOrderForm.setTableNum(currTablenum);
+            MainForm1.loadform(new CreateOrderForm());
             MainForm1.MyrefeshMethod();
         }
     }

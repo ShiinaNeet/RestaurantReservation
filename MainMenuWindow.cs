@@ -1,4 +1,5 @@
 ﻿using MySqlX.XDevAPI.Relational;
+using RestaurantReservation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,7 +47,8 @@ namespace RestaurantReservation
 
         private void MainMenuWindow_Load(object sender, EventArgs e)
         {
-            
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.None;
         }
 
         private void button3_Click(object sender, EventArgs e)

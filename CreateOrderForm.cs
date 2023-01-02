@@ -37,7 +37,7 @@ namespace RestaurantReservation
         HashSet<string> myhashitemsinside = new HashSet<string>();
         Image curpic1;
         Image curpic2;
-        int orderid;
+        int orderid =0;
         public CreateOrderForm()
         {
             InitializeComponent();
@@ -99,7 +99,7 @@ namespace RestaurantReservation
                     curMode = 0;
 
                 }
-                else if (i == 4)
+                else if (i == 5)
                 {
                     pictureBox[i].Click += new EventHandler(pictureBox6_Click);
                     ImagesPanel[i] = pictureBox[i].Image;
@@ -111,6 +111,10 @@ namespace RestaurantReservation
 
         private void CreateOrderForm_Load(object sender, EventArgs e)
         {
+
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.None;
+
             cbModePayment.Items.Add("Cash");
             cbModePayment.Items.Add("Debit Card");
             cbModePayment.Items.Add("Gcash");
@@ -203,7 +207,16 @@ namespace RestaurantReservation
 
         private void timer1_Tick(object? sender, EventArgs e)
         {
+            int sum = 0;
             TableNumLabel.Text = tablenum.ToString();
+
+            foreach (ListViewItem itemv in listView1.Items) 
+            { 
+                sum += Convert.ToInt32(itemv.SubItems[2].Text);
+            }
+            textBox3.Text = sum.ToString();
+
+            listView1.Refresh();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -286,12 +299,13 @@ namespace RestaurantReservation
 
             // Image curpic1 = imgBurger;
             int picbox3 = 1;
-            int BurgerPrice = 29;
+            int BurgerPrice = 40;
             int CokePrice = 19;
             Boolean isInsideLV = false;
 
             foreach (ListViewItem itemv in listView1.Items)
             {
+                int price = Convert.ToInt32(itemv.SubItems[2].Text);
                 string itemInside = itemv.Text.ToString().ToLower();
                 if (curMode == 0)
                 {
@@ -366,12 +380,13 @@ namespace RestaurantReservation
 
             // Image curpic1 = imgBurger;
             int picbox3 = 1;
-            int BurgerPrice = 29;
+            int BurgerPrice = 40;
             int CokePrice = 19;
             Boolean isInsideLV = false;
 
             foreach (ListViewItem itemv in listView1.Items)
             {
+                int price = Convert.ToInt32(itemv.SubItems[2].Text);
                 string itemInside = itemv.Text.ToString().ToLower();
                 if (curMode == 0)
                 {
@@ -446,12 +461,13 @@ namespace RestaurantReservation
 
             // Image curpic1 = imgBurger;
             int picbox3 = 1;
-            int BurgerPrice = 29;
+            int BurgerPrice = 40;
             int CokePrice = 19;
             Boolean isInsideLV = false;
 
             foreach (ListViewItem itemv in listView1.Items)
             {
+                int price = Convert.ToInt32(itemv.SubItems[2].Text);
                 string itemInside = itemv.Text.ToString().ToLower();
                 if (curMode == 0)
                 {
@@ -526,7 +542,7 @@ namespace RestaurantReservation
 
             // Image curpic1 = imgBurger;
             int picbox3 = 1;
-            int BurgerPrice = 29;
+            int BurgerPrice = 40;
             int CokePrice = 19;
             Boolean isInsideLV = false;
 
@@ -606,7 +622,7 @@ namespace RestaurantReservation
 
             // Image curpic1 = imgBurger;
             int picbox3 = 1;
-            int BurgerPrice = 29;
+            int BurgerPrice = 40;
             int CokePrice = 19;
             Boolean isInsideLV = false;
 
@@ -696,13 +712,13 @@ namespace RestaurantReservation
             string[] selectedrow = new string[3];
             
            // Image curpic1 = imgBurger;
-
-            int BurgerPrice = 29;
+           
+            int BurgerPrice = 30;
             int CokePrice = 19;
             Boolean isInsideLV=false;
             foreach (ListViewItem itemv in listView1.Items) 
             {
-               
+                int price = Convert.ToInt32(itemv.SubItems[2].Text);
                 if (curMode == 0)
                 {
                     curpic1 = ImagesPanel[0];
@@ -751,7 +767,7 @@ namespace RestaurantReservation
                 }
                 else
                 {
-                    AddItems("Burger Whooper", 1, 29);
+                    AddItems("Burger Whooper", 1, 30);
                 }
             }
             else
@@ -787,12 +803,12 @@ namespace RestaurantReservation
 
             string[] selectedrow = new string[3];
            
-            int CoffeePrice = 29;
-            int FriesPRice = 20;
+            int cheesyburger = 45;
+            int Fberrysmothe = 20;
             Boolean isInsideLV = false;
             foreach (ListViewItem itemv in listView1.Items)
             {
-               
+                int price = Convert.ToInt32(itemv.SubItems[2].Text);
 
                 if (curMode == 0) 
                 {
@@ -803,7 +819,7 @@ namespace RestaurantReservation
                         if (itemv.Text.ToString().Equals("Burger Cheesy Monster"))
                         {
                             double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
-                            double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + FriesPRice;
+                            double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + cheesyburger;
                             string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
                             selectedrow = ww;
                             itemv.Remove();
@@ -820,7 +836,7 @@ namespace RestaurantReservation
                     if (itemv.Text.Equals("Berry Smoothies"))
                     {
                         double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
-                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + CoffeePrice;
+                        double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + Fberrysmothe;
                         string[] ww = { itemv.SubItems[0].Text, updQty.ToString(), updPrice.ToString() };
                         selectedrow = ww;
                         itemv.Remove();
@@ -942,6 +958,7 @@ namespace RestaurantReservation
                     foreach (ListViewItem items in listView1.Items)
                     {
                         string itemname = items.SubItems[0].Text;
+                        int price = Convert.ToInt32(items.SubItems[2].Text);
                         using (SqlConnection cnn = ConnectionClasss.connnect()) 
                         {
                             using (SqlCommand command = new SqlCommand("SELECT ProductsID from ProductsTbl where ProductName = @Productnumber", cnn))
@@ -952,14 +969,16 @@ namespace RestaurantReservation
                                 productid = Convert.ToInt32(command.ExecuteScalar());
                                
                                 cnn.Close();
-                            } 
+                            }
+
+                           
                         }
 
                         using (SqlConnection cnn = ConnectionClasss.connnect())
                         {
                             int order_number = ordernum + 1;
-                            using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,tablenum) " +
-                                "\r\nVALUES(@OrderIDsss,@ProductsID,@GETDATE,@Quantity,@Order_Number,@tablenum)", cnn))
+                            using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,tablenum,Price) " +
+                                "\r\nVALUES(@OrderIDsss,@ProductsID,@GETDATE,@Quantity,@Order_Number,@tablenum,@Price)", cnn))
                             {
                                 command1.Parameters.AddWithValue("OrderIDsss", orderid + 1);
                                 command1.Parameters.AddWithValue("ProductsID", productid);
@@ -967,6 +986,7 @@ namespace RestaurantReservation
                                 command1.Parameters.AddWithValue("Quantity", Convert.ToInt32(items.SubItems[1].Text));
                                 command1.Parameters.AddWithValue("Order_Number", order_number.ToString());
                                 command1.Parameters.AddWithValue("tablenum", tablenum);
+                                command1.Parameters.AddWithValue("@Price", price);
 
                                 cnn.Open();
                                 command1.ExecuteNonQuery();
@@ -1003,11 +1023,23 @@ namespace RestaurantReservation
                     if (result == true) 
                     {
                         MessageBox.Show("Order Successful!", "Order Status!",MessageBoxButtons.OK);
+
+                        if (MessageBox.Show("Do you want to print receipt?", "Print Order?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            printPreviewDialog1.Document = printDocument1;
+
+                            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("papersizen", 380, 600);
+                            printPreviewDialog1.ShowDialog();
+                        }
+
+
                         listView1.Clear();
                         this.Close();
                         MainForm1.loadform(new MainMenuWindow());
-                        MainForm1.MyrefeshMethod();
+                        //MainForm1.MyrefeshMethod();
 
+                        
+                        
                     }
                     else{
                         MessageBox.Show("Order Failed!", "Order Status!", MessageBoxButtons.OK);
@@ -1110,6 +1142,16 @@ namespace RestaurantReservation
 
             }
 
+
+        }
+
+        private void tablelablblbl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantReservation.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,8 @@ namespace RestaurantReservation
 
         private void OrdersOptions_Load(object sender, EventArgs e)
         {
-
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.None;
         }
 
         private void button2_Click(object sender, EventArgs e)

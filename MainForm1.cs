@@ -31,8 +31,8 @@ namespace RestaurantReservation
             mainMenuWindow.Show();
             this.FormBorderStyle = FormBorderStyle.None;
 
-            BackgroundImage = Resources.BurgerBackground;
-            BackgroundImageLayout = ImageLayout.Stretch;
+         //   BackgroundImage = Resources.BurgerBackground;
+        //    BackgroundImageLayout = ImageLayout.Stretch;
         }
        
         public static void loadform(Form Form) 
@@ -68,6 +68,12 @@ namespace RestaurantReservation
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SalesDashboard sd = new SalesDashboard();
+            sd.Show();
         }
     }
 }

@@ -137,8 +137,13 @@ namespace RestaurantReservation
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainForm1 mf = new MainForm1();
-            mf.Show();
+            //MainForm1 mf = new MainForm1();
+           // mf.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

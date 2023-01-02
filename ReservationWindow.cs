@@ -2,6 +2,7 @@
 using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Ocsp;
 using Org.BouncyCastle.Utilities.Collections;
+using RestaurantReservation.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -73,9 +76,9 @@ namespace RestaurantReservation
                 dataGridView1.DataSource = dt;
                 cnn.Close();
             }
-            TableForm tf = new TableForm();
-            TableLabel.Text = tf.getTableNum().ToString();
-            tablenumber = tf.getTableNum();
+         //   TableForm tf = new TableForm();
+           // TableLabel.Text = tf.getTableNum().ToString();
+          //  tablenumber = tf.getTableNum();
 
 
 
@@ -97,6 +100,12 @@ namespace RestaurantReservation
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "hh-mm tt";
             myfresh();
+
+
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.None;
+
+
             
         }
 
@@ -112,25 +121,23 @@ namespace RestaurantReservation
             string ResDate1223 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
             
             DateTime timetime = Convert.ToDateTime(ResDate1223 + " " + ResTime1223);
+            string timetime1q = ResDate1223 + " " + ResTime1223;
             using (SqlConnection cnn = ConnectionClasss.connnect())
             {
-                using (SqlCommand command = new SqlCommand("SELECT CASE WHEN EXISTS(SELECT * from Reservations where ResvDate " +
-                    " BETWEEN @timetime\r\nAND DATEADD(HOUR,2,@timetime) AND tablenum = @tablenum) THEN 'true' ELSE 'false' end", cnn))
+                using (SqlCommand command = new SqlCommand("declare @timetime datetime;\r\nset @timetime =  cast(@timertime as datetime);\r\nSELECT CASE WHEN EXISTS(SELECT * from Reservations where ResvDate  BETWEEN @timetime AND DATEADD(HOUR,2,@timetime) AND tablenum = @tablenum) THEN 'TRUE' ELSE 'FALSE' end", cnn))
                 {
-                    command.Parameters.AddWithValue("@timetime",timetime);
-                    command.Parameters.AddWithValue("@tablenum", tablenumber);
+                    command.Parameters.AddWithValue("@timertime",timetime1q);
+                    command.Parameters.AddWithValue("@tablenum", TableLabel.Text);
                     cnn.Open();
 
-                     result = Convert.ToBoolean(command.ExecuteScalar());
-
+                    result = Convert.ToBoolean(command.ExecuteScalar());
+                
                     cnn.Close();
                 }
 
             }
             
-            string ResTime1 = dateTimePicker1.Value.ToString("HH:mm:ss");
-            string ResDate1 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            DateTime resdatefull1 = Convert.ToDateTime(ResDate1 + " " + ResTime1);
+           
             
             if (ClnNameTxtBox.Text.ToString() == "") {
                 MessageBox.Show("Please Enter client name", "Client Name Not Found", MessageBoxButtons.OK); ClnNameTxtBox.Select();
@@ -271,9 +278,8 @@ namespace RestaurantReservation
                 TableLabel.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 DinersCount.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 ResTime = dateTimePicker1.Value.ToString("HH:mm:ss");
-                 ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-              //  ResDate2 = monthCalendar1.SelectionStart.ToString("yyyy-MM-dd");
-              //  ResDate2 = monthCalendar1.SelectionEnd.ToString("yyyy-MM-dd");
+                ResDate2 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
+              
                 resdatefull2 = ResDate2 + " " + ResTime;
                 clientname2 = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
             }
@@ -371,6 +377,46 @@ namespace RestaurantReservation
         {
             MainForm1.loadform(new MainMenuWindow());
             MainForm1.MyrefeshMethod();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void searchTextBox_Click(object sender, EventArgs e)
+        {
+            searchTextBox.Focus();
+            searchTextBox.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime ww;
+            //w = Convert.ToDateTime(searchTextBox.Text);
+            
+            using (SqlConnection cnn = ConnectionClasss.connnect())
+            {
+                cnn.Open();
+
+                SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations " +
+                    "where client LIKE '%"+searchTextBox.Text+ "%' or ClientID LIKE '%"+searchTextBox.Text+"%' " +
+                    "or  ReservationID LIKE '%"+searchTextBox.Text+"%'", cnn);
+
+                cmd2.Parameters.AddWithValue("@clientID", searchTextBox.Text);
+                cmd2.Parameters.AddWithValue("@ResvID", searchTextBox.Text);
+                cmd2.Parameters.AddWithValue("@clientname", searchTextBox.Text);
+                    
+                
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = cmd2;
+                dt.Clear();
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+                cnn.Close();
+            }
         }
     }
 }

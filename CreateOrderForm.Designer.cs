@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateOrderForm));
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -54,6 +53,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -62,14 +63,14 @@
             // 
             this.listView1.Location = new System.Drawing.Point(12, 66);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(293, 411);
+            this.listView1.Size = new System.Drawing.Size(303, 411);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(230, 484);
+            this.button1.Location = new System.Drawing.Point(240, 494);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -77,18 +78,9 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 530);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "TOTAL : ";
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(332, 21);
+            this.button2.Location = new System.Drawing.Point(340, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 41);
             this.button2.TabIndex = 6;
@@ -98,7 +90,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(458, 20);
+            this.button3.Location = new System.Drawing.Point(451, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 41);
             this.button3.TabIndex = 7;
@@ -109,13 +101,14 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.cbModePayment);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(332, 425);
+            this.panel2.Location = new System.Drawing.Point(340, 425);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(341, 127);
+            this.panel2.Size = new System.Drawing.Size(357, 127);
             this.panel2.TabIndex = 9;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -155,20 +148,21 @@
             // panel3
             // 
             this.panel3.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.button7);
             this.panel3.Controls.Add(this.button6);
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button4);
-            this.panel3.Location = new System.Drawing.Point(679, 425);
+            this.panel3.Location = new System.Drawing.Point(703, 425);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(352, 127);
             this.panel3.TabIndex = 10;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(195, 72);
+            this.button7.Location = new System.Drawing.Point(181, 68);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(137, 39);
+            this.button7.Size = new System.Drawing.Size(163, 39);
             this.button7.TabIndex = 3;
             this.button7.Text = "Print";
             this.button7.UseVisualStyleBackColor = true;
@@ -176,9 +170,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(27, 69);
+            this.button6.Location = new System.Drawing.Point(3, 68);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(137, 39);
+            this.button6.Size = new System.Drawing.Size(174, 39);
             this.button6.TabIndex = 2;
             this.button6.Text = "Pay";
             this.button6.UseVisualStyleBackColor = true;
@@ -186,9 +180,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(195, 16);
+            this.button5.Location = new System.Drawing.Point(181, 16);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(137, 39);
+            this.button5.Size = new System.Drawing.Size(163, 39);
             this.button5.TabIndex = 1;
             this.button5.Text = "Reset";
             this.button5.UseVisualStyleBackColor = true;
@@ -196,9 +190,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(27, 16);
+            this.button4.Location = new System.Drawing.Point(3, 16);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(137, 39);
+            this.button4.Size = new System.Drawing.Size(174, 39);
             this.button4.TabIndex = 0;
             this.button4.Text = "Order";
             this.button4.UseVisualStyleBackColor = true;
@@ -217,16 +211,19 @@
             // tablelablblbl1
             // 
             this.tablelablblbl1.AutoSize = true;
-            this.tablelablblbl1.Location = new System.Drawing.Point(113, 14);
+            this.tablelablblbl1.BackColor = System.Drawing.Color.Transparent;
+            this.tablelablblbl1.Location = new System.Drawing.Point(103, 14);
             this.tablelablblbl1.Name = "tablelablblbl1";
             this.tablelablblbl1.Size = new System.Drawing.Size(87, 15);
             this.tablelablblbl1.TabIndex = 12;
             this.tablelablblbl1.Text = "Table Number: ";
+            this.tablelablblbl1.Click += new System.EventHandler(this.tablelablblbl1_Click);
             // 
             // TableNumLabel
             // 
             this.TableNumLabel.AutoSize = true;
-            this.TableNumLabel.Location = new System.Drawing.Point(206, 14);
+            this.TableNumLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TableNumLabel.Location = new System.Drawing.Point(196, 14);
             this.TableNumLabel.Name = "TableNumLabel";
             this.TableNumLabel.Size = new System.Drawing.Size(10, 15);
             this.TableNumLabel.TabIndex = 13;
@@ -235,7 +232,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(113, 40);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(103, 40);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 15);
             this.label7.TabIndex = 14;
@@ -244,7 +242,8 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(206, 40);
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Location = new System.Drawing.Point(196, 40);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(10, 15);
             this.lblDate.TabIndex = 15;
@@ -255,11 +254,12 @@
             this.flowLayoutPanel2.AutoScroll = true;
             this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel2.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(332, 68);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(340, 68);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(25);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(699, 344);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(715, 344);
             this.flowLayoutPanel2.TabIndex = 11;
             // 
             // printDocument1
@@ -276,12 +276,40 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Black;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.textBox2.Location = new System.Drawing.Point(12, 523);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(303, 29);
+            this.textBox2.TabIndex = 16;
+            this.textBox2.Text = "TOTAL : ";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.Black;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.textBox3.Location = new System.Drawing.Point(12, 549);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(303, 38);
+            this.textBox3.TabIndex = 17;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CreateOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
-            this.ClientSize = new System.Drawing.Size(1264, 641);
+            this.ClientSize = new System.Drawing.Size(1060, 641);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.label7);
@@ -292,7 +320,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -312,7 +339,6 @@
 
         private ListView listView1;
         private Button button1;
-        private Label label3;
         private Button button2;
         private Button button3;
         private Panel panel2;
@@ -334,5 +360,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
+        private TextBox textBox2;
+        private TextBox textBox3;
     }
 }
