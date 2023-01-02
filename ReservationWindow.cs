@@ -326,44 +326,50 @@ namespace RestaurantReservation
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            int CurIndexRow = dataGridView1.CurrentCell.RowIndex;
-            int currentrow = dataGridView1.SelectedCells[0].RowIndex;
-            string reservationid = dataGridView1.SelectedCells[0].Value.ToString();
-
-            try
+            if (dataGridView1.SelectedCells.Equals(""))
             {
-               
-                using (SqlConnection cnn = ConnectionClasss.connnect())
+                
+                MessageBox.Show("No Selection");
+            }
+            else
+            {
+
+                try
                 {
-                    //ResvDate,client,tablenum,diners
-                    using (SqlCommand command1 = new SqlCommand("DELETE Reservations where ReservationID = @ReservationID",  cnn))
+
+                    string reservationid = dataGridView1.SelectedCells[0].Value.ToString();
+                    using (SqlConnection cnn = ConnectionClasss.connnect())
                     {
-                        command1.Parameters.Add("@ReservationID", SqlDbType.VarChar).Value = reservationid;
+                        //ResvDate,client,tablenum,diners
+                        using (SqlCommand command1 = new SqlCommand("DELETE Reservations where ReservationID = @ReservationID", cnn))
+                        {
+                            command1.Parameters.Add("@ReservationID", SqlDbType.VarChar).Value = reservationid;
+                            cnn.Open();
+                            command1.ExecuteNonQuery();
+
+                            cnn.Close();
+
+                        }
+                    }
+                    using (SqlConnection cnn = ConnectionClasss.connnect())
+                    {
                         cnn.Open();
-                        command1.ExecuteNonQuery();
 
+                        SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations", cnn);
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        DataTable dt = new DataTable();
+                        da.SelectCommand = cmd2;
+                        dt.Clear();
+                        da.Fill(dt);
+
+                        dataGridView1.DataSource = dt;
                         cnn.Close();
-
                     }
                 }
-                using (SqlConnection cnn = ConnectionClasss.connnect())
+                catch (Exception ex)
                 {
-                    cnn.Open();
-
-                    SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations", cnn);
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    DataTable dt = new DataTable();
-                    da.SelectCommand = cmd2;
-                    dt.Clear();
-                    da.Fill(dt);
-
-                    dataGridView1.DataSource = dt;
-                    cnn.Close();
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 

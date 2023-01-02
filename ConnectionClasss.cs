@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using MySqlConnector;
-using MySqlConnection = MySql.Data.MySqlClient.MySqlConnection;
+//using MySqlConnection = MySql.Data.MySqlClient.MySqlConnection;
 
 namespace RestaurantReservation
 {
@@ -17,8 +17,9 @@ namespace RestaurantReservation
            
             string connectionString;
             SqlConnection cocnn;
-            connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\Data\\RestaurantDB.mdf\";Integrated Security=True";
-            string connetionString = "Data Source=SHIINANEET;Initial Catalog=RestaurantDB;Integrated Security=true";
+           // connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\Data\\RestaurantDB.mdf\";Integrated Security=True";
+          //  string connetionString = "Data Source=SHIINANEET;Initial Catalog=RestaurantDB;Integrated Security=True";
+            string connetionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\RestaurantDB.mdf\";Integrated Security=True";
             cocnn = new SqlConnection(connetionString);
             return cocnn;
         }

@@ -130,7 +130,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = global::RestaurantReservation.Properties.Resources.remove;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(490, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 23);
