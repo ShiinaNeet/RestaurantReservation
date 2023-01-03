@@ -54,7 +54,7 @@
             // monthCalendar1
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.monthCalendar1.Location = new System.Drawing.Point(31, 100);
+            this.monthCalendar1.Location = new System.Drawing.Point(31, 149);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.ShowToday = false;
             this.monthCalendar1.ShowTodayCircle = false;
@@ -65,11 +65,12 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(365, 100);
+            this.dataGridView1.Location = new System.Drawing.Point(332, 100);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(670, 312);
+            this.dataGridView1.Size = new System.Drawing.Size(788, 418);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -79,9 +80,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(360, 12);
+            this.label1.Location = new System.Drawing.Point(320, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 45);
+            this.label1.Size = new System.Drawing.Size(264, 54);
             this.label1.TabIndex = 3;
             this.label1.Text = "Reservations";
             // 
@@ -91,18 +92,18 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(31, 50);
+            this.label2.Location = new System.Drawing.Point(22, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 25);
+            this.label2.Size = new System.Drawing.Size(162, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Client Name: ";
             // 
             // ClnNameTxtBox
             // 
             this.ClnNameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ClnNameTxtBox.Location = new System.Drawing.Point(32, 78);
+            this.ClnNameTxtBox.Location = new System.Drawing.Point(30, 111);
             this.ClnNameTxtBox.Name = "ClnNameTxtBox";
-            this.ClnNameTxtBox.Size = new System.Drawing.Size(226, 23);
+            this.ClnNameTxtBox.Size = new System.Drawing.Size(261, 27);
             this.ClnNameTxtBox.TabIndex = 5;
             // 
             // timer1
@@ -111,9 +112,9 @@
             // 
             // ReserveBtn
             // 
-            this.ReserveBtn.Location = new System.Drawing.Point(137, 429);
+            this.ReserveBtn.Location = new System.Drawing.Point(149, 524);
             this.ReserveBtn.Name = "ReserveBtn";
-            this.ReserveBtn.Size = new System.Drawing.Size(121, 23);
+            this.ReserveBtn.Size = new System.Drawing.Size(139, 38);
             this.ReserveBtn.TabIndex = 6;
             this.ReserveBtn.Text = "Reserve";
             this.ReserveBtn.UseVisualStyleBackColor = true;
@@ -121,9 +122,9 @@
             // 
             // ReloadBtn
             // 
-            this.ReloadBtn.Location = new System.Drawing.Point(455, 429);
+            this.ReloadBtn.Location = new System.Drawing.Point(413, 524);
             this.ReloadBtn.Name = "ReloadBtn";
-            this.ReloadBtn.Size = new System.Drawing.Size(75, 23);
+            this.ReloadBtn.Size = new System.Drawing.Size(77, 38);
             this.ReloadBtn.TabIndex = 7;
             this.ReloadBtn.Text = "Reload";
             this.ReloadBtn.UseVisualStyleBackColor = true;
@@ -131,9 +132,9 @@
             // 
             // DeleteBtn
             // 
-            this.DeleteBtn.Location = new System.Drawing.Point(960, 429);
+            this.DeleteBtn.Location = new System.Drawing.Point(1031, 524);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 38);
             this.DeleteBtn.TabIndex = 8;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
@@ -144,20 +145,20 @@
             this.dateTimePicker1.AllowDrop = true;
             this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(32, 274);
+            this.dateTimePicker1.Location = new System.Drawing.Point(31, 370);
             this.dateTimePicker1.MinDate = new System.DateTime(2022, 10, 15, 0, 1, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(226, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(261, 27);
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 15, 19, 51, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // TableBtn
             // 
-            this.TableBtn.Location = new System.Drawing.Point(32, 429);
+            this.TableBtn.Location = new System.Drawing.Point(26, 524);
             this.TableBtn.Name = "TableBtn";
-            this.TableBtn.Size = new System.Drawing.Size(100, 23);
+            this.TableBtn.Size = new System.Drawing.Size(117, 38);
             this.TableBtn.TabIndex = 10;
             this.TableBtn.Text = "Table";
             this.TableBtn.UseVisualStyleBackColor = true;
@@ -169,9 +170,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(26, 357);
+            this.label3.Location = new System.Drawing.Point(27, 464);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
+            this.label3.Size = new System.Drawing.Size(187, 32);
             this.label3.TabIndex = 11;
             this.label3.Text = "Table Number : ";
             // 
@@ -181,9 +182,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(27, 313);
+            this.label4.Location = new System.Drawing.Point(26, 416);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 25);
+            this.label4.Size = new System.Drawing.Size(186, 32);
             this.label4.TabIndex = 12;
             this.label4.Text = "Diners count   : ";
             // 
@@ -201,26 +202,26 @@
             "8",
             "9",
             "10"});
-            this.DinersCount.Location = new System.Drawing.Point(179, 315);
+            this.DinersCount.Location = new System.Drawing.Point(214, 420);
             this.DinersCount.Name = "DinersCount";
-            this.DinersCount.Size = new System.Drawing.Size(79, 23);
+            this.DinersCount.Size = new System.Drawing.Size(79, 28);
             this.DinersCount.TabIndex = 13;
             // 
             // TableLabel
             // 
             TableLabel.AutoSize = true;
-            TableLabel.BackColor = System.Drawing.Color.Transparent;
-           TableLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            TableLabel.Location = new System.Drawing.Point(179, 358);
+            TableLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            TableLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            TableLabel.Location = new System.Drawing.Point(279, 466);
             TableLabel.Name = "TableLabel";
-            TableLabel.Size = new System.Drawing.Size(0, 25);
+            TableLabel.Size = new System.Drawing.Size(0, 32);
             TableLabel.TabIndex = 14;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(365, 429);
+            this.btnUpdate.Location = new System.Drawing.Point(332, 524);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(75, 38);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -230,7 +231,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(31, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 35);
             this.button1.TabIndex = 16;
             this.button1.Text = "Go back";
             this.button1.UseVisualStyleBackColor = true;
@@ -238,9 +239,9 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(365, 65);
+            this.searchTextBox.Location = new System.Drawing.Point(332, 65);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(591, 23);
+            this.searchTextBox.Size = new System.Drawing.Size(707, 27);
             this.searchTextBox.TabIndex = 17;
             this.searchTextBox.Text = "Search here.....";
             this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
@@ -248,9 +249,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(962, 64);
+            this.button2.Location = new System.Drawing.Point(1045, 62);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 18;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
@@ -263,7 +264,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1047, 526);
+            this.ClientSize = new System.Drawing.Size(1132, 629);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.button1);

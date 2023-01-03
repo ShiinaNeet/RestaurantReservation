@@ -27,9 +27,9 @@ namespace RestaurantReservation
         Image imgCoffee = Resources.coffee_cup;
         int curMode = 0;
         static int tablenum;
-        string[] images1 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
-        string[] images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.jpg");
-        string[] imagesname = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
+        string[] images1 = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 1\", "*.png");
+        string[] images2 = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 2\", "*.jpg");
+      string[] imagesname = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 1\", "*.png");
         string[] itemInside = new string[50];
         PictureBox[] pictureBox = new PictureBox[50];
         PictureBox[] pictureBox2 = new PictureBox[50];
@@ -51,7 +51,7 @@ namespace RestaurantReservation
             flowLayoutPanel2.Controls.Clear();
 
             lblDate.Text = DateTime.Now.ToString();
-            string[] images = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
+            string[] images = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 1\", "*.png");
             PictureBox[] pictureBox = new PictureBox[50];
             for (int i = 0; i < images1.Count(); i++)
             {
@@ -137,14 +137,15 @@ namespace RestaurantReservation
             flowLayoutPanel2.Controls.Clear();
 
             lblDate.Text = DateTime.Now.ToString();
-            string[] images = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
+            string[] images = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 1\", "*.png");
+
             PictureBox[] pictureBox = new PictureBox[50];
             for (int i = 0; i < images1.Count(); i++)
             {
                 pictureBox[i] = new PictureBox();
-             //   pictureBox[i].Name = "pictureBox" + i;
+               pictureBox[i].Name = "pictureBox" + i;
                 pictureBox[i].Size = new Size(155, 98);
-                pictureBox[i].Name= images[i];
+             //   pictureBox[i].Name= images[i];
                 Image image = Image.FromFile(images1[i]);
                 pictureBox[i].Image = image;
                 pictureBox[i].SizeMode = PictureBoxSizeMode.Zoom;
@@ -155,6 +156,7 @@ namespace RestaurantReservation
                 {
                     pictureBox[i].Click += new EventHandler(pictureBox1_Click);
                     ImagesPanel[i] = pictureBox[i].Image;
+                        
                     curMode = 0;
                     curpic1 = ImagesPanel[0];
                 }
@@ -230,7 +232,7 @@ namespace RestaurantReservation
             flowLayoutPanel2.Controls.Clear();
 
             lblDate.Text = DateTime.Now.ToString();
-            images2 = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 2\", "*.jpg");
+            images2 = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 2\", "*.jpg");
 
             for (int i = 0; i < images2.Count(); i++)
             {
@@ -312,7 +314,7 @@ namespace RestaurantReservation
                 {
                     curpic1 = ImagesPanel[0];
 
-                    if (itemv.Text.ToString().Equals("qwe"))
+                    if (itemv.Text.ToString().Equals(""))
                     {
                         double updQty = Convert.ToDouble(itemv.SubItems[1].Text) + 1;
                         double updPrice = Convert.ToDouble(itemv.SubItems[2].Text) + BurgerPrice;
@@ -723,7 +725,7 @@ namespace RestaurantReservation
                 if (curMode == 0)
                 {
                     curpic1 = ImagesPanel[0];
-                    string[] imagesName = Directory.GetFiles(@"C:\Users\dayan\source\repos\New Restaurant Reservation\Mode 1\", "*.png");
+                    string[] imagesName = Directory.GetFiles(@"C:\Users\unola\source\repos\thisthisthis\RestaurantReservation\Mode 1\", "*.png");
 
 
                     if (itemv.Text.ToString().Equals("Burger Whooper"))

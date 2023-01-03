@@ -149,7 +149,7 @@ namespace RestaurantReservation
         {
             BackgroundImage = Resources.texture_background_1404_991;
             BackgroundImageLayout = ImageLayout.None;
-            timer1.Interval = (100); // 1 secs
+            timer1.Interval = (200); // 1 secs
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
             int x = 20;

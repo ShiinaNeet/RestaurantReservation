@@ -137,8 +137,9 @@ namespace RestaurantReservation
             splitContainer1.Panel1.BackgroundImage = Resources.texture_background_1404_991;
             splitContainer1.Panel1.BackgroundImageLayout = ImageLayout.None;
             splitContainer1.Panel2.BackgroundImage = Resources.texture_background_1404_991;
-            splitContainer1.Panel1.BackgroundImageLayout = ImageLayout.None;
-
+            splitContainer1.Panel2.BackgroundImageLayout = ImageLayout.None;
+            BackgroundImage = Resources.texture_background_1404_991;
+            BackgroundImageLayout = ImageLayout.Zoom;
 
         }
 
