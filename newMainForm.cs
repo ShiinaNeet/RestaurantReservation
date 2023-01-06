@@ -25,6 +25,12 @@ namespace RestaurantReservation
             button3.Focus();
             if (button3.Focused == true)
             {
+                button12.BringToFront();
+                button12.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button10.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button9.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button14.BackColor = Color.Black;
+
                 button3.BackColor = Color.Silver;
                 ProductOptionsForm ww = new ProductOptionsForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
@@ -42,7 +48,20 @@ namespace RestaurantReservation
 
         private void newMainForm_Load(object sender, EventArgs e)
         {
-            
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.FlatAppearance.BorderSize = 0; 
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.FlatAppearance.BorderSize = 0;
         }
         public void formselect(Form f)  
         {
@@ -62,12 +81,18 @@ namespace RestaurantReservation
 
         private void button6_Click(object sender, EventArgs e)
         {
+            button6.Focus();
             panel2.Controls.Clear();
            
-            button6.Focus();
            
             if (button6.Focused == true) 
             {
+                button14.BringToFront();
+                button14.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button10.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button9.BackColor = Color.Black;
+
                 button6.BackColor = Color.Silver;
                 AboutForm ww = new AboutForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, };
                 ww.FormBorderStyle = FormBorderStyle.None;
@@ -91,6 +116,13 @@ namespace RestaurantReservation
             button2.Focus();
             if (button2.Focused == true)
             {
+                button11.BringToFront();
+                button11.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button9.BackColor = Color.Black;
+                button10.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button14.BackColor = Color.Black;
+
+
                 button2.BackColor = Color.Silver;
                 OrdersOptions ww = new OrdersOptions() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
@@ -112,6 +144,12 @@ namespace RestaurantReservation
             button7.Focus();
             if (button7.Focused == true)
             {
+                button9.BringToFront();
+                button9.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button10.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button14.BackColor = Color.Black;
+               
                 button7.BackColor = Color.Silver;
                 TableForm ww = new TableForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
@@ -133,7 +171,13 @@ namespace RestaurantReservation
             button5.Focus();
             if (button5.Focused == true)
             {
-                button4.BackColor = Color.Silver;
+                button13.BringToFront();
+                button13.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button10.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button9.BackColor = Color.Black; button14.BackColor = Color.Black;
+
+                button5.BackColor = Color.Silver;
                 AccountsForm ww = new AccountsForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
@@ -154,6 +198,13 @@ namespace RestaurantReservation
             button4.Focus();
             if (button4.Focused == true)
             {
+                button10.BringToFront();
+                button10.BackColor = Color.Blue;
+                button8.BackColor = Color.Black; button9.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button14.BackColor = Color.Black;
+
+
                 button4.BackColor = Color.Silver;
                 SalesDashboard ww = new SalesDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
@@ -175,6 +226,11 @@ namespace RestaurantReservation
             button1.Focus();
             if (button1.Focused == true)
             {
+                button8.BackColor = Color.Blue;
+                button9.BackColor = Color.Black; button10.BackColor = Color.Black;
+                button11.BackColor = Color.Black; button12.BackColor = Color.Black;
+                button13.BackColor = Color.Black; button14.BackColor = Color.Black;
+                button8.BringToFront();
                 button1.BackColor = Color.Silver;
                 HomeForm ww = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
