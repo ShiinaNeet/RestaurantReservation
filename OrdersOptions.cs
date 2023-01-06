@@ -35,9 +35,16 @@ namespace RestaurantReservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm1.loadform(new TableOrder());
-            MainForm1.MyrefeshMethod();
-            
+            //   MainForm1.loadform(new TableOrder());
+            TableOrder to = new TableOrder()
+            { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(to);
+            to.Show();
+            this.Close();
+            // MainForm1.MyrefeshMethod();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
