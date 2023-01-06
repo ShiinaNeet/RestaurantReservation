@@ -82,9 +82,9 @@ namespace RestaurantReservation
 
         private void TableOrder_Load(object sender, EventArgs e)
         {
-            
+
             btn1.BackgroundImage = Resources.table;
-            btn1.BackgroundImageLayout =ImageLayout.Zoom;
+            btn1.BackgroundImageLayout = ImageLayout.Zoom;
             btn2.BackgroundImage = Resources.table;
             btn2.BackgroundImageLayout = ImageLayout.Zoom;
             btn3.BackgroundImage = Resources.table;
@@ -95,7 +95,14 @@ namespace RestaurantReservation
             btn5.BackgroundImageLayout = ImageLayout.Zoom;
             btn6.BackgroundImage = Resources.table;
             btn6.BackgroundImageLayout = ImageLayout.Zoom;
-
+            btn7.BackgroundImage = Resources.table;
+            btn7.BackgroundImageLayout = ImageLayout.Zoom;
+            btn8.BackgroundImage = Resources.table;
+            btn8.BackgroundImageLayout = ImageLayout.Zoom;
+            btn9.BackgroundImage = Resources.table;
+            btn9.BackgroundImageLayout = ImageLayout.Zoom;
+            btn10.BackgroundImage = Resources.table;
+            btn10.BackgroundImageLayout = ImageLayout.Zoom;
             btnarray.Add(btn1); btnarray.Add(btn2); btnarray.Add(btn3); btnarray.Add(btn4); btnarray.Add(btn5);
             btnarray.Add(btn6); btnarray.Add(btn7); btnarray.Add(btn8); btnarray.Add(btn9); btnarray.Add(btn10);
 
@@ -108,6 +115,11 @@ namespace RestaurantReservation
             btn8.Enabled = false;
             btn9.Enabled = false;
             btn10.Enabled = false;
+
+            btn7.Visible = false;
+            btn8.Visible = false;
+            btn9.Visible = false;
+            btn10.Visible = false;
         }
 
         private void button1_Click_1(object sender, EventArgs e)

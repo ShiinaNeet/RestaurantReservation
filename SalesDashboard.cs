@@ -110,11 +110,19 @@ namespace RestaurantReservation
                         cnn.Close();
                     }
                     // today revenue
-                    using (SqlCommand command = new SqlCommand("SELECT SUM(Price) from Orders where DateOrder = FORMAT(GETDATE(),'yyyy-MM-dd') ", cnn))
+                    using (SqlCommand command21 = new SqlCommand("SELECT SUM(Price) from Orders where DateOrder = FORMAT(GETDATE(),'yyyy-MM-dd') ", cnn))
                     {
                         cnn.Open();
 
-                        todayrevenue = Convert.ToInt32(command.ExecuteScalar());
+                        var ttodayrevenue = command21.ExecuteScalar();
+                        if (ttodayrevenue == DBNull.Value)
+                         {
+                            todayrevenue= 0;
+                        }
+                        else
+                        {
+                           todayrevenue = Convert.ToInt32(ttodayrevenue);
+                        }
                         label9.Text = todayrevenue.ToString();
                         label9.Text = String.Format(CultureInfo.CreateSpecificCulture("en-PH"), "{0:C}", double.Parse(label9.Text));
                         cnn.Close();
