@@ -63,18 +63,15 @@ namespace RestaurantReservation
 
             if (btnclick == 1)
             {
-                MainForm1.loadform(new TableForm());
-                MainForm1.MyrefeshMethod();
+                
             }
             else if(btnclick == 2)
             {
-                MainForm1.loadform(new OrdersOptions());
-                MainForm1.MyrefeshMethod();
+               
             }
             else
             {
-                MainForm1.loadform(new ProductOptionsForm());
-                MainForm1.MyrefeshMethod();
+                
             }
 
         }

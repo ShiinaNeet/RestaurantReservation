@@ -59,8 +59,7 @@ namespace RestaurantReservation
         {
             if (btnclick == 3)
             {
-                MainForm1.loadform(new MainMenuWindow());
-                MainForm1.MyrefeshMethod();
+                
             }
         }
 

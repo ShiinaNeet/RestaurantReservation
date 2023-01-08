@@ -891,8 +891,7 @@ namespace RestaurantReservation
         private void button8_Click(object sender, EventArgs e)
         {
             this.Close();
-            MainForm1.loadform(new MainMenuWindow());
-            MainForm1.MyrefeshMethod();
+            
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -1038,7 +1037,7 @@ namespace RestaurantReservation
 
                         listView1.Clear();
                         this.Close();
-                        MainForm1.loadform(new MainMenuWindow());
+                       
                         //MainForm1.MyrefeshMethod();
 
                         

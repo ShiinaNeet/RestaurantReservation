@@ -204,8 +204,7 @@ namespace RestaurantReservation
 
         private void ProductOptionsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainForm1.loadform(new MainMenuWindow());
-            MainForm1.MyrefeshMethod();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

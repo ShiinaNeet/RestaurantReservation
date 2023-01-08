@@ -23,6 +23,7 @@ namespace RestaurantReservation
         private string hash = "%4h&bn9873*7^><?:'";
         public string UserName;
         public string Pwd;
+        
         public Login()
         {
             InitializeComponent();
@@ -40,14 +41,15 @@ namespace RestaurantReservation
                 cripter();
                 SqlCommand command = new SqlCommand();
                 command.Connection = cnn;
-                // command.CommandType = CommandType.Text;
+
                 command.CommandText = "SELECT * FROM AccountUsers WHERE UserName='" + UserNameTxtBox.Text + "'AND Password='" + PWTxtBox.Text + "'";
                 SqlDataReader dr = command.ExecuteReader();
                 if (dr.Read())
                 {
-                    
-                    MainForm1 mf = new MainForm1();
-                    mf.Show();
+                    Account account = new Account();
+                    account.Job= dr["Position"].ToString();
+                    newMainForm nn = new newMainForm();
+                    nn.Show();
                     this.Hide();
 
                 }
@@ -63,6 +65,23 @@ namespace RestaurantReservation
 
 
             cnn.Close();
+
+        }
+        public class Account
+        {
+            private string username;
+            private string password;
+            public static string job;
+            
+
+            public string Job { 
+                get { return job; }  
+                set { job = value; } 
+                }
+            public string getJob() 
+            { 
+                return job;
+            }
 
         }
 

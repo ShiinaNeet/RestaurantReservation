@@ -34,7 +34,7 @@ namespace RestaurantReservation
          //   BackgroundImage = Resources.BurgerBackground;
         //    BackgroundImageLayout = ImageLayout.Stretch;
         }
-       
+      /* 
         public static void loadform(Form Form) 
         { 
             
@@ -51,11 +51,11 @@ namespace RestaurantReservation
           
             
             
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainForm1.loadform(new MainMenuWindow());
+           
         }
 
         public static void MyrefeshMethod()

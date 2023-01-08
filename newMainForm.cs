@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace RestaurantReservation
 {
@@ -48,6 +49,12 @@ namespace RestaurantReservation
 
         private void newMainForm_Load(object sender, EventArgs e)
         {
+          
+            Login.Account account = new Login.Account();
+            
+            label1.Text = account.getJob();
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            
             button1.FlatStyle = FlatStyle.Flat;
             button1.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
@@ -244,6 +251,16 @@ namespace RestaurantReservation
                 button5.BackColor = SystemColors.InfoText;
                 button7.BackColor = SystemColors.InfoText;
             }
+        }
+
+        private void newMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

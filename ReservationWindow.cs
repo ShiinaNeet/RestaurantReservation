@@ -381,8 +381,7 @@ namespace RestaurantReservation
 
         private void ReservationWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainForm1.loadform(new MainMenuWindow());
-            MainForm1.MyrefeshMethod();
+           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
