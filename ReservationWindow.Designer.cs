@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DinersCount = new System.Windows.Forms.ComboBox();
-            TableLabel = new System.Windows.Forms.Label();
+            this.TableLabel = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
@@ -85,6 +85,7 @@
             this.label1.Size = new System.Drawing.Size(264, 54);
             this.label1.TabIndex = 3;
             this.label1.Text = "Reservations";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -209,13 +210,13 @@
             // 
             // TableLabel
             // 
-            TableLabel.AutoSize = true;
-            TableLabel.BackColor = System.Drawing.Color.WhiteSmoke;
-            TableLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            TableLabel.Location = new System.Drawing.Point(279, 466);
-            TableLabel.Name = "TableLabel";
-            TableLabel.Size = new System.Drawing.Size(0, 32);
-            TableLabel.TabIndex = 14;
+            this.TableLabel.AutoSize = true;
+            this.TableLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.TableLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TableLabel.Location = new System.Drawing.Point(279, 466);
+            this.TableLabel.Name = "TableLabel";
+            this.TableLabel.Size = new System.Drawing.Size(0, 32);
+            this.TableLabel.TabIndex = 14;
             // 
             // btnUpdate
             // 
@@ -269,7 +270,7 @@
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(TableLabel);
+            this.Controls.Add(this.TableLabel);
             this.Controls.Add(this.DinersCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -320,6 +321,6 @@
         private Button button1;
         private TextBox searchTextBox;
         private Button button2;
-        private static Label TableLabel;
+        private Label TableLabel;
     }
 }

@@ -24,7 +24,8 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 namespace RestaurantReservation
 {
     public partial class ReservationWindow : Form
-    {
+    {   static ComboBox combobox1 = new ComboBox();
+        
         string ResDate;
         string ClientName;
         string ResTime;
@@ -76,19 +77,18 @@ namespace RestaurantReservation
                 dataGridView1.DataSource = dt;
                 cnn.Close();
             }
-         //   TableForm tf = new TableForm();
-           // TableLabel.Text = tf.getTableNum().ToString();
-          //  tablenumber = tf.getTableNum();
-
-
+            //   TableForm tf = new TableForm();
+            // TableLabel.Text = tf.getTableNum().ToString();
+            //  tablenumber = tf.getTableNum();
+            
 
         }
         public static void setTableNum(int ix)
         {
-            TableLabel.Text = ix.ToString();
+            //TableLabel.Text = ix.ToString();
             tablenumber = ix;
             ReservationWindow.myfresh();
-
+            combobox1.Text = tablenumber.ToString();
         }
 
         private void ReservationWindow_Load(object sender, EventArgs e)
@@ -104,14 +104,29 @@ namespace RestaurantReservation
 
             BackgroundImage = Resources.texture_background_1404_991;
             BackgroundImageLayout = ImageLayout.None;
+            combobox1.Location = new Point(214, 466);
+            combobox1.Show();
+            combobox1.Visible = true;
+            combobox1.Size= new System.Drawing.Size(79, 28);
+            this.Controls.Add(combobox1);
+            combobox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
 
-
-            
         }
 
         public static void myfresh() 
         {
-            TableLabel.Text = tablenumber.ToString();
+           // TableLabel.Text = tablenumber.ToString();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -119,19 +134,19 @@ namespace RestaurantReservation
             Boolean result;
             string ResTime1223 = dateTimePicker1.Value.ToString("HH:mm:ss");
             string ResDate1223 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            
+            string result1;
             DateTime timetime = Convert.ToDateTime(ResDate1223 + " " + ResTime1223);
             string timetime1q = ResDate1223 + " " + ResTime1223;
             using (SqlConnection cnn = ConnectionClasss.connnect())
             {
-                using (SqlCommand command = new SqlCommand("declare @timetime datetime;\r\nset @timetime =  cast(@timertime as datetime);\r\nSELECT CASE WHEN EXISTS(SELECT * from Reservations where ResvDate  BETWEEN @timetime AND DATEADD(HOUR,2,@timetime) AND tablenum = @tablenum) THEN 'TRUE' ELSE 'FALSE' end", cnn))
+                using (SqlCommand command = new SqlCommand("declare @timetime datetime;\r\nset @timetime =  cast(@timertime as datetime);\r\nSELECT CASE WHEN EXISTS(SELECT * from Reservations where ResvDate  BETWEEN @timertime AND DATEADD(HOUR,2,@timertime) AND tablenum = @tablenum) THEN 'TRUE' ELSE 'FALSE' end", cnn))
                 {
                     command.Parameters.AddWithValue("@timertime",timetime1q);
                     command.Parameters.AddWithValue("@tablenum", TableLabel.Text);
                     cnn.Open();
 
-                    result = Convert.ToBoolean(command.ExecuteScalar());
-                
+                    //result = Convert.ToBoolean(command.ExecuteScalar());
+                    result1 = command.ExecuteScalar().ToString();
                     cnn.Close();
                 }
 
@@ -145,7 +160,7 @@ namespace RestaurantReservation
             else {
                 try
                 {
-                    if (@result == true)
+                    if (result1.Equals("TRUE"))
                     {
                         MessageBox.Show("Chosen Date is Reserved!");
                     }
@@ -422,6 +437,11 @@ namespace RestaurantReservation
                 dataGridView1.DataSource = dt;
                 cnn.Close();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
