@@ -39,6 +39,13 @@ namespace RestaurantReservation
             textBox2.Visible = false;
             button3.Visible = false;
             toolStripStatusLabel2.Visible = false;
+            pictureBox1.Visible = false;
+            cbProductType.Visible = false;
+            txtBoxPrice.Visible = false;
+            label5.Visible = false;
+            label6.Visible = false;
+            textBox3.Visible = false;
+            button5.Visible = false;
         }
 
         public void View_Table() 
@@ -69,16 +76,27 @@ namespace RestaurantReservation
             textBox1.Visible = true;
             textBox2.Visible = true;
             button3.Visible = true;
-            
-
-
+            label5.Visible = true;
+            label6.Visible = true;
+            cbProductType.Visible = true;
+            txtBoxPrice.Visible = true;
+            pictureBox1.Visible=true;
+            label5.Visible=true;
+            button5.Visible=true;
+            pictureBox1.Visible = true;
+            textBox3.Visible=true;
 
         }
         public void AddProduct()
         {
             ProductName = textBox1.Text;
             ProductDescription = textBox2.Text;
-
+            int prodType = 0;
+            if (cbProductType.Text.Equals("Drinks"))
+            {
+                prodType = 2;
+            }
+            else if(cbProductType.Text.Equals("Foods")){ prodType = 1; }
             if (textBox1.Text.ToString() == "" || textBox2.Text.ToString() == "")
             {
                 MessageBox.Show("Please Enter Product Name", "Product Name not Found", MessageBoxButtons.OK); textBox1.Select();textBox2.Select();
@@ -89,7 +107,7 @@ namespace RestaurantReservation
                 {
                     using (SqlConnection cnn = ConnectionClasss.connnect())
                     {
-                        using (SqlCommand command = new SqlCommand("use RestaurantDB; SELECT MAX(ProductsID) from ProductsTbl", cnn))
+                        using (SqlCommand command = new SqlCommand("SELECT MAX(ProductsID) from ProductsTbl", cnn))
                         {
                             cnn.Open();
 
@@ -103,11 +121,13 @@ namespace RestaurantReservation
                     {
 
                         using (SqlCommand command1 = 
-                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Productname],[ProductDetails]) Values(@ProductID,@ProductName,@ProductDetails)", cnn))
+                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Productname],[ProductDetails],Price,Type) Values(@ProductID,@ProductName,@ProductDetails,@Price,@Type)", cnn))
                         {
                             command1.Parameters.AddWithValue("@ProductID",ProductID+1);
                             command1.Parameters.AddWithValue("@ProductName",ProductName);
                             command1.Parameters.AddWithValue("@ProductDetails", ProductDescription);
+                            command1.Parameters.AddWithValue("@Price", txtBoxPrice.Text);
+                            command1.Parameters.AddWithValue("@Type", prodType);
                             cnn.Open();
                             command1.ExecuteNonQuery();
 
@@ -208,6 +228,30 @@ namespace RestaurantReservation
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                   string fileName = ofd.FileName;
+                    textBox3.Text = fileName;
+                    pictureBox1.Image = Image.FromFile(fileName);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
