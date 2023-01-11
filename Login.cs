@@ -47,7 +47,8 @@ namespace RestaurantReservation
                 if (dr.Read())
                 {
                     Account account = new Account();
-                    account.Job= dr["Position"].ToString();
+                    Account.Job= dr["Position"].ToString();
+                    Account.Username = dr["UserName"].ToString();
                     newMainForm nn = new newMainForm();
                     nn.Show();
                     this.Hide();
@@ -69,18 +70,29 @@ namespace RestaurantReservation
         }
         public class Account
         {
-            private string username;
+            private static string username;
             private string password;
-            public static string job;
-            
+            private static string job;
+            private byte[] picture;
 
-            public string Job { 
+            public static string Username 
+            {
+                get { return username; }
+                set {
+                    username = value;
+                    }
+            }
+            public static string Job { 
                 get { return job; }  
                 set { job = value; } 
                 }
             public string getJob() 
             { 
                 return job;
+            }
+            public byte[] getAccountImage() 
+            { 
+                return picture;
             }
 
         }

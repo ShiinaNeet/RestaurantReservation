@@ -15,6 +15,7 @@ namespace RestaurantReservation
     {
         public delegate void setformValue(int ss);
         public setformValue setTableNum;
+        public string job;
         public newMainForm()
         {
             InitializeComponent();
@@ -23,8 +24,8 @@ namespace RestaurantReservation
         private void button3_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            button3.Focus();
-            if (button3.Focused == true)
+            ProductBTN.Focus();
+            if (ProductBTN.Focused == true)
             {
               /*  button12.BringToFront();
                 button12.BackColor = Color.Blue;
@@ -32,53 +33,94 @@ namespace RestaurantReservation
                 button11.BackColor = Color.Black; button9.BackColor = Color.Black;
                 button13.BackColor = Color.Black; button14.BackColor = Color.Black;
               */
-                button3.BackColor = Color.Silver;
+                ProductBTN.BackColor = Color.Silver;
                 ProductOptionsForm ww = new ProductOptionsForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button2.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
         private void newMainForm_Load(object sender, EventArgs e)
         {
-          
+
             Login.Account account = new Login.Account();
-            
-            label1.Text = account.getJob();
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.FlatAppearance.BorderSize = 0; 
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.FlatAppearance.BorderSize = 0;
+            label1.Text = Login.Account.Username;
+            job = Login.Account.Job;
+            label1.Text = Login.Account.Username;
+            HomeBTN.BackgroundImageLayout = ImageLayout.Zoom;
+
+            if (job.ToLower().Equals("server"))
+            {
+                DashboardBTN.Enabled = false;
+                DashboardBTN.Visible = false;
+                ProductBTN.Enabled = false;
+                ProductBTN.Visible = false;
+                AccountBTN.Enabled = false;
+                AccountBTN.Visible = false;
+
+            }
+            else if (job.ToLower().Equals("admin"))
+            {
+
+            }
+            else if (job.ToLower().Equals("cook"))
+            {
+
+                DashboardBTN.Enabled = false;
+                DashboardBTN.Visible = false;
+                AccountBTN.Enabled = false;
+                AccountBTN.Visible = false;
+
+            }
+            else 
+            {
+                var result = MessageBox.Show("How did you get here with incorrect details? "+ Environment.NewLine
+                    +" Application Restarting... ", "Warning!", MessageBoxButtons.OK);
+                if (result == DialogResult.OK)
+                {
+                    Application.Restart();
+                   
+                }
+                else {
+                    Application.Restart();
+                }
+                    
+                
+            }
+
+
+            HomeBTN.FlatStyle = FlatStyle.Flat;
+            HomeBTN.FlatAppearance.BorderSize = 0;
+            OrderBTN.FlatStyle = FlatStyle.Flat;
+            OrderBTN.FlatAppearance.BorderSize = 0;
+            ProductBTN.FlatStyle = FlatStyle.Flat;
+            ProductBTN.FlatAppearance.BorderSize = 0;
+            DashboardBTN.FlatStyle = FlatStyle.Flat;
+            DashboardBTN.FlatAppearance.BorderSize = 0;
+            AccountBTN.FlatStyle = FlatStyle.Flat;
+            AccountBTN.FlatAppearance.BorderSize = 0; 
+            AboutBTN.FlatStyle = FlatStyle.Flat;
+            AboutBTN.FlatAppearance.BorderSize = 0;
+            ReservationBTN.FlatStyle = FlatStyle.Flat;
+            ReservationBTN.FlatAppearance.BorderSize = 0;
         }
        
 
         private void button6_Click(object sender, EventArgs e)
         {
-            button6.Focus();
+            AboutBTN.Focus();
             panel2.Controls.Clear();
            
            
-            if (button6.Focused == true) 
+            if (AboutBTN.Focused == true) 
             {
               /*  button14.BringToFront();
                 button14.BackColor = Color.Blue;
@@ -86,19 +128,19 @@ namespace RestaurantReservation
                 button11.BackColor = Color.Black; button12.BackColor = Color.Black;
                 button13.BackColor = Color.Black; button9.BackColor = Color.Black;
               */
-                button6.BackColor = Color.Silver;
+                AboutBTN.BackColor = Color.Silver;
                 AboutForm ww = new AboutForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true, };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 ww.Focus();
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button2.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
@@ -106,8 +148,8 @@ namespace RestaurantReservation
         {
 
             panel2.Controls.Clear();
-            button2.Focus();
-            if (button2.Focused == true)
+            OrderBTN.Focus();
+            if (OrderBTN.Focused == true)
             {
               /*  button11.BringToFront();
                 button11.BackColor = Color.Blue;
@@ -116,26 +158,26 @@ namespace RestaurantReservation
                 button13.BackColor = Color.Black; button14.BackColor = Color.Black;
               */
 
-                button2.BackColor = Color.Silver;
+                OrderBTN.BackColor = Color.Silver;
                 OrdersOptions ww = new OrdersOptions() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            button7.Focus();
-            if (button7.Focused == true)
+            ReservationBTN.Focus();
+            if (ReservationBTN.Focused == true)
             {
                 /*
                 button9.BringToFront();
@@ -144,26 +186,26 @@ namespace RestaurantReservation
                 button11.BackColor = Color.Black; button12.BackColor = Color.Black;
                 button13.BackColor = Color.Black; button14.BackColor = Color.Black;
                */
-                button7.BackColor = Color.Silver;
+                ReservationBTN.BackColor = Color.Silver;
                 TableForm ww = new TableForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button2.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
             }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            button5.Focus();
-            if (button5.Focused == true)
+            AccountBTN.Focus();
+            if (AccountBTN.Focused == true)
             {
               /*  button13.BringToFront();
                 button13.BackColor = Color.Blue;
@@ -171,26 +213,26 @@ namespace RestaurantReservation
                 button11.BackColor = Color.Black; button12.BackColor = Color.Black;
                 button9.BackColor = Color.Black; button14.BackColor = Color.Black;
               */
-                button5.BackColor = Color.Silver;
+                AccountBTN.BackColor = Color.Silver;
                 AccountsForm ww = new AccountsForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button2.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            button4.Focus();
-            if (button4.Focused == true)
+            DashboardBTN.Focus();
+            if (DashboardBTN.Focused == true)
             {
              /*   button10.BringToFront();
                 button10.BackColor = Color.Blue;
@@ -199,26 +241,26 @@ namespace RestaurantReservation
                 button13.BackColor = Color.Black; button14.BackColor = Color.Black;
              */
 
-                button4.BackColor = Color.Silver;
+                DashboardBTN.BackColor = Color.Silver;
                 SalesDashboard ww = new SalesDashboard() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button1.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button2.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                HomeBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            button1.Focus();
-            if (button1.Focused == true)
+            HomeBTN.Focus();
+            if (HomeBTN.Focused == true)
             {
               /*  button8.BackColor = Color.Blue;
                 button9.BackColor = Color.Black; button10.BackColor = Color.Black;
@@ -226,18 +268,18 @@ namespace RestaurantReservation
                 button13.BackColor = Color.Black; button14.BackColor = Color.Black;
                 button8.BringToFront();
               */
-                button1.BackColor = Color.Silver;
+                HomeBTN.BackColor = Color.Silver;
                 HomeForm ww = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 ww.FormBorderStyle = FormBorderStyle.None;
                 panel2.Controls.Add(ww);
                 panel2.Refresh();
                 ww.Show();
-                button6.BackColor = SystemColors.InfoText;
-                button4.BackColor = SystemColors.InfoText;
-                button3.BackColor = SystemColors.InfoText;
-                button2.BackColor = SystemColors.InfoText;
-                button5.BackColor = SystemColors.InfoText;
-                button7.BackColor = SystemColors.InfoText;
+                AboutBTN.BackColor = SystemColors.InfoText;
+                DashboardBTN.BackColor = SystemColors.InfoText;
+                ProductBTN.BackColor = SystemColors.InfoText;
+                OrderBTN.BackColor = SystemColors.InfoText;
+                AccountBTN.BackColor = SystemColors.InfoText;
+                ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
 
