@@ -47,16 +47,8 @@ namespace RestaurantReservation
                 ReservationBTN.BackColor = SystemColors.InfoText;
             }
         }
-
-        private void newMainForm_Load(object sender, EventArgs e)
+        public void checkAccLevel() 
         {
-
-            Login.Account account = new Login.Account();
-            label1.Text = Login.Account.Username;
-            job = Login.Account.Job;
-            label1.Text = Login.Account.Username;
-            HomeBTN.BackgroundImageLayout = ImageLayout.Zoom;
-
             if (job.ToLower().Equals("server"))
             {
                 DashboardBTN.Enabled = false;
@@ -80,21 +72,43 @@ namespace RestaurantReservation
                 AccountBTN.Visible = false;
 
             }
-            else 
+            else
             {
-                var result = MessageBox.Show("How did you get here with incorrect details? "+ Environment.NewLine
-                    +" Application Restarting... ", "Warning!", MessageBoxButtons.OK);
+                var result = MessageBox.Show("How did you get here with incorrect details? " + Environment.NewLine
+                    + " Application Restarting... ", "Warning!", MessageBoxButtons.OK);
                 if (result == DialogResult.OK)
                 {
                     Application.Restart();
-                   
+
                 }
-                else {
+                else
+                {
                     Application.Restart();
                 }
-                    
-                
+
+
             }
+        }
+        public void resetBTNfocus() 
+        {
+            AboutBTN.BackColor = SystemColors.InfoText;
+            HomeBTN.BackColor = SystemColors.InfoText;
+            ProductBTN.BackColor = SystemColors.InfoText;
+            DashboardBTN.BackColor = SystemColors.InfoText;
+            AccountBTN.BackColor = SystemColors.InfoText;
+            OrderBTN.BackColor = SystemColors.InfoText;
+            ReservationBTN.BackColor = SystemColors.InfoText;
+        }
+        private void newMainForm_Load(object sender, EventArgs e)
+        {
+
+            Login.Account account = new Login.Account();
+            label1.Text = Login.Account.Username;
+            job = Login.Account.Job;
+            label1.Text = Login.Account.Username;
+            HomeBTN.BackgroundImageLayout = ImageLayout.Zoom;
+          //  checkAccLevel();
+            
 
 
             HomeBTN.FlatStyle = FlatStyle.Flat;

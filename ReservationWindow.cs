@@ -24,7 +24,7 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 namespace RestaurantReservation
 {
     public partial class ReservationWindow : Form
-    {   static ComboBox combobox1 = new ComboBox();
+    {   ComboBox combobox1 = new ComboBox();
         
         string ResDate;
         string ClientName;
@@ -88,15 +88,17 @@ namespace RestaurantReservation
             //TableLabel.Text = ix.ToString();
             tablenumber = ix;
             ReservationWindow.myfresh();
-            combobox1.Text = tablenumber.ToString();
+            
         }
 
         private void ReservationWindow_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
             timer1.Interval = (50000); // 1 secs
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
-
+            combobox1.Text = tablenumber.ToString();
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.CustomFormat = "hh-mm tt";
             myfresh();
@@ -104,7 +106,7 @@ namespace RestaurantReservation
 
             BackgroundImage = Resources.texture_background_1404_991;
             BackgroundImageLayout = ImageLayout.None;
-            combobox1.Location = new Point(214, 466);
+            combobox1.Location = new Point(218,408);
             combobox1.Show();
             combobox1.Visible = true;
             combobox1.Size= new System.Drawing.Size(79, 28);
@@ -257,7 +259,7 @@ namespace RestaurantReservation
             {
                 cnn.Open();
 
-                SqlCommand cmd2 = new SqlCommand("SELECT ReservationID,ClientID,ResvDate,client,tablenum,diners FROM Reservations", cnn);
+                SqlCommand cmd2 = new SqlCommand("SELECT client,ReservationID,ResvDate,tablenum,diners FROM Reservations", cnn);
                 SqlDataAdapter da = new SqlDataAdapter();
                 DataTable dt = new DataTable();
                 da.SelectCommand = cmd2;
@@ -390,8 +392,15 @@ namespace RestaurantReservation
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            newMainForm wz = new newMainForm();
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(rs);
+            wz.resetBTNfocus();
+            rs.Show();
             this.Close();
-            this.FormClosed += new FormClosedEventHandler(ReservationWindow_FormClosed);
+
         }
 
         private void ReservationWindow_FormClosed(object sender, FormClosedEventArgs e)
@@ -442,6 +451,26 @@ namespace RestaurantReservation
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime datetimer = dateTimePicker2.Value;
+            using (SqlConnection cnn = ConnectionClasss.connnect())
+            {
+                cnn.Open();
+
+                SqlCommand cmd2 = new SqlCommand("SELECT * FROM Reservations where ResvDate between @date and DATEADD(HOUR,24,@date)", cnn);
+                cmd2.Parameters.Add("@date", SqlDbType.DateTime).Value=datetimer;
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                da.SelectCommand = cmd2;
+                dt.Clear();
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+                cnn.Close();
+            }
         }
     }
 }
