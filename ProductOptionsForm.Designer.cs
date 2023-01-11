@@ -240,6 +240,7 @@
     "                 ";
             this.toolStripStatusLabel2.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.toolStripStatusLabel2.Visible = false;
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // button3
             // 

@@ -18,7 +18,7 @@ namespace RestaurantReservation
             // Application.Run(new MainForm1());
             //Application.Run(new ActiveOrdersForm());
             // Application.Run(new SalesDashboard());
-           Application.Run(new ProductOptionsForm());
+           Application.Run(new AccountsForm());
             
         }
     }

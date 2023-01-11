@@ -121,13 +121,15 @@ namespace RestaurantReservation
                     {
 
                         using (SqlCommand command1 = 
-                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Productname],[ProductDetails],Price,Type) Values(@ProductID,@ProductName,@ProductDetails,@Price,@Type)", cnn))
+                        new SqlCommand("Insert into ProductsTbl(ProductsID,[Productname],[ProductDetails],Price,Type,Picture) Values(@ProductID,@ProductName,@ProductDetails,@Price,@Type,@Picture)", cnn))
                         {
                             command1.Parameters.AddWithValue("@ProductID",ProductID+1);
                             command1.Parameters.AddWithValue("@ProductName",ProductName);
                             command1.Parameters.AddWithValue("@ProductDetails", ProductDescription);
                             command1.Parameters.AddWithValue("@Price", txtBoxPrice.Text);
                             command1.Parameters.AddWithValue("@Type", prodType);
+                          //  command1.Parameters.Add("@Picture",);
+
                             cnn.Open();
                             command1.ExecuteNonQuery();
 
@@ -252,6 +254,11 @@ namespace RestaurantReservation
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
         }
