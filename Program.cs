@@ -12,14 +12,14 @@ namespace RestaurantReservation
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //  Application.Run(new SqlConnectionForm());
-           // Application.Run(new Login());
+             Application.Run(new Login());
             // Application.Run(new SqlConnectionForm());
             //Application.Run(new MainMenuWindow());
-             Application.Run(new newMainForm());
+             //Application.Run(new newMainForm());
             //Application.Run(new ActiveOrdersForm());
             // Application.Run(new SalesDashboard());
          //  Application.Run(new AccountsForm());
-       //  Application.Run(new TableForm());
+       //  Application.Run(new CreateOrderForm());
             
         }
     }

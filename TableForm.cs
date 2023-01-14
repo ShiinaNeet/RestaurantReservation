@@ -71,6 +71,10 @@ namespace RestaurantReservation
                     {
                         Tablecount = 0;
                     }
+                    else if(Convert.ToInt32(tablenum) >= 10)
+                    {
+                        Tablecount = 10;
+                    }
                     else
                     {
                         Tablecount = Convert.ToInt32(tablenum);
@@ -79,7 +83,7 @@ namespace RestaurantReservation
                 }
 
             }
-            for (int i = 0; i <= Tablecount; i++)
+            for (int i = 0; i < Tablecount; i++)
             {
                 btnarray[i].Visible = true;
                 btnarray[i].Enabled = true;
@@ -393,67 +397,91 @@ namespace RestaurantReservation
 
         private void delete_Click(object sender, EventArgs e)
         {
-            Tablecount--;   
-            foreach (Button button in btnarray)
+            if (Tablecount == 1)
             {
-
-                if (button.Enabled == true)
-                {
-
-                }
-                else if (button.Enabled == false)
-                {
-                    try
-                    {
-                        using (SqlConnection cnn = ConnectionClasss.connnect())
-                        {
-                            using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =2 ", cnn))
-                            {
-                                command.Parameters.AddWithValue("@tablenumm", Tablecount);
-
-                                cnn.Open();
-
-                                command.ExecuteNonQuery();
-                                cnn.Close();
-                            }
-                        }
-                        currlastitem.Enabled = false;
-                        currlastitem.Visible = false;
-                        break;
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-                currlastitem = button;
-                if (button == btn10)
-                {
-                    try
-                    {
-                        using (SqlConnection cnn = ConnectionClasss.connnect())
-                        {
-                            using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =2 ", cnn))
-                            {
-                                command.Parameters.AddWithValue("@tablenumm", Tablecount);
-
-                                cnn.Open();
-
-                                command.ExecuteNonQuery();
-                                cnn.Close();
-                            }
-                        }
-                        currlastitem = btnarray[9];
-                        currlastitem.Enabled = false;
-                        currlastitem.Visible = false;
-
-                        break;
-                    }
-                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
-
-                }
-
+                MessageBox.Show("Table can't be deleted!");
+                Tablecount = 1;
+               
             }
+            else
+            {
+                foreach (Button button in btnarray)
+                {
+
+                    if (button.Enabled == true)
+                    {
+
+                    }
+                    else if (button.Enabled == false)
+                    {
+                        try
+                        {
+
+                            using (SqlConnection cnn = ConnectionClasss.connnect())
+                            {
+                                using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =2 ", cnn))
+                                {
+                                    Tablecount--;
+                                    command.Parameters.AddWithValue("@tablenumm", Tablecount);
+
+                                    cnn.Open();
+
+                                    command.ExecuteNonQuery();
+                                    cnn.Close();
+                                }
+                            }
+                            currlastitem.Enabled = false;
+                            currlastitem.Visible = false;
+                            break;
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    currlastitem = button;
+                    if (button == btn10)
+                    {
+                        try
+                        {
+                            using (SqlConnection cnn = ConnectionClasss.connnect())
+                            {
+                                using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =2 ", cnn))
+                                {
+                                    command.Parameters.AddWithValue("@tablenumm", Tablecount);
+
+                                    cnn.Open();
+
+                                    command.ExecuteNonQuery();
+                                    cnn.Close();
+                                }
+                            }
+                            currlastitem = btnarray[9];
+                            currlastitem.Enabled = false;
+                            currlastitem.Visible = false;
+
+                            break;
+                        }
+                        catch (SqlException ex) { MessageBox.Show(ex.Message); }
+
+                    }
+
+                }
+            }
+        }
+
+        private void goback_Click(object sender, EventArgs e)
+        {
+            newMainForm wz = new newMainForm();
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(rs);
+            wz.resetBTNfocus();
+            rs.Show();
+            ww.resetBTNfocus();
+            this.Close();
         }
     }
 }

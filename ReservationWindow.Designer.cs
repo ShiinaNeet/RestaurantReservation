@@ -39,7 +39,6 @@
             this.ReloadBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.TableBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.DinersCount = new System.Windows.Forms.ComboBox();
@@ -49,6 +48,9 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,10 +66,12 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Bisque;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(332, 100);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -114,32 +118,42 @@
             // 
             // ReserveBtn
             // 
-            this.ReserveBtn.Location = new System.Drawing.Point(181, 524);
+            this.ReserveBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ReserveBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReserveBtn.FlatAppearance.BorderSize = 0;
+            this.ReserveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReserveBtn.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_12_;
+            this.ReserveBtn.Location = new System.Drawing.Point(75, 454);
             this.ReserveBtn.Name = "ReserveBtn";
-            this.ReserveBtn.Size = new System.Drawing.Size(116, 38);
+            this.ReserveBtn.Size = new System.Drawing.Size(103, 64);
             this.ReserveBtn.TabIndex = 6;
-            this.ReserveBtn.Text = "Reserve";
-            this.ReserveBtn.UseVisualStyleBackColor = true;
+            this.ReserveBtn.UseVisualStyleBackColor = false;
             this.ReserveBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // ReloadBtn
             // 
-            this.ReloadBtn.Location = new System.Drawing.Point(413, 524);
+            this.ReloadBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ReloadBtn.FlatAppearance.BorderSize = 0;
+            this.ReloadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReloadBtn.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_8_;
+            this.ReloadBtn.Location = new System.Drawing.Point(1050, 57);
             this.ReloadBtn.Name = "ReloadBtn";
             this.ReloadBtn.Size = new System.Drawing.Size(77, 38);
             this.ReloadBtn.TabIndex = 7;
-            this.ReloadBtn.Text = "Reload";
-            this.ReloadBtn.UseVisualStyleBackColor = true;
+            this.ReloadBtn.UseVisualStyleBackColor = false;
             this.ReloadBtn.Click += new System.EventHandler(this.ReloadBtn_Click);
             // 
             // DeleteBtn
             // 
+            this.DeleteBtn.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteBtn.Image = global::RestaurantReservation.Properties.Resources.trash;
             this.DeleteBtn.Location = new System.Drawing.Point(1045, 524);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.Size = new System.Drawing.Size(75, 38);
             this.DeleteBtn.TabIndex = 8;
-            this.DeleteBtn.Text = "Delete";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // dateTimePicker1
@@ -155,16 +169,6 @@
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 15, 19, 51, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // TableBtn
-            // 
-            this.TableBtn.Location = new System.Drawing.Point(47, 524);
-            this.TableBtn.Name = "TableBtn";
-            this.TableBtn.Size = new System.Drawing.Size(116, 38);
-            this.TableBtn.TabIndex = 10;
-            this.TableBtn.Text = "Table";
-            this.TableBtn.UseVisualStyleBackColor = true;
-            this.TableBtn.Click += new System.EventHandler(this.TableBtn_Click);
             // 
             // label3
             // 
@@ -221,12 +225,15 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(332, 524);
+            this.btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_11_;
+            this.btnUpdate.Location = new System.Drawing.Point(193, 454);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 38);
+            this.btnUpdate.Size = new System.Drawing.Size(98, 64);
             this.btnUpdate.TabIndex = 15;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // button1
@@ -244,7 +251,7 @@
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchTextBox.Location = new System.Drawing.Point(332, 65);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(477, 29);
+            this.searchTextBox.Size = new System.Drawing.Size(440, 29);
             this.searchTextBox.TabIndex = 17;
             this.searchTextBox.Text = "Search here.....";
             this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
@@ -252,22 +259,44 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(815, 64);
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_6_;
+            this.button2.Location = new System.Drawing.Point(778, 57);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 30);
+            this.button2.Size = new System.Drawing.Size(61, 40);
             this.button2.TabIndex = 18;
-            this.button2.Text = "Search";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker2.Location = new System.Drawing.Point(956, 67);
+            this.dateTimePicker2.Location = new System.Drawing.Point(844, 69);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(164, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(204, 23);
             this.dateTimePicker2.TabIndex = 19;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(359, 524);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 28);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(217, 408);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(79, 23);
+            this.comboBox2.TabIndex = 21;
             // 
             // ReservationWindow
             // 
@@ -277,6 +306,8 @@
             this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1132, 629);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.searchTextBox);
@@ -286,7 +317,6 @@
             this.Controls.Add(this.DinersCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TableBtn);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.ReloadBtn);
@@ -325,7 +355,6 @@
         private Button ReloadBtn;
         private Button DeleteBtn;
         private DateTimePicker dateTimePicker1;
-        private Button TableBtn;
         private Label label3;
         private Label label4;
         private ComboBox DinersCount;
@@ -335,5 +364,8 @@
         private Button button2;
         private Label TableLabel;
         private DateTimePicker dateTimePicker2;
+        private Button button3;
+        private ComboBox comboBox2;
+        private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
     }
 }

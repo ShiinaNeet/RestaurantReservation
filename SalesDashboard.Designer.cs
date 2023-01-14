@@ -64,17 +64,6 @@
             this.MonthlySalesLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.StatsHerePanel = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Orderspanel1.SuspendLayout();
@@ -91,11 +80,6 @@
             this.s.SuspendLayout();
             this.revpanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.StatsHerePanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -363,6 +347,7 @@
             this.OrdersPanel.Name = "OrdersPanel";
             this.OrdersPanel.Size = new System.Drawing.Size(1091, 278);
             this.OrdersPanel.TabIndex = 8;
+            this.OrdersPanel.Visible = false;
             // 
             // label6
             // 
@@ -387,6 +372,7 @@
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(1091, 278);
             this.s.TabIndex = 9;
+            this.s.Visible = false;
             // 
             // revpanel2
             // 
@@ -462,122 +448,6 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 640);
             this.vScrollBar1.TabIndex = 12;
             // 
-            // StatsHerePanel
-            // 
-            this.StatsHerePanel.BackColor = System.Drawing.Color.Transparent;
-            this.StatsHerePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.StatsHerePanel.Controls.Add(this.label13);
-            this.StatsHerePanel.Controls.Add(this.panel2);
-            this.StatsHerePanel.Controls.Add(this.panel5);
-            this.StatsHerePanel.Location = new System.Drawing.Point(12, 737);
-            this.StatsHerePanel.Name = "StatsHerePanel";
-            this.StatsHerePanel.Size = new System.Drawing.Size(1091, 278);
-            this.StatsHerePanel.TabIndex = 13;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(10, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(173, 45);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Stats Here";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox6);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Location = new System.Drawing.Point(4, 48);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 221);
-            this.panel2.TabIndex = 6;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(15, 80);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(106, 95);
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label16.Location = new System.Drawing.Point(138, 70);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(134, 19);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Today\'s Income";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(117, 107);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(23, 36);
-            this.label17.TabIndex = 2;
-            this.label17.Text = " ";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label18);
-            this.panel5.Controls.Add(this.pictureBox7);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Location = new System.Drawing.Point(369, 48);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(330, 221);
-            this.panel5.TabIndex = 7;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(15, 17);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(193, 45);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Yearly Sales";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(27, 80);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(106, 95);
-            this.pictureBox7.TabIndex = 4;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label19.Location = new System.Drawing.Point(154, 70);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(126, 19);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Yearly Income";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(130, 107);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(23, 36);
-            this.label20.TabIndex = 2;
-            this.label20.Text = " ";
-            // 
             // comboBox4
             // 
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -608,10 +478,9 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1271, 1027);
+            this.ClientSize = new System.Drawing.Size(1271, 710);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.StatsHerePanel);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.s);
@@ -643,14 +512,6 @@
             this.revpanel2.ResumeLayout(false);
             this.revpanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.StatsHerePanel.ResumeLayout(false);
-            this.StatsHerePanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -687,17 +548,6 @@
         private Panel s;
         private ComboBox comboBox1;
         private VScrollBar vScrollBar1;
-        private Panel StatsHerePanel;
-        private Label label13;
-        private Panel panel2;
-        private PictureBox pictureBox6;
-        private Label label16;
-        private Label label17;
-        private Panel panel5;
-        private Label label18;
-        private PictureBox pictureBox7;
-        private Label label19;
-        private Label label20;
         private ComboBox comboBox4;
         private Button button1;
         private Label label23;

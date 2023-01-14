@@ -103,6 +103,16 @@ namespace RestaurantReservation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_button {
+            get {
+                object obj = ResourceManager.GetObject("add_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap burger {
             get {
                 object obj = ResourceManager.GetObject("burger", resourceCulture);
@@ -223,6 +233,16 @@ namespace RestaurantReservation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minus {
+            get {
+                object obj = ResourceManager.GetObject("minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Order {
             get {
                 object obj = ResourceManager.GetObject("Order", resourceCulture);
@@ -236,6 +256,56 @@ namespace RestaurantReservation.Properties {
         internal static System.Drawing.Bitmap output_onlinepngtools_1_ {
             get {
                 object obj = ResourceManager.GetObject("output_onlinepngtools_1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools_11_ {
+            get {
+                object obj = ResourceManager.GetObject("output_onlinepngtools_11_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools_12_ {
+            get {
+                object obj = ResourceManager.GetObject("output_onlinepngtools_12_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools_6_ {
+            get {
+                object obj = ResourceManager.GetObject("output_onlinepngtools_6_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools_8_ {
+            get {
+                object obj = ResourceManager.GetObject("output_onlinepngtools_8_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap output_onlinepngtools_9_ {
+            get {
+                object obj = ResourceManager.GetObject("output_onlinepngtools_9_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -317,6 +387,16 @@ namespace RestaurantReservation.Properties {
             get {
                 object obj = ResourceManager.GetObject("textures_backgrounds_wood_texture_1024x1024_abstract_textures_hd_art_wallpaper_pr" +
                         "eview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash {
+            get {
+                object obj = ResourceManager.GetObject("trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

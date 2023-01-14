@@ -107,7 +107,7 @@ namespace RestaurantReservation
             job = Login.Account.Job;
             label1.Text = Login.Account.Username;
             HomeBTN.BackgroundImageLayout = ImageLayout.Zoom;
-          //  checkAccLevel();
+            checkAccLevel();
             
 
 

@@ -376,8 +376,10 @@ namespace RestaurantReservation
                
                 Orderspanel2.Visible = false;
                 Orderspanel3.Visible = false;
+                revpanel2.Visible = false;
+                revpanel3.Visible = false;
 
-                
+
             }
             else if (comboBox1.SelectedIndex == 1)
             {
@@ -385,20 +387,32 @@ namespace RestaurantReservation
                 
                 Orderspanel1.Visible = false;
                 Orderspanel3.Visible = false;
+
                 Orderspanel2.Location = new Point(3, 44);
+                 
+                //revpanel2.Visible = true;
+               // Revpanel1.Visible = true;
+               // revpanel3.Visible = true;
+
                 if (comboBox4.SelectedIndex == 0) 
                 {
-                    
+                    revpanel2.Visible = false;
+                    Revpanel1.Visible = true;
+                    revpanel3.Visible = false;
+
                 }
                 else if(comboBox4.SelectedIndex==1)
-                { 
-                    revpanel3.Visible = false;
+                {
+                    revpanel2.Visible = true;
                     Revpanel1.Visible = false;
+                    revpanel3.Visible = false;
+                  //  Orderspanel2.Visible = true;
                 }
                 else if (comboBox4.SelectedIndex == 2) 
                 {
-                    Revpanel1.Visible = false;
                     revpanel2.Visible = false;
+                    Revpanel1.Visible = false;
+                    revpanel3.Visible = true;
                 }
 
 
@@ -414,18 +428,20 @@ namespace RestaurantReservation
                 Orderspanel3.Location = new Point(3, 44);
                 if (comboBox4.SelectedIndex == 0)
                 {
+                    Revpanel1.Visible = false;
                     revpanel2.Visible = false;
-                    revpanel3.Visible = false;
                 }
                 else if (comboBox4.SelectedIndex == 1)
                 {
-                    revpanel3.Visible = false;
                     Revpanel1.Visible = false;
+                    revpanel2.Visible = false;
+                    revpanel3.Visible = true;
                 }
                 else if (comboBox4.SelectedIndex == 2)
                 {
-                    Revpanel1.Visible = false;
                     revpanel2.Visible = false;
+                    Revpanel1.Visible = false;
+                    revpanel3.Visible = true;
                 }
 
 
@@ -445,8 +461,7 @@ namespace RestaurantReservation
                 OrdersPanel.Enabled = true;
                 s.Enabled = false;
                 s.Visible =false;
-                StatsHerePanel.Enabled = false;
-                StatsHerePanel.Visible = false;
+               
 
             }
             else if (comboBox4.SelectedIndex == 1)
@@ -456,20 +471,20 @@ namespace RestaurantReservation
                 s.Enabled = true;
                 OrdersPanel.Enabled = false;
                 OrdersPanel.Visible = false;
-                StatsHerePanel.Enabled = false;
-                StatsHerePanel.Visible = false;
+                revpanel2.Visible = true;
+                Revpanel1.Visible = true;
+                revpanel3.Visible = true;
                 s.Location = new Point(12, 73);   
             }
             else if (comboBox4.SelectedIndex == 2)
             {
                
-                StatsHerePanel.Enabled = true;
-                StatsHerePanel.Visible = true;
+                
                 s.Enabled = false;
                 s.Visible = false;
                 OrdersPanel.Enabled = false;
                 OrdersPanel.Visible = false;
-                StatsHerePanel.Location = new Point(12, 73);
+                
             }
         }
 
@@ -480,13 +495,13 @@ namespace RestaurantReservation
             comboBox4.Text = "Order,Revenue....";
             OrdersPanel.Visible = true;
             s.Visible = true;
-            StatsHerePanel.Visible = true;
+            
             OrdersPanel.Location = new Point(12, 73);
             s.Location = new Point(12, 398);
-            StatsHerePanel.Location = new Point(12, 737);
+         
             OrdersPanel.Enabled = true;
             s.Enabled = true;
-            StatsHerePanel.Enabled = true;
+           
             Orderspanel1.Enabled = true;
             Orderspanel2.Enabled = true;
             Orderspanel3.Enabled = true;
@@ -498,6 +513,9 @@ namespace RestaurantReservation
             revpanel2.Location = new Point(369, 48);
             revpanel3.Location = new Point(738, 48);
             Revpanel1.Location = new Point(4, 48);
+            revpanel2.Visible = true;
+            Revpanel1.Visible = true;
+            revpanel2.Visible = true;
 
         }
         private void button1_Click(object sender, EventArgs e)

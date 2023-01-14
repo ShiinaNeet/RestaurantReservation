@@ -54,7 +54,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "ViewOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewOrders";
+            this.Text = "View Reservations";
             this.Load += new System.EventHandler(this.ViewOrders_Load);
             this.ResumeLayout(false);
 

@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Location = new System.Drawing.Point(210, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1171, 580);
+            this.panel2.Size = new System.Drawing.Size(1162, 642);
             this.panel2.TabIndex = 1;
             // 
             // HomeBTN
@@ -189,10 +189,10 @@
             this.flowLayoutPanel1.Controls.Add(this.ProductBTN);
             this.flowLayoutPanel1.Controls.Add(this.AccountBTN);
             this.flowLayoutPanel1.Controls.Add(this.AboutBTN);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogOut);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 580);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 642);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label2
@@ -235,20 +235,25 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "label1";
             // 
-            // label3
+            // btnLogOut
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 577);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "label3";
+            this.btnLogOut.BackColor = System.Drawing.SystemColors.InfoText;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnLogOut.Image = global::RestaurantReservation.Properties.Resources.aboutus;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(3, 580);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(195, 55);
+            this.btnLogOut.TabIndex = 18;
+            this.btnLogOut.Text = "   Logout";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
             // newMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 583);
+            this.ClientSize = new System.Drawing.Size(1384, 661);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.MinimumSize = new System.Drawing.Size(1400, 622);
@@ -279,6 +284,6 @@
         private Label label4;
         private Label label5;
         private Label label1;
-        private Label label3;
+        private Button btnLogOut;
     }
 }

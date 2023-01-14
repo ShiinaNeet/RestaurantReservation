@@ -53,22 +53,27 @@
             this.goback.TabIndex = 2;
             this.goback.Text = "Go Back";
             this.goback.UseVisualStyleBackColor = true;
+            this.goback.Click += new System.EventHandler(this.goback_Click);
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(788, 52);
+            this.delete.BackColor = System.Drawing.Color.Transparent;
+            this.delete.BackgroundImage = global::RestaurantReservation.Properties.Resources.minus;
+            this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.delete.FlatAppearance.BorderSize = 0;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Location = new System.Drawing.Point(842, 26);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(107, 55);
+            this.delete.Size = new System.Drawing.Size(62, 55);
             this.delete.TabIndex = 25;
-            this.delete.Text = "delete";
-            this.delete.UseVisualStyleBackColor = true;
+            this.delete.UseVisualStyleBackColor = false;
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // btn10
             // 
             this.btn10.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn10.ForeColor = System.Drawing.Color.Coral;
-            this.btn10.Location = new System.Drawing.Point(720, 289);
+            this.btn10.Location = new System.Drawing.Point(663, 155);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(122, 90);
             this.btn10.TabIndex = 23;
@@ -80,7 +85,7 @@
             // 
             this.btn9.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn9.ForeColor = System.Drawing.Color.Coral;
-            this.btn9.Location = new System.Drawing.Point(556, 289);
+            this.btn9.Location = new System.Drawing.Point(511, 155);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(122, 90);
             this.btn9.TabIndex = 22;
@@ -92,7 +97,7 @@
             // 
             this.btn8.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn8.ForeColor = System.Drawing.Color.Coral;
-            this.btn8.Location = new System.Drawing.Point(388, 289);
+            this.btn8.Location = new System.Drawing.Point(342, 155);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(122, 90);
             this.btn8.TabIndex = 21;
@@ -104,7 +109,7 @@
             // 
             this.btn7.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn7.ForeColor = System.Drawing.Color.Coral;
-            this.btn7.Location = new System.Drawing.Point(225, 289);
+            this.btn7.Location = new System.Drawing.Point(181, 155);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(122, 90);
             this.btn7.TabIndex = 20;
@@ -114,19 +119,23 @@
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(675, 52);
+            this.add.BackColor = System.Drawing.Color.Transparent;
+            this.add.BackgroundImage = global::RestaurantReservation.Properties.Resources.add_button;
+            this.add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.add.FlatAppearance.BorderSize = 0;
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Location = new System.Drawing.Point(780, 26);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(107, 55);
+            this.add.Size = new System.Drawing.Size(62, 55);
             this.add.TabIndex = 19;
-            this.add.Text = "add button";
-            this.add.UseVisualStyleBackColor = true;
+            this.add.UseVisualStyleBackColor = false;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // btn6
             // 
             this.btn6.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn6.ForeColor = System.Drawing.Color.Coral;
-            this.btn6.Location = new System.Drawing.Point(57, 289);
+            this.btn6.Location = new System.Drawing.Point(14, 155);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(122, 90);
             this.btn6.TabIndex = 18;
@@ -138,7 +147,7 @@
             // 
             this.btn5.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn5.ForeColor = System.Drawing.Color.Coral;
-            this.btn5.Location = new System.Drawing.Point(720, 149);
+            this.btn5.Location = new System.Drawing.Point(663, 43);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(122, 90);
             this.btn5.TabIndex = 17;
@@ -150,7 +159,7 @@
             // 
             this.btn4.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn4.ForeColor = System.Drawing.Color.Coral;
-            this.btn4.Location = new System.Drawing.Point(556, 149);
+            this.btn4.Location = new System.Drawing.Point(511, 43);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(122, 90);
             this.btn4.TabIndex = 16;
@@ -162,7 +171,7 @@
             // 
             this.btn2.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn2.ForeColor = System.Drawing.Color.Coral;
-            this.btn2.Location = new System.Drawing.Point(225, 149);
+            this.btn2.Location = new System.Drawing.Point(181, 43);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(122, 90);
             this.btn2.TabIndex = 15;
@@ -174,7 +183,7 @@
             // 
             this.btn1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn1.ForeColor = System.Drawing.Color.Coral;
-            this.btn1.Location = new System.Drawing.Point(57, 149);
+            this.btn1.Location = new System.Drawing.Point(14, 43);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(122, 90);
             this.btn1.TabIndex = 14;
@@ -186,16 +195,25 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn3);
-            this.panel1.Location = new System.Drawing.Point(40, 133);
+            this.panel1.Controls.Add(this.btn10);
+            this.panel1.Controls.Add(this.btn5);
+            this.panel1.Controls.Add(this.btn6);
+            this.panel1.Controls.Add(this.btn9);
+            this.panel1.Controls.Add(this.btn1);
+            this.panel1.Controls.Add(this.btn7);
+            this.panel1.Controls.Add(this.btn8);
+            this.panel1.Controls.Add(this.btn4);
+            this.panel1.Controls.Add(this.btn2);
+            this.panel1.Location = new System.Drawing.Point(57, 105);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(813, 266);
+            this.panel1.Size = new System.Drawing.Size(847, 265);
             this.panel1.TabIndex = 24;
             // 
             // btn3
             // 
             this.btn3.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn3.ForeColor = System.Drawing.Color.Coral;
-            this.btn3.Location = new System.Drawing.Point(348, 16);
+            this.btn3.Location = new System.Drawing.Point(342, 43);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(122, 90);
             this.btn3.TabIndex = 3;
@@ -209,16 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 450);
             this.Controls.Add(this.delete);
-            this.Controls.Add(this.btn10);
-            this.Controls.Add(this.btn9);
-            this.Controls.Add(this.btn8);
-            this.Controls.Add(this.btn7);
             this.Controls.Add(this.add);
-            this.Controls.Add(this.btn6);
-            this.Controls.Add(this.btn5);
-            this.Controls.Add(this.btn4);
-            this.Controls.Add(this.btn2);
-            this.Controls.Add(this.btn1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.goback);
             this.Name = "TableForm";

@@ -63,17 +63,20 @@ namespace RestaurantReservation
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            username = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            position = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            password = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            
-            
-            pictureBox1.Image = ConvertBinaryToImage((byte[])dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-            profiledata = (byte[])dataGridView1.Rows[e.RowIndex].Cells[3].Value;
-            textBox1.Text = username;
-            textBox2.Text = password;
-            comboBox1.Text = position;
-           
+            try
+            {
+                username = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                position = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                password = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+
+                pictureBox1.Image = ConvertBinaryToImage((byte[])dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+                profiledata = (byte[])dataGridView1.Rows[e.RowIndex].Cells[3].Value;
+                textBox1.Text = username;
+                textBox2.Text = password;
+                comboBox1.Text = position;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         public static byte[] ObjectToByteArray(Object obj)

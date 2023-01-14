@@ -130,11 +130,14 @@
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(704, 26);
+            this.add.BackgroundImage = global::RestaurantReservation.Properties.Resources.add_button;
+            this.add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.add.FlatAppearance.BorderSize = 0;
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Location = new System.Drawing.Point(762, 26);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(107, 55);
+            this.add.Size = new System.Drawing.Size(62, 55);
             this.add.TabIndex = 7;
-            this.add.Text = "add button";
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -196,12 +199,16 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(817, 26);
+            this.delete.BackColor = System.Drawing.Color.Transparent;
+            this.delete.BackgroundImage = global::RestaurantReservation.Properties.Resources.minus;
+            this.delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.delete.FlatAppearance.BorderSize = 0;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Location = new System.Drawing.Point(830, 26);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(107, 55);
+            this.delete.Size = new System.Drawing.Size(62, 55);
             this.delete.TabIndex = 13;
-            this.delete.Text = "delete";
-            this.delete.UseVisualStyleBackColor = true;
+            this.delete.UseVisualStyleBackColor = false;
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // TableOrder

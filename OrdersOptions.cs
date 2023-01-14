@@ -49,10 +49,16 @@ namespace RestaurantReservation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            btnclick = 3;
+            newMainForm wz = new newMainForm();
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(rs);
+            wz.resetBTNfocus();
+            rs.Show();
+            ww.resetBTNfocus();
             this.Close();
-            this.FormClosed += new FormClosedEventHandler(OrdersOptions_FormClosed);
-           
+
         }
 
         private void OrdersOptions_FormClosed(object sender, FormClosedEventArgs e)

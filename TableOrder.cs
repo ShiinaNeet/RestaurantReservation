@@ -125,6 +125,10 @@ namespace RestaurantReservation
                     {
                         Tablecount = 0;
                     }
+                    else if (Convert.ToInt32(tablenum) > 10)
+                    {
+                        Tablecount = 10;
+                    }
                     else {
                         Tablecount = Convert.ToInt32(tablenum);
                     }
@@ -132,7 +136,7 @@ namespace RestaurantReservation
                 }
 
             }
-            for (int i = 0; i <= Tablecount; i++) 
+            for (int i = 0; i < Tablecount; i++) 
             {
                 btnarray[i].Visible =true;
                 btnarray[i].Enabled =true;
@@ -165,9 +169,15 @@ namespace RestaurantReservation
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-          //  this.Close();
-           // MainForm1.loadform(new MainMenuWindow());
-           // MainForm1.MyrefeshMethod();
+            newMainForm wz = new newMainForm();
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(rs);
+            wz.resetBTNfocus();
+            rs.Show();
+            ww.resetBTNfocus();
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -246,7 +256,7 @@ namespace RestaurantReservation
        
         private void button7_Click(object sender, EventArgs e)
         {
-            Tablecount++;
+            //Tablecount++;
             foreach (Button button in btnarray)
             {
                 if (button.Enabled == true)
@@ -256,26 +266,34 @@ namespace RestaurantReservation
                 else
                 {
                     try {
-                        using (SqlConnection cnn = ConnectionClasss.connnect())
+                        if (Tablecount == 10)
                         {
-                            using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =1 ", cnn))
-                            {
-                                command.Parameters.AddWithValue("@tablenumm", Tablecount);
-
-                                cnn.Open();
-
-                                command.ExecuteNonQuery();
-                                cnn.Close();
-                            }
-
-
-                           
+                            MessageBox.Show("Table Max!");
+                            Tablecount = 10;
+                            break;
                         }
-                        button.Enabled = true;
-                        button.Visible = true;
-                        
-                        break;
+                        else
+                        {
+                            using (SqlConnection cnn = ConnectionClasss.connnect())
+                            {
+                                using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id = 1 ", cnn))
+                                {Tablecount++;
+                                    command.Parameters.AddWithValue("@tablenumm", Tablecount);
 
+                                    cnn.Open();
+
+                                    command.ExecuteNonQuery();
+                                    cnn.Close();
+                                }
+
+
+
+                            }
+                            button.Enabled = true;
+                            button.Visible = true;
+
+                            break;
+                        }
                     }
                     catch (SqlException ex)
                     {
@@ -283,6 +301,7 @@ namespace RestaurantReservation
                     }
                     }
             }
+            Refresh();
 
         }
         void btn_Click(object sender, EventArgs e)
@@ -357,70 +376,82 @@ namespace RestaurantReservation
 
         private void delete_Click(object sender, EventArgs e)
         {
-            Tablecount--;
-            foreach (Button button in btnarray)
+            
+            if (Tablecount == 1)
             {
-
-                if (button.Enabled == true)
-                {
-
-                }
-                else if (button.Enabled == false)
-                {
-                    try
-                    {
-                        using (SqlConnection cnn = ConnectionClasss.connnect())
-                        {
-                            using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =1 ", cnn))
-                            {
-                                command.Parameters.AddWithValue("@tablenumm", Tablecount);
-
-                                cnn.Open();
-
-                                command.ExecuteNonQuery();
-                                cnn.Close();
-                            }
-                        }
-                        currlastitem.Enabled = false;
-                        currlastitem.Visible = false;
-                        break;
-                    }
-                    catch (SqlException ex) 
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                   
-                }
-                currlastitem = button;
-                if (button == btn10)
-                {
-                    try 
-                    {
-                        using (SqlConnection cnn = ConnectionClasss.connnect())
-                        {
-                            using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =1 ", cnn))
-                            {
-                                command.Parameters.AddWithValue("@tablenumm", Tablecount);
-
-                                cnn.Open();
-
-                                command.ExecuteNonQuery();
-                                cnn.Close();
-                            }
-                        }
-                        currlastitem = btnarray[9];
-                        currlastitem.Enabled = false;
-                        currlastitem.Visible = false;
-
-                        break;
-                    }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
-                    
-
-                }
-
+                MessageBox.Show("Table can't be deleted!");
+                Tablecount = 1;
+               
             }
+            else
+            {
+                Tablecount--;
+                foreach (Button button in btnarray)
+                {
+
+                    if (button.Enabled == true)
+                    {
+
+                    }
+                    else if (button.Enabled == false)
+                    {
+                        try
+                        {
+                            using (SqlConnection cnn = ConnectionClasss.connnect())
+                            {
+                                using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =1 ", cnn))
+                                {
+                                    command.Parameters.AddWithValue("@tablenumm", Tablecount);
+
+                                    cnn.Open();
+
+                                    command.ExecuteNonQuery();
+                                    cnn.Close();
+                                }
+                            }
+                            currlastitem.Enabled = false;
+                            currlastitem.Visible = false;
+                            break;
+
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+
+
+                    }
+                    currlastitem = button;
+                    if (button == btn10)
+                    {
+                        try
+                        {
+                            using (SqlConnection cnn = ConnectionClasss.connnect())
+                            {
+                                using (SqlCommand command = new SqlCommand("update TableNumber set TableNum = @tablenumm where id =1 ", cnn))
+                                {
+                                    command.Parameters.AddWithValue("@tablenumm", Tablecount);
+
+                                    cnn.Open();
+
+                                    command.ExecuteNonQuery();
+                                    cnn.Close();
+                                }
+                            }
+                            currlastitem = btnarray[9];
+                            currlastitem.Enabled = false;
+                            currlastitem.Visible = false;
+
+                            break;
+                        }
+                        catch (SqlException ex) { MessageBox.Show(ex.Message); }
+
+
+                    }
+
+                }
+            }
+            Refresh();
         }
     }
 }
