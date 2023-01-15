@@ -541,6 +541,7 @@ namespace RestaurantReservation
             panel1.Controls.Add(rs);
             wz.resetBTNfocus();
             rs.Show();
+            ww.resetBTNfocus();
             this.Close();
 
         }

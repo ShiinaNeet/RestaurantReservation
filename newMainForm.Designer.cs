@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -238,6 +239,8 @@
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.SystemColors.InfoText;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogOut.Image = global::RestaurantReservation.Properties.Resources.aboutus;
@@ -248,6 +251,7 @@
             this.btnLogOut.TabIndex = 18;
             this.btnLogOut.Text = "   Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // newMainForm
             // 
@@ -285,5 +289,6 @@
         private Label label5;
         private Label label1;
         private Button btnLogOut;
+        private ColorDialog colorDialog1;
     }
 }

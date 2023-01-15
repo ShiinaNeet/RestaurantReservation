@@ -11,6 +11,7 @@ using MySqlDataReader = MySql.Data.MySqlClient.MySqlDataReader;
 using MySqlConnection = MySql.Data.MySqlClient.MySqlConnection;
 using MySqlException = MySql.Data.MySqlClient.MySqlException;
 using RestaurantReservation.Properties;
+using System.IO;
 
 namespace RestaurantReservation
 {
@@ -28,7 +29,23 @@ namespace RestaurantReservation
         {
             InitializeComponent();
         }
+        Image ConvertBinaryToImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
 
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+
+        }
         private void SignInBtn_Click(object sender, EventArgs e)
         {
             ConnectionClasss conclass = new ConnectionClasss();
@@ -49,6 +66,7 @@ namespace RestaurantReservation
                     Account account = new Account();
                     Account.Job= dr["Position"].ToString();
                     Account.Username = dr["UserName"].ToString();
+                    Account.Picture = (byte[])dr["Picture"];
                     newMainForm nn = new newMainForm();
                     nn.Show();
                     this.Hide();
@@ -73,7 +91,7 @@ namespace RestaurantReservation
             private static string username;
             private string password;
             private static string job;
-            private byte[] picture;
+            private static byte[] picture;
 
             public static string Username 
             {
@@ -86,14 +104,12 @@ namespace RestaurantReservation
                 get { return job; }  
                 set { job = value; } 
                 }
-            public string getJob() 
+            public static byte[] Picture 
             { 
-                return job;
-            }
-            public byte[] getAccountImage() 
-            { 
-                return picture;
-            }
+                get { return picture; }
+                set { picture = value;  } 
+            } 
+           
 
         }
 

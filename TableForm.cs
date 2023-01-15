@@ -110,22 +110,30 @@ namespace RestaurantReservation
             btn10.BackgroundImageLayout = ImageLayout.Zoom;
             BackgroundImage = Resources.texture_background_1404_991;
             BackgroundImageLayout = ImageLayout.None;
-           
 
-           /* btn1.Enabled = true;
-            btn2.Enabled = true;
-            btn4.Enabled = true;
-            btn5.Enabled = true;
-            btn6.Enabled = true;
-            btn7.Enabled = false;
-            btn8.Enabled = false;
-            btn9.Enabled = false;
-            btn10.Enabled = false;
+            if (Login.Account.Job.Equals("Cook") || Login.Account.Job.Equals("Server"))
+            {
+                add.Enabled = false;
+                delete.Enabled = false;
+                add.Visible = false;
+                delete.Visible = false;
 
-            btn7.Visible = false;
-            btn8.Visible = false;
-            btn9.Visible = false;
-            btn10.Visible = false;*/
+            }
+
+            /* btn1.Enabled = true;
+             btn2.Enabled = true;
+             btn4.Enabled = true;
+             btn5.Enabled = true;
+             btn6.Enabled = true;
+             btn7.Enabled = false;
+             btn8.Enabled = false;
+             btn9.Enabled = false;
+             btn10.Enabled = false;
+
+             btn7.Visible = false;
+             btn8.Visible = false;
+             btn9.Visible = false;
+             btn10.Visible = false;*/
         }
 
         private void button1_Click_1(object sender, EventArgs e)

@@ -162,6 +162,16 @@ namespace RestaurantReservation
             btn9.BackgroundImageLayout = ImageLayout.Zoom;
             btn10.BackgroundImage = Resources.table;
             btn10.BackgroundImageLayout = ImageLayout.Zoom;
+            if (Login.Account.Job.Equals("Cook") || Login.Account.Job.Equals("Server"))
+            {
+               // btn2.Text = Login.Account.Job;
+                add.Enabled = false;
+                delete.Enabled = false;
+                add.Visible = false;
+                delete.Visible = false;
+
+
+            }
            
 
            

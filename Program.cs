@@ -15,12 +15,12 @@ namespace RestaurantReservation
              Application.Run(new Login());
             // Application.Run(new SqlConnectionForm());
             //Application.Run(new MainMenuWindow());
-             //Application.Run(new newMainForm());
+            //Application.Run(new newMainForm());
             //Application.Run(new ActiveOrdersForm());
             // Application.Run(new SalesDashboard());
-         //  Application.Run(new AccountsForm());
-       //  Application.Run(new CreateOrderForm());
-            
+            //  Application.Run(new AccountsForm());
+            //  Application.Run(new CreateOrderForm());
+            //Application.Run(new PaymentForm());
         }
     }
 }

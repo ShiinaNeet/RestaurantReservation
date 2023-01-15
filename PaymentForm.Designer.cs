@@ -28,125 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Closebtn = new System.Windows.Forms.Button();
-            this.OrderTotaltxtbox = new System.Windows.Forms.TextBox();
-            this.PayBtn = new System.Windows.Forms.Button();
-            this.txtboxTable = new System.Windows.Forms.TextBox();
-            this.txtordernumber = new System.Windows.Forms.TextBox();
+            this.btnPaid = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ReloadBTN = new System.Windows.Forms.Button();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // btnPaid
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(28, 24);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(100);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(904, 493);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.btnPaid.Location = new System.Drawing.Point(421, 426);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(134, 41);
+            this.btnPaid.TabIndex = 2;
+            this.btnPaid.Text = "Mark as Paid";
+            this.btnPaid.UseVisualStyleBackColor = true;
+            this.btnPaid.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
+            // dataGridView1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Salmon;
-            this.panel1.Controls.Add(this.Closebtn);
-            this.panel1.Controls.Add(this.OrderTotaltxtbox);
-            this.panel1.Controls.Add(this.PayBtn);
-            this.panel1.Controls.Add(this.txtboxTable);
-            this.panel1.Controls.Add(this.txtordernumber);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(294, 257);
-            this.panel1.TabIndex = 1;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(683, 348);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
-            // Closebtn
+            // ReloadBTN
             // 
-            this.Closebtn.Location = new System.Drawing.Point(160, 211);
-            this.Closebtn.Name = "Closebtn";
-            this.Closebtn.Size = new System.Drawing.Size(100, 32);
-            this.Closebtn.TabIndex = 4;
-            this.Closebtn.Text = "Delete";
-            this.Closebtn.UseVisualStyleBackColor = true;
+            this.ReloadBTN.BackColor = System.Drawing.Color.Transparent;
+            this.ReloadBTN.BackgroundImage = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_8_;
+            this.ReloadBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReloadBTN.FlatAppearance.BorderSize = 0;
+            this.ReloadBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReloadBTN.Location = new System.Drawing.Point(12, 427);
+            this.ReloadBTN.Name = "ReloadBTN";
+            this.ReloadBTN.Size = new System.Drawing.Size(46, 39);
+            this.ReloadBTN.TabIndex = 4;
+            this.ReloadBTN.UseVisualStyleBackColor = false;
+            this.ReloadBTN.Click += new System.EventHandler(this.ReloadBTN_Click);
             // 
-            // OrderTotaltxtbox
+            // deletebtn
             // 
-            this.OrderTotaltxtbox.Location = new System.Drawing.Point(0, 94);
-            this.OrderTotaltxtbox.Multiline = true;
-            this.OrderTotaltxtbox.Name = "OrderTotaltxtbox";
-            this.OrderTotaltxtbox.Size = new System.Drawing.Size(294, 111);
-            this.OrderTotaltxtbox.TabIndex = 3;
-            this.OrderTotaltxtbox.Text = "Orders +total here";
+            this.deletebtn.Location = new System.Drawing.Point(561, 426);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(134, 41);
+            this.deletebtn.TabIndex = 5;
+            this.deletebtn.Text = "Delete OrderID";
+            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
-            // PayBtn
+            // label1
             // 
-            this.PayBtn.Location = new System.Drawing.Point(31, 212);
-            this.PayBtn.Name = "PayBtn";
-            this.PayBtn.Size = new System.Drawing.Size(100, 32);
-            this.PayBtn.TabIndex = 2;
-            this.PayBtn.Text = "Pay";
-            this.PayBtn.UseVisualStyleBackColor = true;
-            this.PayBtn.Click += new System.EventHandler(this.PayBtn_Click);
-            // 
-            // txtboxTable
-            // 
-            this.txtboxTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtboxTable.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtboxTable.Location = new System.Drawing.Point(0, 59);
-            this.txtboxTable.Name = "txtboxTable";
-            this.txtboxTable.Size = new System.Drawing.Size(294, 29);
-            this.txtboxTable.TabIndex = 1;
-            this.txtboxTable.Text = "Table Here";
-            // 
-            // txtordernumber
-            // 
-            this.txtordernumber.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtordernumber.Location = new System.Drawing.Point(-2, 3);
-            this.txtordernumber.Name = "txtordernumber";
-            this.txtordernumber.Size = new System.Drawing.Size(294, 47);
-            this.txtordernumber.TabIndex = 0;
-            this.txtordernumber.Text = "Order number here";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(205, 32);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Payment Window";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(948, 30);
+            this.button1.Location = new System.Drawing.Point(599, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 41);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // PaymentForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1155, 541);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.BackgroundImage = global::RestaurantReservation.Properties.Resources.BurgerBackground___Copy1;
+            this.ClientSize = new System.Drawing.Size(717, 485);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.deletebtn);
+            this.Controls.Add(this.ReloadBTN);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnPaid);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PaymentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel1;
-        private TextBox txtboxTable;
-        private TextBox txtordernumber;
-        private Button PayBtn;
-        private TextBox OrderTotaltxtbox;
-        private Button Closebtn;
+        private Button btnPaid;
+        private DataGridView dataGridView1;
+        private Button ReloadBTN;
+        private Button deletebtn;
+        private Label label1;
         private Button button1;
     }
 }

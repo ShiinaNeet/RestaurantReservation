@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using MySqlConnector;
 using MySqlX.XDevAPI;
+using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Ocsp;
 using RestaurantReservation.Properties;
 using System;
@@ -39,6 +40,7 @@ namespace RestaurantReservation
         Image curpic1;
         Image curpic2;
         int orderid = 0;
+        int payment;
         public CreateOrderForm()
         {
             InitializeComponent();
@@ -349,6 +351,14 @@ namespace RestaurantReservation
 
         private void button8_Click(object sender, EventArgs e)
         {
+            newMainForm wz = new newMainForm();
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            newMainForm ww = (newMainForm)Application.OpenForms["newMainForm"];
+            Panel panel1 = (Panel)ww.Controls["panel2"];
+            panel1.Controls.Add(rs);
+            wz.resetBTNfocus();
+            rs.Show();
+            ww.resetBTNfocus();
             this.Close();
 
         }
@@ -373,7 +383,15 @@ namespace RestaurantReservation
                 listView1.Items.RemoveAt(listView1.SelectedIndices[0]);
             }
         }
-
+        public Boolean isPaid() 
+        {
+            return false;
+           
+        }
+        public void showForm() 
+        {
+            this.Show();
+        }
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -438,8 +456,8 @@ namespace RestaurantReservation
                         using (SqlConnection cnn = ConnectionClasss.connnect())
                         {
                             int order_number = ordernum + 1;
-                            using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,tablenum,Price) " +
-                                "\r\nVALUES(@OrderIDsss,@ProductsID,@GETDATE,@Quantity,@Order_Number,@tablenum,@Price)", cnn))
+                            using (SqlCommand command1 = new SqlCommand("insert into Orders(OrderID,ProductsID,DateOrder,Quantity,Order_Number,tablenum,Price,Paid) " +
+                                "\r\nVALUES(@OrderIDsss,@ProductsID,@GETDATE,@Quantity,@Order_Number,@tablenum,@Price,@Paid)", cnn))
                             {
                                 command1.Parameters.AddWithValue("OrderIDsss", orderid + 1);
                                 command1.Parameters.AddWithValue("ProductsID", productid);
@@ -448,6 +466,7 @@ namespace RestaurantReservation
                                 command1.Parameters.AddWithValue("Order_Number", order_number.ToString());
                                 command1.Parameters.AddWithValue("tablenum", tablenum);
                                 command1.Parameters.AddWithValue("@Price", price);
+                                command1.Parameters.AddWithValue("@Paid", 0);
 
                                 cnn.Open();
                                 command1.ExecuteNonQuery();
@@ -479,11 +498,11 @@ namespace RestaurantReservation
                 {
                     command.Parameters.AddWithValue("@OrderID", orderid + 1);
                     cnn.Open();
-
+                     int UpdatedOrderID = orderid + 1;
                     var result = Convert.ToBoolean(command.ExecuteScalar());
                     if (result == true)
                     {
-                        MessageBox.Show("Order Successful!", "Order Status!", MessageBoxButtons.OK);
+                        MessageBox.Show("Order Successful!"+ System.Environment.NewLine+" Order ID: " +UpdatedOrderID, "Order Status!", MessageBoxButtons.OK);
 
                         if (MessageBox.Show("Do you want to print receipt?", "Print Order?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
@@ -495,8 +514,8 @@ namespace RestaurantReservation
 
 
                         listView1.Clear();
-                        this.Close();
-
+                        //this.Close();
+                        this.Refresh();
                         //MainForm1.MyrefeshMethod();
 
 
@@ -523,12 +542,12 @@ namespace RestaurantReservation
 
         private void button6_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listView1.Items)
-            {
-                Console.WriteLine(item.SubItems[0].Text);
-                Console.WriteLine(item.SubItems[1].Text);
-                Console.WriteLine(item.SubItems[2].Text);
-            }
+           newMainForm wz = new newMainForm();
+            PaymentForm rs = new PaymentForm() { Dock = DockStyle.Fill, TopLevel = true, TopMost = true };
+            rs.ShowDialog();
+           // this.Hide();
+           
+
         }
 
         private void button7_Click(object sender, EventArgs e)

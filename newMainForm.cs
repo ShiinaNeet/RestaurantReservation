@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,23 @@ namespace RestaurantReservation
             OrderBTN.BackColor = SystemColors.InfoText;
             ReservationBTN.BackColor = SystemColors.InfoText;
         }
+        Image ConvertBinaryToImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+
+        }
         private void newMainForm_Load(object sender, EventArgs e)
         {
 
@@ -108,7 +126,9 @@ namespace RestaurantReservation
             label1.Text = Login.Account.Username;
             HomeBTN.BackgroundImageLayout = ImageLayout.Zoom;
             checkAccLevel();
-            
+
+
+            pictureBox1.Image = ConvertBinaryToImage(Login.Account.Picture);
 
 
             HomeBTN.FlatStyle = FlatStyle.Flat;
@@ -310,6 +330,14 @@ namespace RestaurantReservation
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Login.Account.Username = "";
+            Login.Account.Job = "";
+            Application.Restart();
+            this.Close();
         }
     }
 }
