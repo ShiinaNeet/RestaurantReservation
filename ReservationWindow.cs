@@ -82,9 +82,6 @@ namespace RestaurantReservation
                 dataGridView1.DataSource = dt;
                 cnn.Close();
             }
-            //   TableForm tf = new TableForm();
-            // TableLabel.Text = tf.getTableNum().ToString();
-            //  tablenumber = tf.getTableNum();
             
 
         }
@@ -152,7 +149,7 @@ namespace RestaurantReservation
            string  ResDate1223 = monthCalendar1.SelectionRange.Start.ToString("dd/MM/yyyy");
             var fulldate1 = ResDate1223+" "+ResTime1223;
            var fulldate2 = DateTime.ParseExact(fulldate1, "dd/MM/yyyy HH:mm tt",null);
-            //string userdate = fulldate.ToString("yyyy-MM-dd HH:mm:ss:tt", CultureInfo.CurrentCulture);
+         
             using (SqlConnection cnn = ConnectionClasss.connnect())
             {
                 using (SqlCommand command = new SqlCommand("select tablenum,ResvDate from Reservations", cnn))
@@ -175,7 +172,7 @@ namespace RestaurantReservation
                         else { result = false;
                             res = false;
                         }
-                        //label1.Text = result.ToString();
+                        
                         
                     }
                     cnn.Close();
@@ -191,8 +188,7 @@ namespace RestaurantReservation
             string ResTime1223 = dateTimePicker1.Value.ToString("HH:mm");
             string ResDate1223 = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
            
-           // DateTime timetime = Convert.ToDateTime(ResDate1223 + " " + ResTime1223);
-           // string ResDateTime1223 = ResDate1223 + " " + ResTime1223;
+           
             
             using (SqlConnection cnn = ConnectionClasss.connnect())
             {
@@ -368,11 +364,7 @@ namespace RestaurantReservation
             string date2;
             try
             {
-                //date2 = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-
-                //  IList<string> datename = new List<string>(date2.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
-                //  dateTimePicker1.Value = Convert.ToDateTime(datename[1]);
-                //   monthCalendar1.SetDate(Convert.ToDateTime(datename[0]));
+                
 
                 if (e.RowIndex == -1 )
                 {
@@ -625,7 +617,7 @@ namespace RestaurantReservation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            reservationchecker();
+           
 
             
         }

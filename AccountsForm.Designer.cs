@@ -61,7 +61,7 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(409, 15);
+            this.dataGridView1.Location = new System.Drawing.Point(431, 15);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
@@ -72,7 +72,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 405);
+            this.button1.Location = new System.Drawing.Point(215, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 46);
             this.button1.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(286, 405);
+            this.button2.Location = new System.Drawing.Point(320, 406);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 46);
             this.button2.TabIndex = 2;
@@ -93,7 +93,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(130, 199);
+            this.textBox1.Location = new System.Drawing.Point(164, 200);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 39);
             this.textBox1.TabIndex = 3;
@@ -103,7 +103,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(130, 245);
+            this.textBox2.Location = new System.Drawing.Point(164, 246);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(261, 39);
             this.textBox2.TabIndex = 4;
@@ -120,7 +120,7 @@
             "Admin",
             "Server",
             "Cook"});
-            this.comboBox1.Location = new System.Drawing.Point(130, 293);
+            this.comboBox1.Location = new System.Drawing.Point(164, 294);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(261, 33);
             this.comboBox1.TabIndex = 5;
@@ -134,9 +134,9 @@
             this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 512);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 531);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1155, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1100, 29);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "qweqwe";
             // 
@@ -184,7 +184,7 @@
             // 
             this.uploadbtn.BackgroundImage = global::RestaurantReservation.Properties.Resources.up;
             this.uploadbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.uploadbtn.Location = new System.Drawing.Point(344, 337);
+            this.uploadbtn.Location = new System.Drawing.Point(378, 338);
             this.uploadbtn.Name = "uploadbtn";
             this.uploadbtn.Size = new System.Drawing.Size(47, 38);
             this.uploadbtn.TabIndex = 10;
@@ -194,7 +194,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(130, 337);
+            this.textBox3.Location = new System.Drawing.Point(164, 338);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(208, 34);
             this.textBox3.TabIndex = 11;
@@ -234,15 +234,15 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(79, 14);
+            this.panel1.Location = new System.Drawing.Point(44, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(995, 495);
+            this.panel1.Size = new System.Drawing.Size(1012, 513);
             this.panel1.TabIndex = 14;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(895, 457);
+            this.button3.Location = new System.Drawing.Point(917, 455);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 28);
             this.button3.TabIndex = 14;
@@ -255,7 +255,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RestaurantReservation.Properties.Resources.texture_background_1404_991;
-            this.ClientSize = new System.Drawing.Size(1155, 541);
+            this.ClientSize = new System.Drawing.Size(1100, 560);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

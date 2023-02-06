@@ -48,7 +48,6 @@
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,7 +86,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(320, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 45);
+            this.label1.Size = new System.Drawing.Size(264, 54);
             this.label1.TabIndex = 3;
             this.label1.Text = "Reservations";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -100,7 +99,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(22, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 25);
+            this.label2.Size = new System.Drawing.Size(162, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Client Name: ";
             // 
@@ -109,7 +108,7 @@
             this.ClnNameTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ClnNameTxtBox.Location = new System.Drawing.Point(30, 111);
             this.ClnNameTxtBox.Name = "ClnNameTxtBox";
-            this.ClnNameTxtBox.Size = new System.Drawing.Size(261, 23);
+            this.ClnNameTxtBox.Size = new System.Drawing.Size(261, 27);
             this.ClnNameTxtBox.TabIndex = 5;
             // 
             // timer1
@@ -123,7 +122,7 @@
             this.ReserveBtn.FlatAppearance.BorderSize = 0;
             this.ReserveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReserveBtn.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_12_;
-            this.ReserveBtn.Location = new System.Drawing.Point(75, 454);
+            this.ReserveBtn.Location = new System.Drawing.Point(88, 501);
             this.ReserveBtn.Name = "ReserveBtn";
             this.ReserveBtn.Size = new System.Drawing.Size(103, 64);
             this.ReserveBtn.TabIndex = 6;
@@ -161,11 +160,11 @@
             this.dateTimePicker1.AllowDrop = true;
             this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(32, 323);
+            this.dateTimePicker1.Location = new System.Drawing.Point(48, 363);
             this.dateTimePicker1.MinDate = new System.DateTime(2022, 10, 15, 0, 1, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(261, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(261, 27);
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 15, 19, 51, 0, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -176,9 +175,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(31, 408);
+            this.label3.Location = new System.Drawing.Point(44, 455);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 25);
+            this.label3.Size = new System.Drawing.Size(187, 32);
             this.label3.TabIndex = 11;
             this.label3.Text = "Table Number : ";
             // 
@@ -188,9 +187,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(30, 360);
+            this.label4.Location = new System.Drawing.Point(43, 407);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 25);
+            this.label4.Size = new System.Drawing.Size(186, 32);
             this.label4.TabIndex = 12;
             this.label4.Text = "Diners count   : ";
             // 
@@ -208,9 +207,9 @@
             "8",
             "9",
             "10"});
-            this.DinersCount.Location = new System.Drawing.Point(217, 362);
+            this.DinersCount.Location = new System.Drawing.Point(230, 409);
             this.DinersCount.Name = "DinersCount";
-            this.DinersCount.Size = new System.Drawing.Size(79, 23);
+            this.DinersCount.Size = new System.Drawing.Size(79, 28);
             this.DinersCount.TabIndex = 13;
             // 
             // TableLabel
@@ -218,9 +217,9 @@
             this.TableLabel.AutoSize = true;
             this.TableLabel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TableLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TableLabel.Location = new System.Drawing.Point(283, 410);
+            this.TableLabel.Location = new System.Drawing.Point(296, 457);
             this.TableLabel.Name = "TableLabel";
-            this.TableLabel.Size = new System.Drawing.Size(0, 25);
+            this.TableLabel.Size = new System.Drawing.Size(0, 32);
             this.TableLabel.TabIndex = 14;
             // 
             // btnUpdate
@@ -229,7 +228,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_11_;
-            this.btnUpdate.Location = new System.Drawing.Point(193, 454);
+            this.btnUpdate.Location = new System.Drawing.Point(206, 501);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(98, 64);
             this.btnUpdate.TabIndex = 15;
@@ -251,7 +250,7 @@
             this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.searchTextBox.Location = new System.Drawing.Point(332, 65);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(440, 29);
+            this.searchTextBox.Size = new System.Drawing.Size(440, 34);
             this.searchTextBox.TabIndex = 17;
             this.searchTextBox.Text = "Search here.....";
             this.searchTextBox.Click += new System.EventHandler(this.searchTextBox_Click);
@@ -276,26 +275,16 @@
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker2.Location = new System.Drawing.Point(844, 69);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(204, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(204, 27);
             this.dateTimePicker2.TabIndex = 19;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(359, 524);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 28);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(217, 408);
+            this.comboBox2.Location = new System.Drawing.Point(230, 455);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(79, 23);
+            this.comboBox2.Size = new System.Drawing.Size(79, 28);
             this.comboBox2.TabIndex = 21;
             // 
             // ReservationWindow
@@ -307,7 +296,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1132, 629);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.searchTextBox);
@@ -364,7 +352,6 @@
         private Button button2;
         private Label TableLabel;
         private DateTimePicker dateTimePicker2;
-        private Button button3;
         private ComboBox comboBox2;
         private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
     }

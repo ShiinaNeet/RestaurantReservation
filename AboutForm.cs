@@ -28,11 +28,8 @@ namespace RestaurantReservation
 
         private void AboutForm_Load(object sender, EventArgs e)
         {
-           
-            
-            BackgroundImage = Resources.texture_background_1404_991;
-            
-            BackgroundImageLayout = ImageLayout.None;
+
+
             
 
 

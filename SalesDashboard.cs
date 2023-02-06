@@ -515,7 +515,7 @@ namespace RestaurantReservation
             Revpanel1.Location = new Point(4, 48);
             revpanel2.Visible = true;
             Revpanel1.Visible = true;
-            revpanel2.Visible = true;
+            revpanel3.Visible = true;
 
         }
         private void button1_Click(object sender, EventArgs e)

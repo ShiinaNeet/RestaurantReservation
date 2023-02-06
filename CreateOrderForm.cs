@@ -189,9 +189,7 @@ namespace RestaurantReservation
             BackgroundImage = Resources.texture_background_1404_991;
             BackgroundImageLayout = ImageLayout.None;
 
-            cbModePayment.Items.Add("Cash");
-            cbModePayment.Items.Add("Debit Card");
-            cbModePayment.Items.Add("Gcash");
+            
 
 
 
@@ -514,9 +512,14 @@ namespace RestaurantReservation
 
 
                         listView1.Clear();
-                        //this.Close();
-                        this.Refresh();
-                        //MainForm1.MyrefeshMethod();
+                        listView1.Refresh();
+                        listView1.View = View.Details;
+                        listView1.FullRowSelect = true;
+                        listView1.Columns.Add("Order List", 130);
+                        listView1.Columns.Add("Quantity", 70);
+                        listView1.Columns.Add("Price", 50);
+
+                       
 
 
 
@@ -587,7 +590,7 @@ namespace RestaurantReservation
 
             grafic.DrawString("Table #: ", new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 20));
             grafic.DrawString("\t\t" + tablenum.ToString().PadRight(30), new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 20));
-
+            grafic.DrawString("\t\t\t Server: "+Login.Account.Username, new Font("Courer New", 10), new SolidBrush(Color.Black), StartX, StartY + (offSet + 20));
 
             string Liners = "====================================================";
             grafic.DrawString(Liners, new Font("Courer New", 8), new SolidBrush(Color.Black), StartX, StartY + (offSet + 80));
@@ -610,12 +613,13 @@ namespace RestaurantReservation
                 proName = listView1.Items[i].SubItems[0].Text;
                 strTotalQty = Convert.ToInt32(listView1.Items[i].SubItems[1].Text).ToString();
                 proPrice = Convert.ToInt32(listView1.Items[i].SubItems[2].Text).ToString();
-                if (proName.Length > 6)
-                {
-                    proName = proName.Substring(0, 6);
-                }
+
+                string str = proName;
+                string complete = "";
+                str.Split(' ').ToList().ForEach(iw => complete += iw[0]+"");
+
                 //  string productLine = proName + "\t\t" + strTotalQty + "\t" + proPrice.PadRight(5); //+ proPrice;
-                string productLine = proName.PadLeft(10) + "\t\t" + strTotalQty.PadRight(30) + proPrice.PadRight(10); //+ proPrice;
+                string productLine = complete.PadLeft(10) + "\t\t" + strTotalQty.PadRight(30) + proPrice.PadRight(10); //+ proPrice;
 
 
                 grafic.DrawString(productLine, font, new SolidBrush(Color.Black), StartX, StartY + (offSet + 140));
@@ -750,6 +754,11 @@ namespace RestaurantReservation
             string btnName = button20.Name;
             string btnText = button20.Text;
             CheckAndADD(btnName, btnText);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

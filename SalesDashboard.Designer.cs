@@ -184,7 +184,7 @@
             this.Revpanel1.Controls.Add(this.pictureBox3);
             this.Revpanel1.Controls.Add(this.label8);
             this.Revpanel1.Controls.Add(this.label9);
-            this.Revpanel1.Location = new System.Drawing.Point(4, 48);
+            this.Revpanel1.Location = new System.Drawing.Point(4, 51);
             this.Revpanel1.Name = "Revpanel1";
             this.Revpanel1.Size = new System.Drawing.Size(330, 221);
             this.Revpanel1.TabIndex = 6;
@@ -249,7 +249,7 @@
             this.revpanel3.Controls.Add(this.pictureBox4);
             this.revpanel3.Controls.Add(this.label11);
             this.revpanel3.Controls.Add(this.label12);
-            this.revpanel3.Location = new System.Drawing.Point(738, 48);
+            this.revpanel3.Location = new System.Drawing.Point(738, 51);
             this.revpanel3.Name = "revpanel3";
             this.revpanel3.Size = new System.Drawing.Size(330, 221);
             this.revpanel3.TabIndex = 7;
@@ -337,7 +337,7 @@
             // 
             // OrdersPanel
             // 
-            this.OrdersPanel.BackColor = System.Drawing.Color.Transparent;
+            this.OrdersPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.OrdersPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.OrdersPanel.Controls.Add(this.label6);
             this.OrdersPanel.Controls.Add(this.Orderspanel1);
@@ -345,7 +345,7 @@
             this.OrdersPanel.Controls.Add(this.Orderspanel2);
             this.OrdersPanel.Location = new System.Drawing.Point(12, 73);
             this.OrdersPanel.Name = "OrdersPanel";
-            this.OrdersPanel.Size = new System.Drawing.Size(1091, 278);
+            this.OrdersPanel.Size = new System.Drawing.Size(1091, 290);
             this.OrdersPanel.TabIndex = 8;
             this.OrdersPanel.Visible = false;
             // 
@@ -362,7 +362,7 @@
             // 
             // s
             // 
-            this.s.BackColor = System.Drawing.Color.Transparent;
+            this.s.BackColor = System.Drawing.Color.WhiteSmoke;
             this.s.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.s.Controls.Add(this.revpanel2);
             this.s.Controls.Add(this.label7);
@@ -370,7 +370,7 @@
             this.s.Controls.Add(this.revpanel3);
             this.s.Location = new System.Drawing.Point(12, 398);
             this.s.Name = "s";
-            this.s.Size = new System.Drawing.Size(1091, 278);
+            this.s.Size = new System.Drawing.Size(1091, 289);
             this.s.TabIndex = 9;
             this.s.Visible = false;
             // 
@@ -382,7 +382,7 @@
             this.revpanel2.Controls.Add(this.pictureBox8);
             this.revpanel2.Controls.Add(this.label21);
             this.revpanel2.Controls.Add(this.MonthlySalesLabel);
-            this.revpanel2.Location = new System.Drawing.Point(369, 48);
+            this.revpanel2.Location = new System.Drawing.Point(368, 51);
             this.revpanel2.Name = "revpanel2";
             this.revpanel2.Size = new System.Drawing.Size(330, 221);
             this.revpanel2.TabIndex = 7;
@@ -450,25 +450,24 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
             "Orders",
-            "Revenue",
-            "StatsHere"});
+            "Revenue"});
             this.comboBox4.Location = new System.Drawing.Point(774, 44);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 23);
             this.comboBox4.TabIndex = 15;
-            this.comboBox4.Text = "Order,Revenue....";
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1028, 44);
+            this.button1.Location = new System.Drawing.Point(1028, 36);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 16;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = true;

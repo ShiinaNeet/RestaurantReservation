@@ -46,7 +46,7 @@ namespace RestaurantReservation
             }
 
         }
-        private void SignInBtn_Click(object sender, EventArgs e)
+        private void SignlnBtn_Click(object sender, EventArgs e)
         {
             ConnectionClasss conclass = new ConnectionClasss();
 
@@ -55,6 +55,7 @@ namespace RestaurantReservation
             else
             {
                 cnn.Open();
+                
                 cripter();
                 SqlCommand command = new SqlCommand();
                 command.Connection = cnn;

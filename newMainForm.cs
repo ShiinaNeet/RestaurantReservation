@@ -129,8 +129,9 @@ namespace RestaurantReservation
 
 
             pictureBox1.Image = ConvertBinaryToImage(Login.Account.Picture);
-
-
+            HomeForm rs = new HomeForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            panel2.Controls.Add(rs);
+            rs.Show();
             HomeBTN.FlatStyle = FlatStyle.Flat;
             HomeBTN.FlatAppearance.BorderSize = 0;
             OrderBTN.FlatStyle = FlatStyle.Flat;
@@ -338,6 +339,11 @@ namespace RestaurantReservation
             Login.Account.Job = "";
             Application.Restart();
             this.Close();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

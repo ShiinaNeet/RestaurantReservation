@@ -53,9 +53,10 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Location = new System.Drawing.Point(210, 3);
+            this.panel2.Location = new System.Drawing.Point(240, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1162, 642);
+            this.panel2.Size = new System.Drawing.Size(1293, 881);
             this.panel2.TabIndex = 1;
             // 
             // HomeBTN
@@ -66,9 +67,10 @@
             this.HomeBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.HomeBTN.Image = global::RestaurantReservation.Properties.Resources.output_onlinepngtools_1_;
             this.HomeBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeBTN.Location = new System.Drawing.Point(3, 147);
+            this.HomeBTN.Location = new System.Drawing.Point(3, 195);
+            this.HomeBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HomeBTN.Name = "HomeBTN";
-            this.HomeBTN.Size = new System.Drawing.Size(195, 55);
+            this.HomeBTN.Size = new System.Drawing.Size(223, 73);
             this.HomeBTN.TabIndex = 0;
             this.HomeBTN.Text = "Home";
             this.HomeBTN.UseVisualStyleBackColor = false;
@@ -81,9 +83,10 @@
             this.OrderBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.OrderBTN.Image = global::RestaurantReservation.Properties.Resources.Order;
             this.OrderBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.OrderBTN.Location = new System.Drawing.Point(3, 275);
+            this.OrderBTN.Location = new System.Drawing.Point(3, 365);
+            this.OrderBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OrderBTN.Name = "OrderBTN";
-            this.OrderBTN.Size = new System.Drawing.Size(195, 55);
+            this.OrderBTN.Size = new System.Drawing.Size(223, 73);
             this.OrderBTN.TabIndex = 1;
             this.OrderBTN.Text = "Order";
             this.OrderBTN.UseVisualStyleBackColor = false;
@@ -96,9 +99,10 @@
             this.ProductBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ProductBTN.Image = global::RestaurantReservation.Properties.Resources.productsicon;
             this.ProductBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ProductBTN.Location = new System.Drawing.Point(3, 397);
+            this.ProductBTN.Location = new System.Drawing.Point(3, 527);
+            this.ProductBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ProductBTN.Name = "ProductBTN";
-            this.ProductBTN.Size = new System.Drawing.Size(195, 55);
+            this.ProductBTN.Size = new System.Drawing.Size(223, 73);
             this.ProductBTN.TabIndex = 2;
             this.ProductBTN.Text = "      Products";
             this.ProductBTN.UseVisualStyleBackColor = false;
@@ -111,9 +115,10 @@
             this.DashboardBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.DashboardBTN.Image = global::RestaurantReservation.Properties.Resources.Dashboard;
             this.DashboardBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DashboardBTN.Location = new System.Drawing.Point(3, 208);
+            this.DashboardBTN.Location = new System.Drawing.Point(3, 276);
+            this.DashboardBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DashboardBTN.Name = "DashboardBTN";
-            this.DashboardBTN.Size = new System.Drawing.Size(195, 61);
+            this.DashboardBTN.Size = new System.Drawing.Size(223, 81);
             this.DashboardBTN.TabIndex = 3;
             this.DashboardBTN.Text = "        Dashboard";
             this.DashboardBTN.UseVisualStyleBackColor = false;
@@ -126,9 +131,10 @@
             this.AccountBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.AccountBTN.Image = global::RestaurantReservation.Properties.Resources.accounts;
             this.AccountBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AccountBTN.Location = new System.Drawing.Point(3, 458);
+            this.AccountBTN.Location = new System.Drawing.Point(3, 608);
+            this.AccountBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AccountBTN.Name = "AccountBTN";
-            this.AccountBTN.Size = new System.Drawing.Size(195, 55);
+            this.AccountBTN.Size = new System.Drawing.Size(223, 73);
             this.AccountBTN.TabIndex = 4;
             this.AccountBTN.Text = "      Accounts";
             this.AccountBTN.UseVisualStyleBackColor = false;
@@ -141,9 +147,10 @@
             this.AboutBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.AboutBTN.Image = global::RestaurantReservation.Properties.Resources.aboutus;
             this.AboutBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AboutBTN.Location = new System.Drawing.Point(3, 519);
+            this.AboutBTN.Location = new System.Drawing.Point(3, 689);
+            this.AboutBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AboutBTN.Name = "AboutBTN";
-            this.AboutBTN.Size = new System.Drawing.Size(195, 55);
+            this.AboutBTN.Size = new System.Drawing.Size(223, 73);
             this.AboutBTN.TabIndex = 5;
             this.AboutBTN.Text = "       About Us";
             this.AboutBTN.UseVisualStyleBackColor = false;
@@ -153,23 +160,25 @@
             // 
             this.ReservationBTN.BackColor = System.Drawing.SystemColors.InfoText;
             this.ReservationBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ReservationBTN.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ReservationBTN.ForeColor = System.Drawing.SystemColors.Control;
             this.ReservationBTN.Image = global::RestaurantReservation.Properties.Resources.reservation;
             this.ReservationBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReservationBTN.Location = new System.Drawing.Point(3, 336);
+            this.ReservationBTN.Location = new System.Drawing.Point(3, 446);
+            this.ReservationBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ReservationBTN.Name = "ReservationBTN";
-            this.ReservationBTN.Size = new System.Drawing.Size(195, 55);
-            this.ReservationBTN.TabIndex = 6;
-            this.ReservationBTN.Text = "          Reservation";
+            this.ReservationBTN.Size = new System.Drawing.Size(223, 73);
+            this.ReservationBTN.TabIndex = 1;
+            this.ReservationBTN.Text = "        Reservation";
             this.ReservationBTN.UseVisualStyleBackColor = false;
             this.ReservationBTN.Click += new System.EventHandler(this.button7_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RestaurantReservation.Properties.Resources.profile;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 147);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -191,17 +200,19 @@
             this.flowLayoutPanel1.Controls.Add(this.AccountBTN);
             this.flowLayoutPanel1.Controls.Add(this.AboutBTN);
             this.flowLayoutPanel1.Controls.Add(this.btnLogOut);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 642);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(229, 881);
             this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 15);
+            this.label2.Size = new System.Drawing.Size(25, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "    ";
             // 
@@ -209,19 +220,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(3, 116);
+            this.label4.Location = new System.Drawing.Point(3, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Size = new System.Drawing.Size(45, 20);
             this.label4.TabIndex = 16;
-            this.label4.Text = "          ";
+            this.label4.Text = "         ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(46, 116);
+            this.label5.Location = new System.Drawing.Point(54, 155);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 15);
+            this.label5.Size = new System.Drawing.Size(13, 20);
             this.label5.TabIndex = 17;
             this.label5.Text = " ";
             // 
@@ -230,9 +241,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(62, 116);
+            this.label1.Location = new System.Drawing.Point(73, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 28);
+            this.label1.Size = new System.Drawing.Size(98, 36);
             this.label1.TabIndex = 14;
             this.label1.Text = "label1";
             // 
@@ -245,9 +256,10 @@
             this.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnLogOut.Image = global::RestaurantReservation.Properties.Resources.aboutus;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(3, 580);
+            this.btnLogOut.Location = new System.Drawing.Point(3, 770);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(195, 55);
+            this.btnLogOut.Size = new System.Drawing.Size(223, 73);
             this.btnLogOut.TabIndex = 18;
             this.btnLogOut.Text = "   Logout";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -255,12 +267,15 @@
             // 
             // newMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 661);
+            this.ClientSize = new System.Drawing.Size(1536, 910);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
-            this.MinimumSize = new System.Drawing.Size(1400, 622);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1536, 910);
+            this.MinimumSize = new System.Drawing.Size(1536, 910);
             this.Name = "newMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "newMainForm";

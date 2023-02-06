@@ -38,7 +38,8 @@ namespace RestaurantReservation
             //cleint 
             string data = System.AppDomain.CurrentDomain.BaseDirectory;
 
-            string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\bin\\Debug\\net6.0-windows\\RestaurantDB.mdf\";Integrated Security=True;Connect Timeout=30";
+            // string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\dayan\\source\\repos\\New Restaurant Reservation\\bin\\Debug\\net6.0-windows\\RestaurantDB.mdf\";Integrated Security=True;Connect Timeout=30";
+            string connect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\unola\\source\\repos\\thisnewnewnew\\db\\db\\RestaurantDB.mdf;Integrated Security=True";
             cocnn = new SqlConnection(connect);
             return cocnn;
         }

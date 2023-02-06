@@ -26,17 +26,7 @@ namespace RestaurantReservation
 
         private void ViewOrders_Load(object sender, EventArgs e)
         {
-            listView1.Clear();
-            listView1.Columns.Add("Date                                    ",70);
-            listView1.Columns.Add("Client Name          ", 70);
-            listView1.Columns.Add("Table Number", 70);
-            listView1.Columns.Add("Diner Count", 70);
-            listView1.View = View.Details;
-
-            listView1.AutoResizeColumn(0,ColumnHeaderAutoResizeStyle.HeaderSize);
-            listView1.AutoResizeColumn(1,ColumnHeaderAutoResizeStyle.HeaderSize);
-            listView1.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
-            listView1.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
+            
 
             using (SqlConnection cnn2 = ConnectionClasss.connnect())
             {
@@ -46,21 +36,18 @@ namespace RestaurantReservation
                 SqlDataAdapter da = new SqlDataAdapter();
                 DataSet ds = new DataSet();
                 da.SelectCommand = cmd2;
-                
-                da.Fill(ds,"Table Test");
                 DataTable dt = new DataTable();
+                da.Fill(dt);
 
-                dt = ds.Tables["Table Test"];
-                int i;
-                for (i = 0; i <= dt.Rows.Count -1; i++) 
-                {
-                    listView1.Items.Add(dt.Rows[i].ItemArray[0].ToString());
-                    listView1.Items[i].SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
-                    listView1.Items[i].SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
-                    listView1.Items[i].SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-                }
+
+                dataGridView1.DataSource = dt;
                 cnn2.Close();
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

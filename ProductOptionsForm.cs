@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace RestaurantReservation
         string ProductName;
         string ProductDescription;
         int ProductID;
+        int productid;
         public ProductOptionsForm()
         {
             InitializeComponent();
@@ -46,6 +48,8 @@ namespace RestaurantReservation
             label6.Visible = false;
             textBox3.Visible = false;
             button5.Visible = false;
+            deletebtn.Visible = true;
+            reloadbtn.Visible = true;
         }
 
         public void View_Table() 
@@ -85,6 +89,25 @@ namespace RestaurantReservation
             button5.Visible=true;
             pictureBox1.Visible = true;
             textBox3.Visible=true;
+            deletebtn.Visible = false;
+            reloadbtn.Visible = false;
+
+        }
+        Image ConvertBinaryToImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+        byte[] ConvertImageToBinary(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
 
         }
         public void AddProduct()
@@ -92,6 +115,7 @@ namespace RestaurantReservation
             ProductName = textBox1.Text;
             ProductDescription = textBox2.Text;
             int prodType = 0;
+            
             if (cbProductType.Text.Equals("Drinks"))
             {
                 prodType = 2;
@@ -128,7 +152,7 @@ namespace RestaurantReservation
                             command1.Parameters.AddWithValue("@ProductDetails", ProductDescription);
                             command1.Parameters.AddWithValue("@Price", txtBoxPrice.Text);
                             command1.Parameters.AddWithValue("@Type", prodType);
-                          //  command1.Parameters.Add("@Picture",);
+                            command1.Parameters.AddWithValue("@Picture",ConvertImageToBinary(pictureBox1.Image));
 
                             cnn.Open();
                             command1.ExecuteNonQuery();
@@ -172,44 +196,52 @@ namespace RestaurantReservation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddProduct();
-            
-            Boolean AddSuccessfully;
-
-            using (SqlConnection cnn = ConnectionClasss.connnect())
+            if ( textBox1.Equals("") || textBox2.Equals("") ||
+                txtBoxPrice.Equals("") || cbProductType.SelectedItem.Equals(""))
             {
-                using (SqlCommand command = new SqlCommand("SELECT\r\n    CASE WHEN EXISTS \r\n    (\r\n        SELECT * FROM ProductsTbl WHERE ProductsID = @ProductID\r\n    )\r\n    THEN 'TRUE'\r\n    ELSE 'FALSE'\r\nEND", cnn))
+                MessageBox.Show("Please fill all blank fields");
+            }
+            else
+            {
+                AddProduct();
+
+                Boolean AddSuccessfully;
+
+                using (SqlConnection cnn = ConnectionClasss.connnect())
                 {
-                    command.Parameters.AddWithValue("@ProductID", ProductID);
-                    cnn.Open();
+                    using (SqlCommand command = new SqlCommand("SELECT\r\n    CASE WHEN EXISTS \r\n    (\r\n        SELECT * FROM ProductsTbl WHERE ProductsID = @ProductID\r\n    )\r\n    THEN 'TRUE'\r\n    ELSE 'FALSE'\r\nEND", cnn))
+                    {
+                        command.Parameters.AddWithValue("@ProductID", ProductID);
+                        cnn.Open();
 
-                    var result = Convert.ToBoolean(command.ExecuteScalar());
-                    AddSuccessfully = result;
-                    cnn.Close();
+                        var result = Convert.ToBoolean(command.ExecuteScalar());
+                        AddSuccessfully = result;
+                        cnn.Close();
+                    }
+
                 }
-
+                textBox1.Clear();
+                textBox2.Clear();
+                toolStripStatusLabel2.BackColor = Color.Green;
+                if (AddSuccessfully == true)
+                {
+                    label4.Visible = true;
+                    label4.Text = "Product Successfully Added!";
+                    label4.ForeColor = Color.Green;
+                    toolStripStatusLabel2.Visible = true;
+                }
+                else
+                {
+                    label4.Visible = true;
+                    label4.Text = "Product add failed";
+                    label4.BackColor = Color.Red;
+                    toolStripStatusLabel2.Visible = true;
+                    toolStripStatusLabel2.BackColor = Color.Red;
+                }
+                timer1.Interval = (3000); // 1 secs
+                timer1.Tick += new EventHandler(timer1_Tick);
+                timer1.Start();
             }
-            textBox1.Clear();
-            textBox2.Clear();
-            toolStripStatusLabel2.BackColor = Color.Green;
-            if (AddSuccessfully == true)
-            {
-                label4.Visible = true;
-                label4.Text = "Product Successfully Added!";
-                label4.ForeColor = Color.Green;
-                toolStripStatusLabel2.Visible = true;
-            }
-            else {
-                label4.Visible = true;
-                label4.Text = "Product add failed";
-                label4.BackColor = Color.Red;
-                toolStripStatusLabel2.Visible = true;
-                toolStripStatusLabel2.BackColor = Color.Red;
-            }
-            timer1.Interval = (3000); // 1 secs
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Start();
-
         }
 
         private void timer1_Tick(object? sender, EventArgs e)
@@ -231,7 +263,18 @@ namespace RestaurantReservation
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
+                else
+                {
+                    productid = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -261,6 +304,57 @@ namespace RestaurantReservation
         private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection cnn = ConnectionClasss.connnect())
+                {
+                    using (SqlCommand command1 = new SqlCommand("delete from ProductsTbl where ProductsID = @productid ", cnn))
+                    {
+
+                        command1.Parameters.AddWithValue("@productid", productid);
+
+                        cnn.Open();
+                        command1.ExecuteNonQuery();
+
+                        cnn.Close();
+                    }
+                    using (SqlCommand command1 = new SqlCommand("SELECT  case when EXISTs(SELECT * from " +
+                       "ProductsTbl where ProductsID = @prodid) THEN 'true' ELSE 'false' end", cnn))
+                    {
+
+                        command1.Parameters.AddWithValue("@prodid", productid);
+
+
+                        cnn.Open();
+                        var result = command1.ExecuteScalar();
+                        if (result == DBNull.Value)
+                        {
+                            MessageBox.Show("Not Found!");
+
+                        }
+                        else if (result.Equals(true))
+                        {
+                            MessageBox.Show("Failed to Delete");
+                        }
+                        if (Convert.ToString(result).Equals("false"))
+                        {
+                            MessageBox.Show("Successfully Deleted Product:" + productid, "Deleted Successfully!");
+                        }
+                        cnn.Close();
+                    }
+                    View_Table();
+
+                }
+            }catch(Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void reloadbtn_Click(object sender, EventArgs e)
+        {
+            View_Table();
         }
     }
 }
